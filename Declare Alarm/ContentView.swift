@@ -7,7 +7,23 @@
 
 import SwiftUI
 import CoreData
-
+struct AlarmSetterView: View {
+    @State private var date: Date = Date()
+    var body: some View {
+        Section {
+            VStack {
+                DatePicker("Alarm time",
+                    selection: $date,
+                    displayedComponents: [.hourAndMinute])
+                    .padding()
+                    .labelsHidden()
+                    .datePickerStyle(.wheel)
+                Spacer()
+                DayOfTheWeekPicker(activeDays: [false, false, false, false, false, false, false])
+            }.padding()
+        }
+    }
+}
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext: NSManagedObjectContext
 
@@ -15,6 +31,7 @@ struct ContentView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
+    @State var showingSheet = true
 
     var body: some View {
         NavigationView {
@@ -29,12 +46,12 @@ struct ContentView: View {
                 .onDelete(perform: deleteItems)
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
+                ToolbarItemGroup(placement: .bottomBar) {
                     Button(action: addItem) {
                         Label("Add Item", systemImage: "plus")
+                        .sheet(isPresented: $showingSheet) {
+                            AlarmSetterView().presentationDetents([.medium])
+                        }
                     }
                 }
             }
@@ -43,6 +60,7 @@ struct ContentView: View {
     }
 
     private func addItem() {
+        showingSheet = true
         withAnimation {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()

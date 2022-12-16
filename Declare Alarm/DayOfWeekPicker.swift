@@ -9,21 +9,19 @@ import SwiftUI
 
 struct DayOfTheWeekPicker: View {
     @State private var date: Date = Date()
-    @State private var sun = true
-    @State private var mon = true
-    @State private var tues = true
-    @State private var wed = true
-    @State private var thu = true
-    @State private var fri = true
-    @State private var sat = true
+    @State private var sun = false
+    @State private var mon = false
+    @State private var tue = false
+    @State private var wed = false
+    @State private var thu = false
+    @State private var fri = false
+    @State private var sat = false
     var weekdays: [Bool] = {
         mon, tue, wed, thu, fri
     }
     var weekends: [Bool] = {
         sun, sat
     }
-    
-
     @Binding var activeDays: [Bool]
     var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     var allWeekDaysSelected: Bool {
