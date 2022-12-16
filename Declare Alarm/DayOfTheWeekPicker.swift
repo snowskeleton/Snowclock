@@ -16,12 +16,9 @@ struct DayOfTheWeekPicker: View {
     @State private var thu = false
     @State private var fri = false
     @State private var sat = false
-    var weekdays: [Bool] = {
-        mon, tue, wed, thu, fri
-    }
-    var weekends: [Bool] = {
-        sun, sat
-    }
+    // var weekdays: [Binding<Bool>] = [$mon, $tue, $wed, $thu, $fri]
+    // var weekends: [Binding<Bool>] = [$sun, $sat]
+
     @Binding var activeDays: [Bool]
     var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     var allWeekDaysSelected: Bool {
@@ -63,7 +60,8 @@ struct DayOfTheWeekPicker: View {
     }
 
     fileprivate func toggleWeekdays() {
-        if allWeekDaysSelected {
+        var weekdays = [$mon.wrappedValue, $tue.wrappedValue, $wed.wrappedValue, $thu.wrappedValue, $fri.wrappedValue]
+        if weekdays.allSatisfy({$0}) {
             for i in 1...5 {
                 activeDays[i] = false
             }

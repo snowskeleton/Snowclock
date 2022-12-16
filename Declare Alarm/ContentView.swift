@@ -9,6 +9,7 @@ import SwiftUI
 import CoreData
 struct AlarmSetterView: View {
     @State private var date: Date = Date()
+    @State var something = [false, false, false, false, false, false, false]
     var body: some View {
         Section {
             VStack {
@@ -19,7 +20,7 @@ struct AlarmSetterView: View {
                     .labelsHidden()
                     .datePickerStyle(.wheel)
                 Spacer()
-                DayOfTheWeekPicker(activeDays: [false, false, false, false, false, false, false])
+                DayOfTheWeekPicker(activeDays: $something)
             }.padding()
         }
     }
@@ -30,17 +31,17 @@ struct ContentView: View {
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
-    private var items: FetchedResults<Item>
+    private var alarms: FetchedResults<Item>
     @State var showingSheet = true
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(items) { item in
+                ForEach(alarms) { alarm in
                     NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                        Text("Alarm at \(alarm.timestamp!, formatter: itemFormatter)")
                     } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+                        Text(alarm.timestamp!, formatter: itemFormatter)
                     }
                 }
                 .onDelete(perform: deleteItems)
@@ -50,7 +51,10 @@ struct ContentView: View {
                     Button(action: addItem) {
                         Label("Add Item", systemImage: "plus")
                         .sheet(isPresented: $showingSheet) {
-                            AlarmSetterView().presentationDetents([.medium])
+                            AlarmSetterView()
+                                .presentationDetents([.medium])
+                                .onDisappear(perform: save)
+                            
                         }
                     }
                 }
@@ -59,26 +63,30 @@ struct ContentView: View {
         }
     }
 
-    private func addItem() {
+    fileprivate func addItem() {
         showingSheet = true
+        let date = 
         withAnimation {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
 
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError: NSError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
         }
     }
 
-    private func deleteItems(offsets: IndexSet) {
+    fileprivate func save() {
+        do {
+            try viewContext.save()
+        } catch {
+            // Replace this implementation with code to handle the error appropriately.
+            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            let nsError: NSError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
+    }
+
+    fileprivate func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
+            offsets.map { alarms[$0] }.forEach(viewContext.delete)
 
             do {
                 try viewContext.save()
@@ -92,9 +100,8 @@ struct ContentView: View {
     }
 }
 
-private let itemFormatter: DateFormatter = {
+fileprivate let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()
-    formatter.dateStyle = .short
     formatter.timeStyle = .medium
     return formatter
 }()

@@ -16,7 +16,7 @@
 		80D75B62294CC6A10077ACB6 /* Declare_AlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B61294CC6A10077ACB6 /* Declare_AlarmTests.swift */; };
 		80D75B6C294CC6A10077ACB6 /* Declare_AlarmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B6B294CC6A10077ACB6 /* Declare_AlarmUITests.swift */; };
 		80D75B6E294CC6A10077ACB6 /* Declare_AlarmUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B6D294CC6A10077ACB6 /* Declare_AlarmUITestsLaunchTests.swift */; };
-		80D75B7D294D10740077ACB6 /* DayOfWeekPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B7C294D10740077ACB6 /* DayOfWeekPicker.swift */; };
+		80D75B7D294D10740077ACB6 /* DayOfTheWeekPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B7C294D10740077ACB6 /* DayOfTheWeekPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +49,7 @@
 		80D75B67294CC6A10077ACB6 /* Declare AlarmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Declare AlarmUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D75B6B294CC6A10077ACB6 /* Declare_AlarmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Declare_AlarmUITests.swift; sourceTree = "<group>"; };
 		80D75B6D294CC6A10077ACB6 /* Declare_AlarmUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Declare_AlarmUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		80D75B7C294D10740077ACB6 /* DayOfWeekPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayOfWeekPicker.swift; sourceTree = "<group>"; };
+		80D75B7C294D10740077ACB6 /* DayOfTheWeekPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayOfTheWeekPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +102,7 @@
 			children = (
 				80D75B4B294CC69F0077ACB6 /* Declare_AlarmApp.swift */,
 				80D75B4D294CC69F0077ACB6 /* ContentView.swift */,
-				80D75B7C294D10740077ACB6 /* DayOfWeekPicker.swift */,
+				80D75B7C294D10740077ACB6 /* DayOfTheWeekPicker.swift */,
 				80D75B4F294CC6A10077ACB6 /* Assets.xcassets */,
 				80D75B54294CC6A10077ACB6 /* Persistence.swift */,
 				80D75B56294CC6A10077ACB6 /* Declare_Alarm.xcdatamodeld */,
@@ -268,7 +268,7 @@
 			files = (
 				80D75B55294CC6A10077ACB6 /* Persistence.swift in Sources */,
 				80D75B4E294CC69F0077ACB6 /* ContentView.swift in Sources */,
-				80D75B7D294D10740077ACB6 /* DayOfWeekPicker.swift in Sources */,
+				80D75B7D294D10740077ACB6 /* DayOfTheWeekPicker.swift in Sources */,
 				80D75B58294CC6A10077ACB6 /* Declare_Alarm.xcdatamodeld in Sources */,
 				80D75B4C294CC69F0077ACB6 /* Declare_AlarmApp.swift in Sources */,
 			);
