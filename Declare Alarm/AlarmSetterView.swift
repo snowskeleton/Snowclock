@@ -29,7 +29,7 @@ struct AlarmSetterView: View {
     fileprivate func finished() {
         let alarm = Alarm(context: viewContext)
         alarm.date = $date.wrappedValue
-        alarm.activeDays = [false, false, false, false, false, false, false]
+        alarm.activeDays = NO_REPEATS
         dismiss()
     }
 }

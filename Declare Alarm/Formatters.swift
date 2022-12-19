@@ -13,3 +13,5 @@ public let itemFormatter: DateFormatter = {
     formatter.timeStyle = .short
     return formatter
 }()
+
+public let NO_REPEATS = [false,false,false,false,false,false,false]

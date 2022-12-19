@@ -16,7 +16,7 @@ struct PersistenceController {
         for _ in 0..<10 {
             let newItem = Alarm(context: viewContext)
             newItem.date = Date()
-            newItem.activeDays = [false,false,false,false,false,false,false]
+            newItem.activeDays = NO_REPEATS
         }
         do {
             try viewContext.save()

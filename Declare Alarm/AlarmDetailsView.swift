@@ -10,7 +10,7 @@ import SwiftUI
 struct AlarmDetailsView: View {
     @Environment(\.dismiss) private var dismiss
     @State var showingSheet = false
-    @State var repeatDays = [false, false, false, false, false, false, false]
+    @State var repeatDays = NO_REPEATS
     @State var newdate = Date()
     @Binding var alarm: Alarm
     
