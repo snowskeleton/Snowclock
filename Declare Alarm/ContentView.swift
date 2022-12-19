@@ -21,10 +21,11 @@ struct ContentView: View {
         NavigationView {
             List(alarms) { alarm in
                 NavigationLink {
-                    Text("Alarm at \(alarm.date!, formatter: itemFormatter)")
+                    AlarmDetailsView(alarm: Binding<Alarm>.constant(alarm)).environment(\.managedObjectContext, viewContext)
                 } label: {
                     Text(alarm.date!, formatter: itemFormatter)
-                } }
+                }
+            }
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
                     Button(action: {
@@ -34,21 +35,24 @@ struct ContentView: View {
                             .sheet(isPresented: $showingSheet) {
                                 AlarmSetterView()
                                     .presentationDetents([.medium]).environment(\.managedObjectContext, viewContext)
-                            } } } } } }
+                            }
+                    }
+                }
+            }
+        }
+    }
     
     fileprivate func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { alarms[$0] }.forEach(viewContext.delete)
             try? viewContext.save()
-        } } }
+        }
+    }
+}
 
-fileprivate let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.timeStyle = .short
-    return formatter
-}()
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-    } }
+    }
+}

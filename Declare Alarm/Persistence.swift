@@ -53,4 +53,16 @@ struct PersistenceController {
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
+    func save() {
+        let context = container.viewContext
+
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                try? container.persistentStoreCoordinator.destroyPersistentStore(at: URL(fileURLWithPath: container.name), type: NSPersistentStore.StoreType.sqlite)
+                
+            }
+        }
+    }
 }

@@ -10,18 +10,6 @@ import SwiftUI
 struct DayOfTheWeekPicker: View {
     @Binding var activeDays: [Bool]
 
-    fileprivate let days: [String] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    fileprivate let weekdays = [1,2,3,4,5]
-    fileprivate let weekends = [0,6]
-    
-    fileprivate var allWeekDaysSelected: Bool {
-        return activeDays[1] && activeDays[2] && activeDays[3] && activeDays[4] && activeDays[5]
-    }
-    fileprivate var allWeekEndsSelected: Bool {
-        return activeDays[0] && activeDays[6]
-    }
-    
-
     var body: some View {
         List {
             ForEach(days, id: \.self) { day in
@@ -51,6 +39,17 @@ struct DayOfTheWeekPicker: View {
         }
     }
     
+    fileprivate let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    fileprivate let weekdays = [1,2,3,4,5]
+    fileprivate let weekends = [0,6]
+    
+    fileprivate var allWeekDaysSelected: Bool {
+        return activeDays[1] && activeDays[2] && activeDays[3] && activeDays[4] && activeDays[5]
+    }
+    fileprivate var allWeekEndsSelected: Bool {
+        return activeDays[0] && activeDays[6]
+    }
+
     fileprivate func toggle(days: [Int], value: Bool) {
         for i in days {
             activeDays[i] = value
