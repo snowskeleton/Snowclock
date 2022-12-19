@@ -3,8 +3,4 @@
     <entity name="Alarm" representedClassName="Alarm" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
-    <entity name="Old" representedClassName="Old" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-    </entity>
-    <configuration name="I"/>
 </model>

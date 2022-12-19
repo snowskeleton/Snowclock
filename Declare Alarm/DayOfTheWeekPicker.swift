@@ -8,27 +8,19 @@
 import SwiftUI
 
 struct DayOfTheWeekPicker: View {
-    @State private var date: Date = Date()
-    @State private var sun = false
-    @State private var mon = false
-    @State private var tue = false
-    @State private var wed = false
-    @State private var thu = false
-    @State private var fri = false
-    @State private var sat = false
-    // var weekdays: [Binding<Bool>] = [$mon, $tue, $wed, $thu, $fri]
-    // var weekends: [Binding<Bool>] = [$sun, $sat]
-
     @Binding var activeDays: [Bool]
-    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    var allWeekDaysSelected: Bool {
-        for i in 1...5 { if activeDays[i] == false { return false } }
-        return true
+
+    fileprivate let days: [String] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    fileprivate let weekdays = [1,2,3,4,5]
+    fileprivate let weekends = [0,6]
+    
+    fileprivate var allWeekDaysSelected: Bool {
+        return activeDays[1] && activeDays[2] && activeDays[3] && activeDays[4] && activeDays[5]
     }
-    var allWeekEndsSelected: Bool {
-        if activeDays[0] && activeDays[6] { return true }
-        return false
+    fileprivate var allWeekEndsSelected: Bool {
+        return activeDays[0] && activeDays[6]
     }
+    
 
     var body: some View {
         List {
@@ -47,40 +39,22 @@ struct DayOfTheWeekPicker: View {
             }
             Spacer()
             Button(action: {
-                toggleWeekdays()
+                toggle(days: weekdays, value: !allWeekDaysSelected)
             }) {
                 Text("Weekdays")
             }
             Button(action: {
-                toggleWeekends()
+                toggle(days: weekends, value: !allWeekEndsSelected)
             }) {
                 Text("Weekends")
             }
         }
     }
-
-    fileprivate func toggleWeekdays() {
-        var weekdays = [$mon.wrappedValue, $tue.wrappedValue, $wed.wrappedValue, $thu.wrappedValue, $fri.wrappedValue]
-        if weekdays.allSatisfy({$0}) {
-            for i in 1...5 {
-                activeDays[i] = false
-            }
-        } else {
-            for i in 1...5 {
-                activeDays[i] = true
-            }
+    
+    fileprivate func toggle(days: [Int], value: Bool) {
+        for i in days {
+            activeDays[i] = value
         }
     }
-
-    fileprivate func toggleWeekends() {
-        if allWeekEndsSelected {
-            activeDays[0] = false
-            activeDays[6] = false
-        } else {
-            activeDays[0] = true
-            activeDays[6] = true
-        }
-    }
-
 }
 

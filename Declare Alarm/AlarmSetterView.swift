@@ -11,13 +11,20 @@ struct AlarmSetterView: View {
     @Environment(\.managedObjectContext) private var viewContext: NSManagedObjectContext
     @Environment(\.dismiss) private var dismiss
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Alarm.date, ascending: true)],
         animation: .default)
-    private var alarms: FetchedResults<Item>
+    private var alarms: FetchedResults<Alarm>
+    
     @State var showSheet = false
     
     @State private var date: Date = Date()
     @State var something = [false, false, false, false, false, false, false]
+    
+    init() {
+    }
+    init(alarm: Binding<Alarm>) {
+        date = alarm.date.wrappedValue!
+    }
     
     var body: some View {
         Section {
@@ -30,25 +37,19 @@ struct AlarmSetterView: View {
                 .datePickerStyle(.wheel)
                 Button("Repeat",action: {
                     showSheet = true
-                }).sheet(isPresented: $showSheet){DayOfTheWeekPicker(activeDays: $something)}
+                }).sheet(isPresented: $showSheet){
+                    DayOfTheWeekPicker(activeDays: $something)
+                }
                 Spacer()
                 Button("Done") {
                     finished()
                 }}.padding()}}
     
-    fileprivate func addItem() {
-        withAnimation {
-            let alarm = Item(context: viewContext)
-            alarm.timestamp = $date.wrappedValue
-            try? viewContext.save()
-        } }
-    
     fileprivate func finished() {
+        let alarm = Alarm(context: viewContext)
+        alarm.date = $date.wrappedValue
+        let _ = print("help me")
         try? viewContext.save()
         dismiss()
-    } }
-
-struct AlarmSetterView_Previews: PreviewProvider {
-    static var previews: some View {
-        AlarmSetterView()
-    } }
+    }
+}
