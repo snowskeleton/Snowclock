@@ -20,6 +20,7 @@ struct AlarmDetailsView: View {
     init(alarm: Binding<Alarm>) {
         _alarm = alarm
         _newdate = State(initialValue: alarm.wrappedValue.date!)
+        _repeatDays = State(initialValue: alarm.wrappedValue.activeDays!)
     }
     
     var body: some View {
@@ -39,7 +40,7 @@ struct AlarmDetailsView: View {
             Spacer()
             Button("Save", action: {
                 alarm.date = newdate
-                try? alarm.managedObjectContext!.save()
+                alarm.activeDays = repeatDays
                 dismiss()
             })
         }
