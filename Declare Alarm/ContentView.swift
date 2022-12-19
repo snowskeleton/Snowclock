@@ -65,7 +65,6 @@ struct ContentView: View {
 
     fileprivate func addItem() {
         showingSheet = true
-        let date = 
         withAnimation {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
