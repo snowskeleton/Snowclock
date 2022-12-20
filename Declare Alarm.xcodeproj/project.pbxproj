@@ -10,7 +10,7 @@
 		804E41D32950FDF200890C7A /* AlarmDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E41D22950FDF200890C7A /* AlarmDetailsView.swift */; };
 		804E41D52950FED700890C7A /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E41D42950FED600890C7A /* Formatters.swift */; };
 		8050AFDC29511C81005D3B39 /* AlarmDMFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8050AFDB29511C81005D3B39 /* AlarmDMFunctions.swift */; };
-		8096AFB72950F33800FD9EFF /* Declare_Alarm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8096AFB42950F33800FD9EFF /* Declare_Alarm.xcdatamodeld */; };
+		8096AFB72950F33800FD9EFF /* testing_Declare_Alarm_v_0_0_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8096AFB42950F33800FD9EFF /* testing_Declare_Alarm_v_0_0_2.xcdatamodeld */; };
 		80D75B4C294CC69F0077ACB6 /* Declare_AlarmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B4B294CC69F0077ACB6 /* Declare_AlarmApp.swift */; };
 		80D75B4E294CC69F0077ACB6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B4D294CC69F0077ACB6 /* ContentView.swift */; };
 		80D75B50294CC6A10077ACB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80D75B4F294CC6A10077ACB6 /* Assets.xcassets */; };
@@ -44,6 +44,7 @@
 		804E41D22950FDF200890C7A /* AlarmDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailsView.swift; sourceTree = "<group>"; };
 		804E41D42950FED600890C7A /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		8050AFDB29511C81005D3B39 /* AlarmDMFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDMFunctions.swift; sourceTree = "<group>"; };
+		8088040F29512CF5007A68EF /* Declare_Alarm 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Declare_Alarm 3.xcdatamodel"; sourceTree = "<group>"; };
 		8096AFB52950F33800FD9EFF /* Declare_Alarm 2 .xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Declare_Alarm 2 .xcdatamodel"; sourceTree = "<group>"; };
 		8096AFB62950F33800FD9EFF /* Declare_Alarm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Declare_Alarm.xcdatamodel; sourceTree = "<group>"; };
 		80D75B48294CC69F0077ACB6 /* Declare Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Declare Alarm.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,7 +117,7 @@
 				8050AFDB29511C81005D3B39 /* AlarmDMFunctions.swift */,
 				804E41D42950FED600890C7A /* Formatters.swift */,
 				80D75B7C294D10740077ACB6 /* DayOfTheWeekPicker.swift */,
-				8096AFB42950F33800FD9EFF /* Declare_Alarm.xcdatamodeld */,
+				8096AFB42950F33800FD9EFF /* testing_Declare_Alarm_v_0_0_2.xcdatamodeld */,
 				80D75B4F294CC6A10077ACB6 /* Assets.xcassets */,
 				80D75B54294CC6A10077ACB6 /* Persistence.swift */,
 				80D75B51294CC6A10077ACB6 /* Preview Content */,
@@ -286,7 +287,7 @@
 				80D75B7D294D10740077ACB6 /* DayOfTheWeekPicker.swift in Sources */,
 				8050AFDC29511C81005D3B39 /* AlarmDMFunctions.swift in Sources */,
 				80D75B4C294CC69F0077ACB6 /* Declare_AlarmApp.swift in Sources */,
-				8096AFB72950F33800FD9EFF /* Declare_Alarm.xcdatamodeld in Sources */,
+				8096AFB72950F33800FD9EFF /* testing_Declare_Alarm_v_0_0_2.xcdatamodeld in Sources */,
 				80D75B7F294D32A40077ACB6 /* AlarmSetterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -614,14 +615,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		8096AFB42950F33800FD9EFF /* Declare_Alarm.xcdatamodeld */ = {
+		8096AFB42950F33800FD9EFF /* testing_Declare_Alarm_v_0_0_2.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				8088040F29512CF5007A68EF /* Declare_Alarm 3.xcdatamodel */,
 				8096AFB52950F33800FD9EFF /* Declare_Alarm 2 .xcdatamodel */,
 				8096AFB62950F33800FD9EFF /* Declare_Alarm.xcdatamodel */,
 			);
 			currentVersion = 8096AFB52950F33800FD9EFF /* Declare_Alarm 2 .xcdatamodel */;
-			path = Declare_Alarm.xcdatamodeld;
+			path = testing_Declare_Alarm_v_0_0_2.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

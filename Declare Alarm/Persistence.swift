@@ -13,10 +13,10 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<10 {
+        for _ in 0..<5 {
             let newItem = Alarm(context: viewContext)
-            newItem.date = Date()
-            newItem.activeDays = NO_REPEATS
+            newItem.time = Date()
+            newItem.schedule = NO_REPEATS
         }
         do {
             try viewContext.save()
@@ -32,7 +32,7 @@ struct PersistenceController {
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "Declare_Alarm")
+        container = NSPersistentContainer(name: "testing_Declare_Alarm_v_0_0_2")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }

@@ -9,9 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(Alarm)
-extension Alarm {
-    func daysAsString(days: [Bool]) -> String {
+public func daysAsString(days: [Bool]) -> String {
         var addWeekdays = true
         var addWeekends = true
         var daysOfWeekString: [String] = []
@@ -47,5 +45,4 @@ extension Alarm {
         if days[5] && addWeekdays { daysOfWeekString.append("Friday") }
         if days[6] && addWeekends { daysOfWeekString.append("Saturday") }
         return daysOfWeekString.joined(separator: ", ")
-    }
 }

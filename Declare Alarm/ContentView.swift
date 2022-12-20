@@ -12,10 +12,10 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext: NSManagedObjectContext
     
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Alarm.date, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Alarm.time, ascending: true)],
         animation: .default)
     private var alarms: FetchedResults<Alarm>
-    @State var showingSheet = true
+    @State var showingSheet = false
     
     var body: some View {
         NavigationView {
@@ -23,7 +23,7 @@ struct ContentView: View {
                 NavigationLink {
                     AlarmDetailsView(alarm: Binding<Alarm>.constant(alarm)).environment(\.managedObjectContext, viewContext)
                 } label: {
-                    Text(alarm.date!, formatter: itemFormatter)
+                    Text(alarm.time!, formatter: itemFormatter)
                 }
             }
             .toolbar {
