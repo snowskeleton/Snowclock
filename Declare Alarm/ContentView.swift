@@ -19,12 +19,17 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            List(alarms) { alarm in
-                NavigationLink {
-                    AlarmDetailsView(alarm: Binding<Alarm>.constant(alarm)).environment(\.managedObjectContext, viewContext)
-                } label: {
-                    Text(alarm.time!, formatter: itemFormatter)
-                }
+            List {
+                ForEach(alarms) { alarm in
+                    NavigationLink {
+                        AlarmDetailsView(alarm: Binding<Alarm>.constant(alarm), routine: nil)
+                            .environment(\.managedObjectContext, viewContext)
+                    } label: {
+                        Text(alarm.time!, formatter: itemFormatter)
+                    }
+                    .font(.title)
+                    .padding()
+                }.onDelete(perform: deleteItems)
             }
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
@@ -40,6 +45,11 @@ struct ContentView: View {
                 }
             }
         }
+    }
+    
+    fileprivate func makeAThing() {
+        let alarm = Alarm(context: viewContext)
+        alarm.time = Date()
     }
     
     fileprivate func deleteItems(offsets: IndexSet) {

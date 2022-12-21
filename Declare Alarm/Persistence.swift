@@ -17,6 +17,10 @@ struct PersistenceController {
             let newItem = Alarm(context: viewContext)
             newItem.time = Date()
             newItem.schedule = NO_REPEATS
+            let f = Followup(context: viewContext)
+            f.delay = 2
+            f.id = UUID()
+            newItem.routine?[0] = f
         }
         do {
             try viewContext.save()

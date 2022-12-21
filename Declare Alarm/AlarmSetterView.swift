@@ -29,7 +29,6 @@ struct AlarmSetterView: View {
     fileprivate func finished() {
         let alarm = Alarm(context: viewContext)
         alarm.time = $date.wrappedValue
-        alarm.schedule = NO_REPEATS
         dismiss()
     }
 }
