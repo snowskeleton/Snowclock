@@ -27,8 +27,9 @@ struct AlarmSetterView: View {
                 }}.padding()}}
     
     fileprivate func finished() {
-        let alarm = Alarm(context: viewContext)
+        let alarm = alarmMaker(context: viewContext)
         alarm.time = $date.wrappedValue
+        alarm.id = UUID()
         dismiss()
     }
 }

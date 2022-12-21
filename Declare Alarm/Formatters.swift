@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import CoreData
 
 
-public let itemFormatter: DateFormatter = {
+public let shortDate: DateFormatter = {
     let formatter = DateFormatter()
     formatter.timeStyle = .short
     return formatter
@@ -16,24 +17,11 @@ public let itemFormatter: DateFormatter = {
 
 public let NO_REPEATS = [false,false,false,false,false,false,false]
 
-extension Followup {
-    static func +(lhs: Followup, rhs: Int) -> Followup {
-        let f = Followup()
-        f.delay = lhs.delay + Int64(rhs)
-        return f
-    }
-    static func -(lhs: Followup, rhs: Int) -> Followup {
-        let f = Followup()
-        f.delay = lhs.delay - Int64(rhs) < 0 ? 0 : lhs.delay - Int64(rhs)
-        return f
-    }
-}
-
-extension Followup {
-    static func <(lhs: Followup, rhs: Int) -> Bool {
-        return lhs.delay < rhs
-    }
-    static func >(lhs: Followup, rhs: Int) -> Bool {
-        return lhs.delay > rhs
-    }
+public func alarmMaker(context: NSManagedObjectContext) -> Alarm {
+    let alarm = Alarm(context: context)
+    alarm.id = UUID()
+    alarm.time = Date()
+    alarm.schedule = NO_REPEATS
+    // default title set to 'Alarm' in CoreData declaration
+    return alarm
 }

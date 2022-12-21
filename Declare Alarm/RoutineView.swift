@@ -8,15 +8,26 @@
 import SwiftUI
 
 struct RoutineView: View {
+    @Environment(\.dismiss) private var dismiss
     @Environment(\.managedObjectContext) private var viewContext
-    @Binding var routine: [Followup]
-    @State var selectedRoutine: Int?
+    @Binding var alarm: Alarm
+    
+    var followupsFR: FetchRequest<Followup>
+    var followups: FetchedResults<Followup> { followupsFR.wrappedValue }
+    
+    init(alarm: Binding<Alarm>) {
+        _alarm = alarm
+        followupsFR = FetchRequest(
+            sortDescriptors: [SortDescriptor(\.delay)],
+            predicate: NSPredicate(format: "alarm.id == %@", _alarm.id! as CVarArg )
+        )
+    }
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Spacer()
-                ForEach(routine, id: \.self) { r in
+        VStack {
+            ScrollView {
+                ForEach(followups, id: \.self) { r in
+                    
                     HStack {
                         Button(action: {
                         }, label:  { Text("\(r.delay) min after") })
@@ -24,30 +35,38 @@ struct RoutineView: View {
                         Spacer()
                         HStack {
                             Button(action: {
-                                let i = routine.firstIndex(of: r)!
-                                routine[i] = routine[i] - 5
+                                r.delay -= 5
                             }, label:  { Label("", systemImage: "minus") })
                             
                             Button(action: {
-                                let i = routine.firstIndex(of: r)!
-                                routine[i] = routine[i] + 5
+                                r.delay += 5
                             }, label:  { Label("", systemImage: "plus") })
                         }
                     }.padding()
-                }
-                Spacer()
-                Button(action: {
-                    let fol = Followup(context: viewContext)
-                    fol.delay = 5
-                    routine.append(fol)
-                }) { Label("", systemImage: "plus").font(.title) }
+                    
+                }.onDelete(perform: someDelete) // ForEach
             }
         }
+        Button(action: {
+            addFollowup()
+        }) { Label("", systemImage: "plus").font(.title) }
+    }
+    
+    fileprivate func addFollowup() {
+        let fol = Followup(context: viewContext)
+        fol.id = UUID()
+        fol.delay = 5
+        fol.alarm = alarm
+    }
+    
+    fileprivate func someDelete(offsets: IndexSet) {
+        offsets.map { followups[$0] }.forEach(viewContext.delete)
     }
 }
 
 struct RoutineView_Previews: PreviewProvider {
     static var previews: some View {
         AlarmDetailsView(preview: true, showRoutine: true)
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

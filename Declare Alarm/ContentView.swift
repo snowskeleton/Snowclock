@@ -25,7 +25,7 @@ struct ContentView: View {
                         AlarmDetailsView(alarm: Binding<Alarm>.constant(alarm), routine: nil)
                             .environment(\.managedObjectContext, viewContext)
                     } label: {
-                        Text(alarm.time!, formatter: itemFormatter)
+                        Text(alarm.time!, formatter: shortDate)
                     }
                     .font(.title)
                     .padding()
@@ -39,7 +39,8 @@ struct ContentView: View {
                         Label("Add Item", systemImage: "plus")
                             .sheet(isPresented: $showingSheet) {
                                 AlarmSetterView()
-                                    .presentationDetents([.medium]).environment(\.managedObjectContext, viewContext)
+                                    .presentationDetents([.medium])
+                                    .environment(\.managedObjectContext, viewContext)
                             }
                     }
                 }
@@ -47,15 +48,9 @@ struct ContentView: View {
         }
     }
     
-    fileprivate func makeAThing() {
-        let alarm = Alarm(context: viewContext)
-        alarm.time = Date()
-    }
-    
     fileprivate func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { alarms[$0] }.forEach(viewContext.delete)
-            try? viewContext.save()
         }
     }
 }
