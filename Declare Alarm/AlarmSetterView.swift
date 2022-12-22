@@ -27,9 +27,14 @@ struct AlarmSetterView: View {
                 }}.padding()}}
     
     fileprivate func finished() {
-        let alarm = alarmMaker(context: viewContext)
-        alarm.time = $date.wrappedValue
-        alarm.id = UUID()
+        let _ = alarmMaker(context: viewContext, time: $date.wrappedValue)
         dismiss()
+    }
+}
+
+struct AlarmSetterView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView(preview: true, showSheet: true)
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

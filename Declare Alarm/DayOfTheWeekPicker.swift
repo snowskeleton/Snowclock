@@ -9,18 +9,19 @@ import SwiftUI
 
 struct DayOfTheWeekPicker: View {
     @Environment(\.dismiss) private var dismiss
-    @Binding var activeDays: [Bool]
+    @Environment(\.managedObjectContext) private var viewContext
+    @Binding var schedule: [Bool]
     
     var body: some View {
         VStack {
             List {
                 ForEach(days, id: \.self) { day in
                     Button(action: {
-                        activeDays[days.firstIndex(of: day)!].toggle()
+                        schedule[days.firstIndex(of: day)!].toggle()
                     }) {
                         HStack {
                             Text("\(day)")
-                            if activeDays[days.firstIndex(of: day)!] == true {
+                            if schedule[days.firstIndex(of: day)!] == true {
                                 Spacer()
                                 Image(systemName: "checkmark")
                             }
@@ -49,15 +50,22 @@ struct DayOfTheWeekPicker: View {
     fileprivate let weekends = [0,6]
     
     fileprivate var allWeekDaysSelected: Bool {
-        return activeDays[1] && activeDays[2] && activeDays[3] && activeDays[4] && activeDays[5]
+        return schedule[1] && schedule[2] && schedule[3] && schedule[4] && schedule[5]
     }
     fileprivate var allWeekEndsSelected: Bool {
-        return activeDays[0] && activeDays[6]
+        return schedule[0] && schedule[6]
     }
     
     fileprivate func toggle(days: [Int], value: Bool) {
         for i in days {
-            activeDays[i] = value
+            schedule[i] = value
         }
+    }
+}
+
+struct DayOfTheWeekPicker_Previews: PreviewProvider {
+    static var previews: some View {
+        AlarmDetailsView(preview: true, showSchedule: true)
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

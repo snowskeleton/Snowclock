@@ -27,20 +27,37 @@ struct RoutineView: View {
         VStack {
             ScrollView {
                 ForEach(followups, id: \.self) { r in
-                    
                     HStack {
-                        Button(action: {
-                        }, label:  { Text("\(r.delay) min after") })
+                        HStack {
+                            Button(
+                                role: .destructive,
+                                action: { viewContext.delete(r) },
+                                label:  { Image(systemName: "minus") })
+                            
+                            Spacer()
+                            Text(String(r.delay))
+                                .font(.title)
+                                .foregroundColor(Color.primary)
+                            Spacer()
+                        }
                         
                         Spacer()
                         HStack {
-                            Button(action: {
-                                r.delay -= 5
-                            }, label:  { Label("", systemImage: "minus") })
+                            Button(
+                                action: { r.delay -= 1 },
+                                label:  {
+                                    Image(systemName: "arrow.down")
+                                        .font(.title)
+                                        .padding()
+                                })
                             
-                            Button(action: {
-                                r.delay += 5
-                            }, label:  { Label("", systemImage: "plus") })
+                            Button(
+                                action: { r.delay += 1 },
+                                label: {
+                                    Image(systemName: "arrow.up")
+                                        .padding()
+                                        .font(.title)
+                                })
                         }
                     }.padding()
                     
@@ -53,9 +70,10 @@ struct RoutineView: View {
     }
     
     fileprivate func addFollowup() {
+        let highest = alarm.latestFollowup()
         let fol = Followup(context: viewContext)
         fol.id = UUID()
-        fol.delay = 5
+        fol.delay = highest.delay + 5
         fol.alarm = alarm
     }
     

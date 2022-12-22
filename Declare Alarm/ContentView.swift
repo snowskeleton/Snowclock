@@ -15,14 +15,17 @@ struct ContentView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Alarm.time, ascending: true)],
         animation: .default)
     private var alarms: FetchedResults<Alarm>
-    @State var showingSheet = false
+    @State var showSheet = false
     
+    init(preview: Bool = false, showSheet: Bool = false) {
+        _showSheet = State(initialValue: showSheet)
+    }
     var body: some View {
         NavigationView {
             List {
                 ForEach(alarms) { alarm in
                     NavigationLink {
-                        AlarmDetailsView(alarm: Binding<Alarm>.constant(alarm), routine: nil)
+                        AlarmDetailsView(alarm: Binding<Alarm>.constant(alarm))
                             .environment(\.managedObjectContext, viewContext)
                     } label: {
                         Text(alarm.time!, formatter: shortDate)
@@ -34,10 +37,10 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
                     Button(action: {
-                        showingSheet = true
+                        showSheet = true
                     }) {
                         Label("Add Item", systemImage: "plus")
-                            .sheet(isPresented: $showingSheet) {
+                            .sheet(isPresented: $showSheet) {
                                 AlarmSetterView()
                                     .presentationDetents([.medium])
                                     .environment(\.managedObjectContext, viewContext)

@@ -15,12 +15,17 @@ struct AlarmDetailsView: View {
     @State var showSchedule: Bool = false
     @State var showRoutine: Bool = false
     @State var newDate: Date
+    @State var newName: String
     @State var newSchedule: [Bool]
-    @State var routine: [Followup]?
-    @State var selectedRoutine: Int = 0
     
-    init(alarm: Binding<Alarm>, routine: Binding<[Followup]>?) {
+    private var routines: [Followup] {
+        let n = alarm.followups?.allObjects as! [Followup]
+        return n.sorted(by: { $0.delay < $1.delay })
+    }
+    
+    init(alarm: Binding<Alarm>) {
         _alarm = alarm
+        _newName = State(initialValue: alarm.wrappedValue.name!)
         _newDate = State(initialValue: alarm.wrappedValue.time!)
         _newSchedule = State(
             initialValue: (_alarm.wrappedValue.schedule != nil)
@@ -29,65 +34,101 @@ struct AlarmDetailsView: View {
         )
     }
     
-    init(alarm: Binding<Alarm>, followup: Followup) {
-        // convenience function for putting single Followup into routine array
-        var temp = Array<Followup>()
-        temp.append(followup)
-        self.init(alarm: alarm, routine: Binding<[Followup]>.constant(temp))
-        
-    }
-    
-    init(preview: Bool = false, showRoutine: Bool = false) {
+    init(preview: Bool = false, showRoutine: Bool = false, showSchedule: Bool = false) {
         let alarm = alarmMaker(context: PersistenceController.preview.container.viewContext)
         alarm.schedule![0] = true
         
-        let fol = Followup(context: PersistenceController.preview.container.viewContext)
-        fol.delay = 10
-        fol.id = UUID()
+        let nums = [7, 11, 140]
+        for num in nums {
+            let fol = Followup(context: PersistenceController.preview.container.viewContext)
+            fol.delay = Int64(num)
+            fol.id = UUID()
+            fol.alarm = alarm
+        }
         
-        self.init(alarm: Binding<Alarm>.constant(alarm), followup: fol)
-        _showRoutine = State(initialValue: showRoutine)
+        self.init(alarm: Binding<Alarm>.constant(alarm))
+        _showRoutine  = State(initialValue: showRoutine)
+        _showSchedule = State(initialValue: showSchedule)
     }
     
     var body: some View {
         NavigationView {
             VStack {
-                DatePicker("Alarm time",
-                           selection: $newDate,
-                           displayedComponents: [.hourAndMinute])
-                .padding()
-                .labelsHidden()
-                .datePickerStyle(.wheel)
-                
-                Button(action: { showSchedule = true }, label: {
-                    Text(daysAsString(days:newSchedule))
-                })
-                .sheet(isPresented: $showSchedule) {
-                    DayOfTheWeekPicker(activeDays: $newSchedule)
+                Section {
+                    DatePicker("Alarm time",
+                               selection: $newDate,
+                               displayedComponents: [.hourAndMinute])
+                    .padding()
+                    .labelsHidden()
+                    .datePickerStyle(.wheel)
                 }
-                Spacer()
                 
-                Button("Routine", action: {
-                    showRoutine = true
-                })
-                .sheet(isPresented: $showRoutine) {
-                    RoutineView(alarm: Binding<Alarm>.constant(alarm))
-                        .presentationDetents([.medium])
+                Section {
+                    VStack {
+                        TextField("Alarm name", text: $newName)
+                            .font(.title)
+                            .multilineTextAlignment(.center)
+                    }
+                    
                 }
-                .environment(\.managedObjectContext, viewContext)
+                Section {
+                    Button(
+                        action: { showSchedule = true },
+                        label: {
+                            VStack {
+                                Text(daysAsString(days: newSchedule))
+                                    .padding(.top, 1)
+                                    .foregroundColor(Color.primary)
+                                    .font(.title)
+                            }
+                        }
+                    )
+                    .sheet(isPresented: $showSchedule) {
+                        DayOfTheWeekPicker(schedule: $newSchedule)
+                    }
+                    .environment(\.managedObjectContext, viewContext)
+                }
+                
+                Section {
+                    Button(
+                        action: { showRoutine = true },
+                        label: {
+                            VStack {
+                                ScrollView {
+                                    ForEach(routines, id: \.delay) { fol in
+                                        HStack {
+                                            Text("\(fol.asString())")
+                                                .font(.title)
+                                                .padding()
+                                                .foregroundColor(Color.primary)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    )
+                    .sheet(isPresented: $showRoutine) {
+                        RoutineView(alarm: Binding<Alarm>.constant(alarm))
+                            .presentationDetents([.medium])
+                    }
+                    .environment(\.managedObjectContext, viewContext)
+                }
                 
                 Spacer()
-                HStack {
-                    Button("Cancel", action: {
-                        dismiss()
-                    })
-                    Spacer()
-                    Button("Save", action: {
-                        alarm.time = newDate
-                        alarm.schedule = newSchedule
-                        dismiss()
-                    })
-                }.padding()
+                Section {
+                    HStack {
+                        Button("Back", action: {
+                            dismiss()
+                        })
+                        Spacer()
+                        Button("Save", action: {
+                            alarm.time = newDate
+                            alarm.name = newName
+                            alarm.schedule = newSchedule
+                            dismiss()
+                        })
+                    }.padding()
+                }
             }
         }
     }
