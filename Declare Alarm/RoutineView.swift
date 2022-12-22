@@ -24,56 +24,55 @@ struct RoutineView: View {
     }
     
     var body: some View {
-        VStack {
-            ScrollView {
-                ForEach(followups, id: \.self) { r in
+        Section {
+            ForEach(followups, id: \.self) { r in
+                HStack {
                     HStack {
-                        HStack {
-                            Button(
-                                role: .destructive,
-                                action: { viewContext.delete(r) },
-                                label:  { Image(systemName: "minus") })
-                            
-                            Spacer()
-                            Text(String(r.delay))
-                                .font(.title)
-                                .foregroundColor(Color.primary)
-                            Spacer()
-                        }
+                        Button(
+                            role: .destructive,
+                            action: { viewContext.delete(r) },
+                            label:  { Image(systemName: "minus") })
+                        .buttonStyle(BorderlessButtonStyle())
                         
                         Spacer()
-                        HStack {
-                            Button(
-                                action: { r.delay -= 1 },
-                                label:  {
-                                    Image(systemName: "arrow.down")
-                                        .font(.title)
-                                        .padding()
-                                })
-                            
-                            Button(
-                                action: { r.delay += 1 },
-                                label: {
-                                    Image(systemName: "arrow.up")
-                                        .padding()
-                                        .font(.title)
-                                })
-                        }
-                    }.padding()
+                        Text(String(r.delay) + " min")
+                        Spacer()
+                    }
                     
-                }.onDelete(perform: someDelete) // ForEach
+                    Spacer()
+                    HStack {
+                        Button(
+                            action: { r.delay -= 1 },
+                            label:  {
+                                Image(systemName: "arrow.down")
+                                    .font(.title)
+                            })
+                        .buttonStyle(BorderlessButtonStyle())
+                        
+                        Button(
+                            action: { r.delay += 1 },
+                            label: {
+                                Image(systemName: "arrow.up")
+                                    .font(.title)
+                            })
+                        .buttonStyle(BorderlessButtonStyle())
+                    }
+                }.padding()
+            }
+        } header: {
+            HStack {
+                Button(action: {
+                    addFollowup()
+                }) { Image(systemName: "plus");Text("Routine").foregroundColor(Color.secondary)}
             }
         }
-        Button(action: {
-            addFollowup()
-        }) { Label("", systemImage: "plus").font(.title) }
     }
     
     fileprivate func addFollowup() {
         let highest = alarm.latestFollowup()
         let fol = Followup(context: viewContext)
         fol.id = UUID()
-        fol.delay = highest.delay + 5
+        fol.delay = (highest?.delay ?? 0) + 5
         fol.alarm = alarm
     }
     
@@ -84,7 +83,7 @@ struct RoutineView: View {
 
 struct RoutineView_Previews: PreviewProvider {
     static var previews: some View {
-        AlarmDetailsView(preview: true, showRoutine: true)
+        AlarmDetailsView(preview: true)
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

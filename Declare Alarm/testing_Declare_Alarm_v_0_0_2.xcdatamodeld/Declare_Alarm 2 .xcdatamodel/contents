@@ -4,7 +4,7 @@
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String" defaultValueString="Alarm"/>
         <attribute name="schedule" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[Bool]"/>
-        <attribute name="time" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="followups" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Followup" inverseName="alarm" inverseEntity="Followup"/>
     </entity>
     <entity name="Followup" representedClassName="Followup" syncable="YES" codeGenerationType="class">

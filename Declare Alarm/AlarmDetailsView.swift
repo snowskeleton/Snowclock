@@ -13,7 +13,6 @@ struct AlarmDetailsView: View {
     @Environment(\.dismiss) private var dismiss
     @Binding var alarm: Alarm
     @State var showSchedule: Bool = false
-    @State var showRoutine: Bool = false
     @State var newDate: Date
     @State var newName: String
     @State var newSchedule: [Bool]
@@ -34,7 +33,7 @@ struct AlarmDetailsView: View {
         )
     }
     
-    init(preview: Bool = false, showRoutine: Bool = false, showSchedule: Bool = false) {
+    init(preview: Bool = false, showSchedule: Bool = false) {
         let alarm = alarmMaker(context: PersistenceController.preview.container.viewContext)
         alarm.schedule![0] = true
         
@@ -47,13 +46,12 @@ struct AlarmDetailsView: View {
         }
         
         self.init(alarm: Binding<Alarm>.constant(alarm))
-        _showRoutine  = State(initialValue: showRoutine)
         _showSchedule = State(initialValue: showSchedule)
     }
     
     var body: some View {
         NavigationView {
-            VStack {
+            List {
                 Section {
                     DatePicker("Alarm time",
                                selection: $newDate,
@@ -61,17 +59,14 @@ struct AlarmDetailsView: View {
                     .padding()
                     .labelsHidden()
                     .datePickerStyle(.wheel)
-                }
-                
-                Section {
-                    VStack {
+                    
+                    HStack {
+                        Text("Name")
+                        Spacer()
                         TextField("Alarm name", text: $newName)
-                            .font(.title)
-                            .multilineTextAlignment(.center)
+                            .multilineTextAlignment(.trailing)
                     }
                     
-                }
-                Section {
                     Button(
                         action: { showSchedule = true },
                         label: {
@@ -79,7 +74,6 @@ struct AlarmDetailsView: View {
                                 Text(daysAsString(days: newSchedule))
                                     .padding(.top, 1)
                                     .foregroundColor(Color.primary)
-                                    .font(.title)
                             }
                         }
                     )
@@ -89,46 +83,18 @@ struct AlarmDetailsView: View {
                     .environment(\.managedObjectContext, viewContext)
                 }
                 
-                Section {
-                    Button(
-                        action: { showRoutine = true },
-                        label: {
-                            VStack {
-                                ScrollView {
-                                    ForEach(routines, id: \.delay) { fol in
-                                        HStack {
-                                            Text("\(fol.asString())")
-                                                .font(.title)
-                                                .padding()
-                                                .foregroundColor(Color.primary)
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    )
-                    .sheet(isPresented: $showRoutine) {
-                        RoutineView(alarm: Binding<Alarm>.constant(alarm))
-                            .presentationDetents([.medium])
-                    }
+                RoutineView(alarm: Binding<Alarm>.constant(alarm))
                     .environment(\.managedObjectContext, viewContext)
-                }
                 
-                Spacer()
-                Section {
-                    HStack {
-                        Button("Back", action: {
-                            dismiss()
-                        })
-                        Spacer()
-                        Button("Save", action: {
-                            alarm.time = newDate
-                            alarm.name = newName
-                            alarm.schedule = newSchedule
-                            dismiss()
-                        })
-                    }.padding()
-                }
+            }
+        }.toolbar {
+            ToolbarItem(placement: .confirmationAction) {
+                Button("Save", action: {
+                    alarm.time = newDate
+                    alarm.name = newName
+                    alarm.schedule = newSchedule
+                    dismiss()
+                })
             }
         }
     }

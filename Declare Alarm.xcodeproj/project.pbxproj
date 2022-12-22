@@ -12,6 +12,7 @@
 		8050AFDC29511C81005D3B39 /* AlarmDMFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8050AFDB29511C81005D3B39 /* AlarmDMFunctions.swift */; };
 		8088041129523A23007A68EF /* DAUserNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088041029523A23007A68EF /* DAUserNotifications.swift */; };
 		8088043229535F7E007A68EF /* RoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088043129535F7E007A68EF /* RoutineView.swift */; };
+		8088043429541380007A68EF /* AlarmBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088043329541380007A68EF /* AlarmBoxView.swift */; };
 		8096AFB72950F33800FD9EFF /* testing_Declare_Alarm_v_0_0_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8096AFB42950F33800FD9EFF /* testing_Declare_Alarm_v_0_0_2.xcdatamodeld */; };
 		80D75B4C294CC69F0077ACB6 /* Declare_AlarmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B4B294CC69F0077ACB6 /* Declare_AlarmApp.swift */; };
 		80D75B4E294CC69F0077ACB6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B4D294CC69F0077ACB6 /* ContentView.swift */; };
@@ -49,6 +50,7 @@
 		8088040F29512CF5007A68EF /* Declare_Alarm 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Declare_Alarm 3.xcdatamodel"; sourceTree = "<group>"; };
 		8088041029523A23007A68EF /* DAUserNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAUserNotifications.swift; sourceTree = "<group>"; };
 		8088043129535F7E007A68EF /* RoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineView.swift; sourceTree = "<group>"; };
+		8088043329541380007A68EF /* AlarmBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmBoxView.swift; sourceTree = "<group>"; };
 		8096AFB52950F33800FD9EFF /* Declare_Alarm 2 .xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Declare_Alarm 2 .xcdatamodel"; sourceTree = "<group>"; };
 		8096AFB62950F33800FD9EFF /* Declare_Alarm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Declare_Alarm.xcdatamodel; sourceTree = "<group>"; };
 		80D75B48294CC69F0077ACB6 /* Declare Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Declare Alarm.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +120,7 @@
 				80D75B7E294D32A40077ACB6 /* AlarmSetterView.swift */,
 				80D75B4B294CC69F0077ACB6 /* Declare_AlarmApp.swift */,
 				80D75B4D294CC69F0077ACB6 /* ContentView.swift */,
+				8088043329541380007A68EF /* AlarmBoxView.swift */,
 				804E41D22950FDF200890C7A /* AlarmDetailsView.swift */,
 				8088043129535F7E007A68EF /* RoutineView.swift */,
 				8050AFDB29511C81005D3B39 /* AlarmDMFunctions.swift */,
@@ -288,6 +291,7 @@
 			files = (
 				80D75B55294CC6A10077ACB6 /* Persistence.swift in Sources */,
 				80D75B4E294CC69F0077ACB6 /* ContentView.swift in Sources */,
+				8088043429541380007A68EF /* AlarmBoxView.swift in Sources */,
 				804E41D52950FED700890C7A /* Formatters.swift in Sources */,
 				804E41D32950FDF200890C7A /* AlarmDetailsView.swift in Sources */,
 				80D75B7D294D10740077ACB6 /* DayOfTheWeekPicker.swift in Sources */,

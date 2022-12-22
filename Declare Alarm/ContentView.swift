@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreData
 
+
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext: NSManagedObjectContext
     
@@ -28,10 +29,8 @@ struct ContentView: View {
                         AlarmDetailsView(alarm: Binding<Alarm>.constant(alarm))
                             .environment(\.managedObjectContext, viewContext)
                     } label: {
-                        Text(alarm.time!, formatter: shortDate)
+                        AlarmBoxView(alarm: Binding<Alarm>.constant(alarm))
                     }
-                    .font(.title)
-                    .padding()
                 }.onDelete(perform: deleteItems)
             }
             .toolbar {
