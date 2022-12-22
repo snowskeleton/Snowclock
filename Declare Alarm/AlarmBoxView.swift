@@ -16,6 +16,7 @@ struct AlarmBoxView: View {
                     .font(.title)
                 Text(alarm.stringyFollowups)
                 Spacer()
+                Text(String(alarm.enabled))
             }
             HStack {
                 Text(alarm.stringySchedule)

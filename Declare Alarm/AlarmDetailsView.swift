@@ -16,6 +16,7 @@ struct AlarmDetailsView: View {
     @State var newDate: Date
     @State var newName: String
     @State var newSchedule: [Bool]
+    @State var newEnabledStatus: Bool
     
     private var routines: [Followup] {
         let n = alarm.followups?.allObjects as! [Followup]
@@ -26,6 +27,7 @@ struct AlarmDetailsView: View {
         _alarm = alarm
         _newName = State(initialValue: alarm.wrappedValue.name!)
         _newDate = State(initialValue: alarm.wrappedValue.time!)
+        _newEnabledStatus = State(initialValue: alarm.wrappedValue.enabled)
         _newSchedule = State(
             initialValue: (_alarm.wrappedValue.schedule != nil)
             ? _alarm.wrappedValue.schedule!
@@ -83,13 +85,21 @@ struct AlarmDetailsView: View {
                             DayOfTheWeekPicker(schedule: $newSchedule)
                         }
                         .environment(\.managedObjectContext, viewContext)
-                        
+                    }
+                    
+                    HStack {
+                        Spacer()
+                        Toggle(
+                            isOn: $newEnabledStatus,
+                            label: {
+                                Text("Enabled")
+                                    .foregroundColor(Color.secondary)
+                            }
+                        )
                     }
                 }
-                
                 RoutineView(alarm: Binding<Alarm>.constant(alarm))
                     .environment(\.managedObjectContext, viewContext)
-                
             }
         }.toolbar {
             ToolbarItem(placement: .confirmationAction) {
@@ -97,6 +107,8 @@ struct AlarmDetailsView: View {
                     alarm.time = newDate
                     alarm.name = newName
                     alarm.schedule = newSchedule
+                    alarm.enabled = newEnabledStatus
+                    print(newEnabledStatus, alarm.enabled)
                     alarm.updateNotifications()
                     dismiss()
                 })

@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		804E41D32950FDF200890C7A /* AlarmDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E41D22950FDF200890C7A /* AlarmDetailsView.swift */; };
 		804E41D52950FED700890C7A /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E41D42950FED600890C7A /* Formatters.swift */; };
-		8050AFDC29511C81005D3B39 /* AlarmDMFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8050AFDB29511C81005D3B39 /* AlarmDMFunctions.swift */; };
 		8088041129523A23007A68EF /* DAUserNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088041029523A23007A68EF /* DAUserNotifications.swift */; };
 		8088043229535F7E007A68EF /* RoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088043129535F7E007A68EF /* RoutineView.swift */; };
 		8088043429541380007A68EF /* AlarmBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088043329541380007A68EF /* AlarmBoxView.swift */; };
 		8088043629541971007A68EF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088043529541971007A68EF /* Extensions.swift */; };
+		8088043B2954D749007A68EF /* MP3_700KB.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8088043A2954D749007A68EF /* MP3_700KB.mp3 */; };
+		8088043F2954D78A007A68EF /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088043E2954D78A007A68EF /* AVPlayerView.swift */; };
 		8096AFB72950F33800FD9EFF /* testing_Declare_Alarm_v_0_0_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8096AFB42950F33800FD9EFF /* testing_Declare_Alarm_v_0_0_2.xcdatamodeld */; };
 		80D75B4C294CC69F0077ACB6 /* Declare_AlarmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B4B294CC69F0077ACB6 /* Declare_AlarmApp.swift */; };
 		80D75B4E294CC69F0077ACB6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B4D294CC69F0077ACB6 /* ContentView.swift */; };
@@ -47,12 +48,16 @@
 /* Begin PBXFileReference section */
 		804E41D22950FDF200890C7A /* AlarmDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailsView.swift; sourceTree = "<group>"; };
 		804E41D42950FED600890C7A /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
-		8050AFDB29511C81005D3B39 /* AlarmDMFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDMFunctions.swift; sourceTree = "<group>"; };
 		8088040F29512CF5007A68EF /* Declare_Alarm 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Declare_Alarm 3.xcdatamodel"; sourceTree = "<group>"; };
 		8088041029523A23007A68EF /* DAUserNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAUserNotifications.swift; sourceTree = "<group>"; };
 		8088043129535F7E007A68EF /* RoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineView.swift; sourceTree = "<group>"; };
 		8088043329541380007A68EF /* AlarmBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmBoxView.swift; sourceTree = "<group>"; };
 		8088043529541971007A68EF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		808804392954C5F2007A68EF /* Declare Alarm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Declare Alarm.entitlements"; sourceTree = "<group>"; };
+		8088043A2954D749007A68EF /* MP3_700KB.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MP3_700KB.mp3; sourceTree = "<group>"; };
+		8088043E2954D78A007A68EF /* AVPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerView.swift; sourceTree = "<group>"; };
+		808804402954DC9C007A68EF /* audio.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = audio.caf; sourceTree = SOURCE_ROOT; };
+		808804412954E27B007A68EF /* Declare-Alarm-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Declare-Alarm-Info.plist"; sourceTree = SOURCE_ROOT; };
 		8096AFB52950F33800FD9EFF /* Declare_Alarm 2 .xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Declare_Alarm 2 .xcdatamodel"; sourceTree = "<group>"; };
 		8096AFB62950F33800FD9EFF /* Declare_Alarm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Declare_Alarm.xcdatamodel; sourceTree = "<group>"; };
 		80D75B48294CC69F0077ACB6 /* Declare Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Declare Alarm.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,18 +124,22 @@
 		80D75B4A294CC69F0077ACB6 /* Declare Alarm */ = {
 			isa = PBXGroup;
 			children = (
+				808804412954E27B007A68EF /* Declare-Alarm-Info.plist */,
+				808804392954C5F2007A68EF /* Declare Alarm.entitlements */,
 				80D75B7E294D32A40077ACB6 /* AddAlarmView.swift */,
 				80D75B4B294CC69F0077ACB6 /* Declare_AlarmApp.swift */,
 				80D75B4D294CC69F0077ACB6 /* ContentView.swift */,
 				8088043329541380007A68EF /* AlarmBoxView.swift */,
+				8088043E2954D78A007A68EF /* AVPlayerView.swift */,
 				804E41D22950FDF200890C7A /* AlarmDetailsView.swift */,
 				8088043129535F7E007A68EF /* RoutineView.swift */,
-				8050AFDB29511C81005D3B39 /* AlarmDMFunctions.swift */,
 				804E41D42950FED600890C7A /* Formatters.swift */,
 				8088043529541971007A68EF /* Extensions.swift */,
+				808804402954DC9C007A68EF /* audio.caf */,
 				80D75B7C294D10740077ACB6 /* DayOfTheWeekPicker.swift */,
 				8096AFB42950F33800FD9EFF /* testing_Declare_Alarm_v_0_0_2.xcdatamodeld */,
 				80D75B4F294CC6A10077ACB6 /* Assets.xcassets */,
+				8088043A2954D749007A68EF /* MP3_700KB.mp3 */,
 				80D75B54294CC6A10077ACB6 /* Persistence.swift */,
 				80D75B51294CC6A10077ACB6 /* Preview Content */,
 			);
@@ -268,6 +277,7 @@
 			files = (
 				80D75B53294CC6A10077ACB6 /* Preview Assets.xcassets in Resources */,
 				80D75B50294CC6A10077ACB6 /* Assets.xcassets in Resources */,
+				8088043B2954D749007A68EF /* MP3_700KB.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,11 +304,11 @@
 			files = (
 				80D75B55294CC6A10077ACB6 /* Persistence.swift in Sources */,
 				80D75B4E294CC69F0077ACB6 /* ContentView.swift in Sources */,
+				8088043F2954D78A007A68EF /* AVPlayerView.swift in Sources */,
 				8088043429541380007A68EF /* AlarmBoxView.swift in Sources */,
 				804E41D52950FED700890C7A /* Formatters.swift in Sources */,
 				804E41D32950FDF200890C7A /* AlarmDetailsView.swift in Sources */,
 				80D75B7D294D10740077ACB6 /* DayOfTheWeekPicker.swift in Sources */,
-				8050AFDC29511C81005D3B39 /* AlarmDMFunctions.swift in Sources */,
 				8088041129523A23007A68EF /* DAUserNotifications.swift in Sources */,
 				8088043629541971007A68EF /* Extensions.swift in Sources */,
 				80D75B4C294CC69F0077ACB6 /* Declare_AlarmApp.swift in Sources */,
@@ -460,24 +470,31 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Declare Alarm/Declare Alarm.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Declare Alarm/Preview Content\"";
 				DEVELOPMENT_TEAM = PK7HCG46US;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Declare-Alarm-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.snowskeleton.Declare-Alarm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -489,24 +506,31 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Declare Alarm/Declare Alarm.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Declare Alarm/Preview Content\"";
 				DEVELOPMENT_TEAM = PK7HCG46US;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Declare-Alarm-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.snowskeleton.Declare-Alarm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
