@@ -97,6 +97,7 @@ struct AlarmDetailsView: View {
                     alarm.time = newDate
                     alarm.name = newName
                     alarm.schedule = newSchedule
+                    alarm.updateNotifications()
                     dismiss()
                 })
             }
