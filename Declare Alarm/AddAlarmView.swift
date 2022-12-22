@@ -7,7 +7,7 @@
 
 import SwiftUI
 import CoreData
-struct AlarmSetterView: View {
+struct AddAlarmView: View {
     @Environment(\.managedObjectContext) private var viewContext: NSManagedObjectContext
     @Environment(\.dismiss) private var dismiss
     @State private var date: Date = Date()
@@ -32,7 +32,7 @@ struct AlarmSetterView: View {
     }
 }
 
-struct AlarmSetterView_Previews: PreviewProvider {
+struct AddAlarmView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(preview: true, showSheet: true)
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)

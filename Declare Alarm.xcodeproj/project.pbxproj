@@ -23,7 +23,7 @@
 		80D75B6C294CC6A10077ACB6 /* Declare_AlarmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B6B294CC6A10077ACB6 /* Declare_AlarmUITests.swift */; };
 		80D75B6E294CC6A10077ACB6 /* Declare_AlarmUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B6D294CC6A10077ACB6 /* Declare_AlarmUITestsLaunchTests.swift */; };
 		80D75B7D294D10740077ACB6 /* DayOfTheWeekPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B7C294D10740077ACB6 /* DayOfTheWeekPicker.swift */; };
-		80D75B7F294D32A40077ACB6 /* AlarmSetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B7E294D32A40077ACB6 /* AlarmSetterView.swift */; };
+		80D75B7F294D32A40077ACB6 /* AddAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B7E294D32A40077ACB6 /* AddAlarmView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +65,7 @@
 		80D75B6B294CC6A10077ACB6 /* Declare_AlarmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Declare_AlarmUITests.swift; sourceTree = "<group>"; };
 		80D75B6D294CC6A10077ACB6 /* Declare_AlarmUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Declare_AlarmUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		80D75B7C294D10740077ACB6 /* DayOfTheWeekPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayOfTheWeekPicker.swift; sourceTree = "<group>"; };
-		80D75B7E294D32A40077ACB6 /* AlarmSetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSetterView.swift; sourceTree = "<group>"; };
+		80D75B7E294D32A40077ACB6 /* AddAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +117,7 @@
 		80D75B4A294CC69F0077ACB6 /* Declare Alarm */ = {
 			isa = PBXGroup;
 			children = (
-				80D75B7E294D32A40077ACB6 /* AlarmSetterView.swift */,
+				80D75B7E294D32A40077ACB6 /* AddAlarmView.swift */,
 				80D75B4B294CC69F0077ACB6 /* Declare_AlarmApp.swift */,
 				80D75B4D294CC69F0077ACB6 /* ContentView.swift */,
 				8088043329541380007A68EF /* AlarmBoxView.swift */,
@@ -300,7 +300,7 @@
 				80D75B4C294CC69F0077ACB6 /* Declare_AlarmApp.swift in Sources */,
 				8088043229535F7E007A68EF /* RoutineView.swift in Sources */,
 				8096AFB72950F33800FD9EFF /* testing_Declare_Alarm_v_0_0_2.xcdatamodeld in Sources */,
-				80D75B7F294D32A40077ACB6 /* AlarmSetterView.swift in Sources */,
+				80D75B7F294D32A40077ACB6 /* AddAlarmView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

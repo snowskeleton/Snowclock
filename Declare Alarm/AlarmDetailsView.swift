@@ -56,31 +56,35 @@ struct AlarmDetailsView: View {
                     DatePicker("Alarm time",
                                selection: $newDate,
                                displayedComponents: [.hourAndMinute])
-                    .padding()
                     .labelsHidden()
                     .datePickerStyle(.wheel)
                     
                     HStack {
                         Text("Name")
+                            .foregroundColor(Color.secondary)
                         Spacer()
                         TextField("Alarm name", text: $newName)
                             .multilineTextAlignment(.trailing)
                     }
                     
-                    Button(
-                        action: { showSchedule = true },
-                        label: {
-                            VStack {
+                    HStack {
+                        Text("Schedule")
+                            .foregroundColor(Color.secondary)
+                        Spacer()
+                        Button(
+                            action: { showSchedule = true },
+                            label: {
                                 Text(daysAsString(days: newSchedule))
                                     .padding(.top, 1)
                                     .foregroundColor(Color.primary)
                             }
+                        )
+                        .sheet(isPresented: $showSchedule) {
+                            DayOfTheWeekPicker(schedule: $newSchedule)
                         }
-                    )
-                    .sheet(isPresented: $showSchedule) {
-                        DayOfTheWeekPicker(schedule: $newSchedule)
+                        .environment(\.managedObjectContext, viewContext)
+                        
                     }
-                    .environment(\.managedObjectContext, viewContext)
                 }
                 
                 RoutineView(alarm: Binding<Alarm>.constant(alarm))
