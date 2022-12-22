@@ -23,6 +23,13 @@ extension Followup {
 }
 
 extension Alarm {
+    func updateNotifications() -> Void {
+        
+    }
+    
+}
+
+extension Alarm {
     func latestFollowup() -> Followup? {
         let unsorted = self.followups?.allObjects as! [Followup]
         if unsorted.count > 0 {
