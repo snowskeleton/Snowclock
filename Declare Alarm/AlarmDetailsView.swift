@@ -64,6 +64,7 @@ struct AlarmDetailsView: View {
                     HStack {
                         Text("Name")
                             .foregroundColor(Color.secondary)
+                            .padding(.leading, 10)
                         Spacer()
                         TextField("Alarm name", text: $newName)
                             .multilineTextAlignment(.trailing)
@@ -72,12 +73,12 @@ struct AlarmDetailsView: View {
                     HStack {
                         Text("Schedule")
                             .foregroundColor(Color.secondary)
+                            .padding(.leading, 10)
                         Spacer()
                         Button(
                             action: { showSchedule = true },
                             label: {
                                 Text(daysAsString(days: newSchedule))
-                                    .padding(.top, 1)
                                     .foregroundColor(Color.primary)
                             }
                         )
@@ -108,7 +109,6 @@ struct AlarmDetailsView: View {
                     alarm.name = newName
                     alarm.schedule = newSchedule
                     alarm.enabled = newEnabledStatus
-                    print(newEnabledStatus, alarm.enabled)
                     alarm.updateNotifications()
                     dismiss()
                 })

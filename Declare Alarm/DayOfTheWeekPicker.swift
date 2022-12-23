@@ -78,7 +78,7 @@ public func daysAsString(days: [Bool]) -> String {
     var daysOfWeekString: [String] = []
     
     if days == [false, false, false, false, false, false, false] {
-        return "Off"
+        return ""
     }
     if days == [true, true, true, true, true, true, true] {
         return "Every day"

@@ -9,6 +9,15 @@ import SwiftUI
 
 struct AlarmBoxView: View {
     @Binding var alarm: Alarm
+    var showthis: String {
+        var s = String()
+        s += alarm.name!
+        if alarm.stringySchedule != "" {
+            s += ", "
+            s += alarm.stringySchedule
+        }
+        return s
+    }
     var body: some View {
         VStack {
             HStack {
@@ -16,12 +25,10 @@ struct AlarmBoxView: View {
                     .font(.title)
                 Text(alarm.stringyFollowups)
                 Spacer()
-                Text(String(alarm.enabled))
             }
             HStack {
-                Text(alarm.stringySchedule)
+                Text(showthis)
                 Spacer()
-                Text(alarm.name!)
             }
         }
     }
