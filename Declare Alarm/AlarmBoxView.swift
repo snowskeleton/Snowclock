@@ -31,6 +31,8 @@ struct AlarmBoxView: View {
                 Spacer()
             }
         }
+        .foregroundColor(alarm.enabled ? Color.primary : Color.secondary)
+        .italic(!alarm.enabled)
     }
 }
 
