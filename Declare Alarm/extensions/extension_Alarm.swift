@@ -60,13 +60,17 @@ extension Alarm {
     }
     func updateNotifications() -> Void {
         // check for permission
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound, .criticalAlert]) { success, error in
-            if success {
-//                print("All set!")
-            } else if let error = error {
-                print(error.localizedDescription)
+        UNUserNotificationCenter.current()
+            .requestAuthorization(options: [
+                .alert, .badge, .sound, .criticalAlert
+            ]) { success, error in
+                if success {
+                    
+                } else if let error = error {
+                    print(error.localizedDescription)
+                }
             }
-        }
+        
         // cancel old notifications
         let oldNotifs = self.notificationsIDs ?? []
         for note in oldNotifs {
@@ -80,7 +84,7 @@ extension Alarm {
         }
         // schedule new notifications
         if self.enabled == false { return }
-
+        
         let content = UNMutableNotificationContent()
         content.title = self.stringyTime
         content.body = self.name!

@@ -83,7 +83,7 @@ struct AlarmDetailsView: View {
                             }
                         )
                         .sheet(isPresented: $showSchedule) {
-                            DayOfTheWeekPicker(schedule: $newSchedule)
+                            ScheduleView(schedule: $newSchedule)
                         }
                         .environment(\.managedObjectContext, viewContext)
                     }

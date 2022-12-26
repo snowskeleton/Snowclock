@@ -6,9 +6,8 @@
 //
 
 import SwiftUI
-//import CoreData
 
-struct DayOfTheWeekPicker: View {
+struct ScheduleView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.managedObjectContext) private var viewContext
     @Binding var schedule: [Bool]
@@ -64,7 +63,7 @@ struct DayOfTheWeekPicker: View {
     }
 }
 
-struct DayOfTheWeekPicker_Previews: PreviewProvider {
+struct ScheduleView_Preview: PreviewProvider {
     static var previews: some View {
         AlarmDetailsView(preview: true, showSchedule: true)
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
