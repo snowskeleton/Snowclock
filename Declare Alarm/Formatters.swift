@@ -26,6 +26,7 @@ public func alarmMaker(context: NSManagedObjectContext, time: Date = Date()) -> 
     // default values
     alarm.id = UUID()
     alarm.schedule = NO_REPEATS
+    alarm.enabled = true
     // default title set to 'Alarm' in CoreData declaration
     
     return alarm

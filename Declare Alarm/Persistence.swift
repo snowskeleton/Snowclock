@@ -18,6 +18,7 @@ struct PersistenceController {
             newItem.time = Date()
             newItem.id = UUID()
             newItem.schedule = NO_REPEATS
+            newItem.enabled = true
             let f = Followup(context: viewContext)
             f.delay = 2
             f.id = UUID()
@@ -66,6 +67,7 @@ struct PersistenceController {
             do {
                 try context.save()
             } catch {
+                print("Failed to save")
                 try? container.persistentStoreCoordinator.destroyPersistentStore(at: URL(fileURLWithPath: container.name), type: NSPersistentStore.StoreType.sqlite)
                 
             }

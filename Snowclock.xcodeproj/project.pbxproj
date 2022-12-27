@@ -264,7 +264,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 80D75B43294CC69F0077ACB6 /* Build configuration list for PBXProject "Declare Alarm" */;
+			buildConfigurationList = 80D75B43294CC69F0077ACB6 /* Build configuration list for PBXProject "Snowclock" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -632,7 +632,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		80D75B43294CC69F0077ACB6 /* Build configuration list for PBXProject "Declare Alarm" */ = {
+		80D75B43294CC69F0077ACB6 /* Build configuration list for PBXProject "Snowclock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				80D75B6F294CC6A10077ACB6 /* Debug */,

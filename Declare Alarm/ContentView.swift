@@ -16,9 +16,13 @@ struct ContentView: View {
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Alarm.time, ascending: false)],
-        predicate: NSPredicate(format: "enabled == %@", "1"),
         animation: .default)
-    private var activeAlarms: FetchedResults<Alarm>
+    private var noalarms: FetchedResults<Alarm>
+    var nextAlarm: Optional<Alarm> {
+        let val = noalarms.filter( {$0.enabled} )
+        let max = val.max(by: { $0.time! < $1.time! })
+        return max
+    }
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Alarm.time, ascending: true)],
@@ -26,7 +30,6 @@ struct ContentView: View {
     private var alarms: FetchedResults<Alarm>
     @State var showAddAlarm = false
     @State var audioPlayer: AVAudioPlayer!
-    @State var nextAlarm: Alarm?
     
     
     init(preview: Bool = false, showSheet: Bool = false) {
@@ -41,6 +44,7 @@ struct ContentView: View {
                             .environment(\.managedObjectContext, viewContext)
                     } label: {
                         AlarmBoxView(alarm: Binding<Alarm>.constant(alarm))
+                            .environment(\.managedObjectContext, viewContext)
                     }
                 }.onDelete(perform: deleteItems)
             }
@@ -58,27 +62,23 @@ struct ContentView: View {
             }
         }
         .onChange(of: scenePhase) { (newScenePhase) in
-            nextAlarm = activeAlarms.max(by: { $0.time! < $1.time! })
             if nextAlarm == nil {
-                print("Nil alarm" + String(activeAlarms.count))
+                print("Nothing scheduled")
                 return
+            } else {
+//                print(nextAlarm!.time!.description)
             }
+            
+            let sound = Bundle.main.path(forResource: "MP3_700KB", ofType: "mp3")
+            audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+
             switch newScenePhase {
             case .active:
-                print(nextAlarm?.stringyTime ?? "no alarm")
-                let sound = Bundle.main.path(forResource: "MP3_700KB", ofType: "mp3")
-                let ai = AVAudioSession.sharedInstance()
-                try? ai.setCategory(.playAndRecord, options: [.duckOthers, .defaultToSpeaker])
-                try? ai.setActive(true)
-                self.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
-                let t = self.audioPlayer.deviceCurrentTime
-                let newtime = t + 30
-//                self.audioPlayer.play(atTime: newtime)
-                print("we're active")
+                setPlayer(to: nextAlarm!, with: audioPlayer)
             case .inactive:
-                print("we are not active")
+                setPlayer(to: nextAlarm!, with: audioPlayer)
             case .background:
-                print("we're in the background")
+                setPlayer(to: nextAlarm!, with: audioPlayer)
             @unknown default:
                 print("Something weird happened")
             }
@@ -89,7 +89,7 @@ struct ContentView: View {
                 .environment(\.managedObjectContext, viewContext)
         }
     }
-    
+ 
     fileprivate func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { alarms[$0] }.forEach(viewContext.delete)

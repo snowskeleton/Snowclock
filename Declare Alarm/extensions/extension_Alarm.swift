@@ -7,6 +7,7 @@
 
 import Foundation
 import UserNotifications
+import AVKit
 
 extension Alarm {
     var allTimes: [Date] {
@@ -83,14 +84,38 @@ extension Alarm {
                     of: note))!)
         }
         // schedule new notifications
-        if self.enabled == false { return }
+        if self.enabled == false {
+            print("Alarm not enabled. Returning early.")
+            return
+        }
         
         let content = UNMutableNotificationContent()
         content.title = self.stringyTime
         content.body = self.name!
         content.badge = 0
-        content.interruptionLevel = .critical
-        content.sound = .defaultCriticalSound(withAudioVolume: 50)
+        content.interruptionLevel = .timeSensitive
+        content.sound = .defaultRingtone
+        
+        var tempArray = self.notificationsIDs ?? []
+        for time in self.allTimes {
+            // schedule a separate notification for every separate weekday
+            for day in self.numericalWeekdays {
+                var triggerDate = Calendar.current.dateComponents([.hour,.minute], from: time)
+                triggerDate.weekday = day
+                let identifier = UUID().uuidString
+                
+                let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
+                let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+                UNUserNotificationCenter.current().add(request)
+                
+                tempArray.append(identifier)
+            }
+        }
+        self.notificationsIDs = tempArray
+    }
+    
+    func nextOccurance() -> Date? {
+        var times: [Date] = []
         
         for time in self.allTimes {
             // schedule a separate notification for every separate weekday
@@ -98,14 +123,35 @@ extension Alarm {
                 var triggerDate = Calendar.current.dateComponents([.hour,.minute], from: time)
                 triggerDate.weekday = day
                 let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
-                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                var tempArray = self.notificationsIDs ?? []
-                tempArray.append(request.identifier)
-                self.notificationsIDs = tempArray
-                UNUserNotificationCenter.current().add(request)
+                let next = trigger.nextTriggerDate()
+                if next != nil {
+                    times.append(next!)
+                }
             }
+        }
+        return times.min()
+    }
+    
+    func secondsTilNextOccurance() -> Double {
+        if let next = nextOccurance() {
+            return Double(abs(Date().timeIntervalSince(next)))
+        } else {
+            return 0.0
         }
     }
 }
 
 
+public func setPlayer(to alarm: Alarm, with player: AVAudioPlayer) {
+    let ai = AVAudioSession.sharedInstance()
+    try? ai.setCategory(.playAndRecord, options: [.duckOthers, .defaultToSpeaker])
+    try? ai.setActive(true)
+    
+    let cur = player.deviceCurrentTime
+    let add = alarm.secondsTilNextOccurance()
+    let new = cur + add
+    
+    print("Current time: " + String(describing: cur))
+    print("new time in: " + String(describing: Int(new - cur)))
+    player.play(atTime: new)
+}

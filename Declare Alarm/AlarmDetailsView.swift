@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 struct AlarmDetailsView: View {
-    @Environment(\.managedObjectContext) private var viewContext: NSManagedObjectContext
+//    @Environment(\.managedObjectContext) private var viewContext: NSManagedObjectContext
     @Environment(\.dismiss) private var dismiss
     @Binding var alarm: Alarm
     @State var showSchedule: Bool = false
@@ -85,7 +85,8 @@ struct AlarmDetailsView: View {
                         .sheet(isPresented: $showSchedule) {
                             ScheduleView(schedule: $newSchedule)
                         }
-                        .environment(\.managedObjectContext, viewContext)
+                        .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
+            
                     }
                     
                     HStack {
@@ -100,7 +101,7 @@ struct AlarmDetailsView: View {
                     }
                 }
                 RoutineView(alarm: Binding<Alarm>.constant(alarm))
-                    .environment(\.managedObjectContext, viewContext)
+                    .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
             }
         }.toolbar {
             ToolbarItem(placement: .confirmationAction) {
