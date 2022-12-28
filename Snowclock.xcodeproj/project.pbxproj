@@ -9,23 +9,23 @@
 /* Begin PBXBuildFile section */
 		804E41D32950FDF200890C7A /* AlarmDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E41D22950FDF200890C7A /* AlarmDetailsView.swift */; };
 		804E41D52950FED700890C7A /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E41D42950FED600890C7A /* Formatters.swift */; };
-		8088041129523A23007A68EF /* DAUserNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088041029523A23007A68EF /* DAUserNotifications.swift */; };
+		8052E1C1295B843D00958811 /* Snowclock_v_0_0_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8052E1BD295B843D00958811 /* Snowclock_v_0_0_2.xcdatamodeld */; };
 		8088043229535F7E007A68EF /* RoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088043129535F7E007A68EF /* RoutineView.swift */; };
 		8088043429541380007A68EF /* AlarmBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088043329541380007A68EF /* AlarmBoxView.swift */; };
 		8088043629541971007A68EF /* extension_Followup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088043529541971007A68EF /* extension_Followup.swift */; };
 		8088043B2954D749007A68EF /* MP3_700KB.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8088043A2954D749007A68EF /* MP3_700KB.mp3 */; };
 		8088043F2954D78A007A68EF /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088043E2954D78A007A68EF /* AVPlayerView.swift */; };
-		8096AFB72950F33800FD9EFF /* testing_Declare_Alarm_v_0_0_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8096AFB42950F33800FD9EFF /* testing_Declare_Alarm_v_0_0_2.xcdatamodeld */; };
 		80A060F02955409100D49BC3 /* extension_Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A060EF2955409100D49BC3 /* extension_Date.swift */; };
 		80A060F2295540C700D49BC3 /* extension_Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A060F1295540C700D49BC3 /* extension_Alarm.swift */; };
-		80D75B4C294CC69F0077ACB6 /* Declare_AlarmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B4B294CC69F0077ACB6 /* Declare_AlarmApp.swift */; };
+		80C3EB37295CB0BD0062E103 /* snowtone.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 80C3EB36295CB0BD0062E103 /* snowtone.aiff */; };
+		80D75B4C294CC69F0077ACB6 /* SnowclockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B4B294CC69F0077ACB6 /* SnowclockApp.swift */; };
 		80D75B4E294CC69F0077ACB6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B4D294CC69F0077ACB6 /* ContentView.swift */; };
 		80D75B50294CC6A10077ACB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80D75B4F294CC6A10077ACB6 /* Assets.xcassets */; };
 		80D75B53294CC6A10077ACB6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80D75B52294CC6A10077ACB6 /* Preview Assets.xcassets */; };
 		80D75B55294CC6A10077ACB6 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B54294CC6A10077ACB6 /* Persistence.swift */; };
-		80D75B62294CC6A10077ACB6 /* Declare_AlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B61294CC6A10077ACB6 /* Declare_AlarmTests.swift */; };
-		80D75B6C294CC6A10077ACB6 /* Declare_AlarmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B6B294CC6A10077ACB6 /* Declare_AlarmUITests.swift */; };
-		80D75B6E294CC6A10077ACB6 /* Declare_AlarmUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B6D294CC6A10077ACB6 /* Declare_AlarmUITestsLaunchTests.swift */; };
+		80D75B62294CC6A10077ACB6 /* SnowclockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B61294CC6A10077ACB6 /* SnowclockTests.swift */; };
+		80D75B6C294CC6A10077ACB6 /* SnowclockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B6B294CC6A10077ACB6 /* SnowclockUITests.swift */; };
+		80D75B6E294CC6A10077ACB6 /* SnowclockUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B6D294CC6A10077ACB6 /* SnowclockUITestsLaunchTests.swift */; };
 		80D75B7D294D10740077ACB6 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B7C294D10740077ACB6 /* ScheduleView.swift */; };
 		80D75B7F294D32A40077ACB6 /* AddAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B7E294D32A40077ACB6 /* AddAlarmView.swift */; };
 /* End PBXBuildFile section */
@@ -36,45 +36,42 @@
 			containerPortal = 80D75B40294CC69F0077ACB6 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 80D75B47294CC69F0077ACB6;
-			remoteInfo = "Declare Alarm";
+			remoteInfo = Snowclock;
 		};
 		80D75B68294CC6A10077ACB6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 80D75B40294CC69F0077ACB6 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 80D75B47294CC69F0077ACB6;
-			remoteInfo = "Declare Alarm";
+			remoteInfo = Snowclock;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		804E41D22950FDF200890C7A /* AlarmDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailsView.swift; sourceTree = "<group>"; };
 		804E41D42950FED600890C7A /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
-		8088040F29512CF5007A68EF /* Declare_Alarm 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Declare_Alarm 3.xcdatamodel"; sourceTree = "<group>"; };
-		8088041029523A23007A68EF /* DAUserNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAUserNotifications.swift; sourceTree = "<group>"; };
+		8052E1BF295B843D00958811 /* Snowclock.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Snowclock.xcdatamodel; sourceTree = "<group>"; };
 		8088043129535F7E007A68EF /* RoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineView.swift; sourceTree = "<group>"; };
 		8088043329541380007A68EF /* AlarmBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmBoxView.swift; sourceTree = "<group>"; };
 		8088043529541971007A68EF /* extension_Followup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension_Followup.swift; sourceTree = "<group>"; };
-		808804392954C5F2007A68EF /* Declare Alarm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Declare Alarm.entitlements"; sourceTree = "<group>"; };
+		808804392954C5F2007A68EF /* Snowclock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Snowclock.entitlements; sourceTree = "<group>"; };
 		8088043A2954D749007A68EF /* MP3_700KB.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MP3_700KB.mp3; sourceTree = "<group>"; };
 		8088043E2954D78A007A68EF /* AVPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerView.swift; sourceTree = "<group>"; };
-		808804402954DC9C007A68EF /* audio.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = audio.caf; sourceTree = SOURCE_ROOT; };
-		808804412954E27B007A68EF /* Declare-Alarm-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Declare-Alarm-Info.plist"; sourceTree = SOURCE_ROOT; };
-		8096AFB52950F33800FD9EFF /* Declare_Alarm 2 .xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Declare_Alarm 2 .xcdatamodel"; sourceTree = "<group>"; };
-		8096AFB62950F33800FD9EFF /* Declare_Alarm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Declare_Alarm.xcdatamodel; sourceTree = "<group>"; };
+		808804412954E27B007A68EF /* Snowclock-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Snowclock-Info.plist"; sourceTree = SOURCE_ROOT; };
 		80A060EF2955409100D49BC3 /* extension_Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension_Date.swift; sourceTree = "<group>"; };
 		80A060F1295540C700D49BC3 /* extension_Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension_Alarm.swift; sourceTree = "<group>"; };
-		80D75B48294CC69F0077ACB6 /* Declare Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Declare Alarm.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		80D75B4B294CC69F0077ACB6 /* Declare_AlarmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Declare_AlarmApp.swift; sourceTree = "<group>"; };
+		80C3EB36295CB0BD0062E103 /* snowtone.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = snowtone.aiff; sourceTree = "<group>"; };
+		80D75B48294CC69F0077ACB6 /* Snowclock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snowclock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		80D75B4B294CC69F0077ACB6 /* SnowclockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowclockApp.swift; sourceTree = "<group>"; };
 		80D75B4D294CC69F0077ACB6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		80D75B4F294CC6A10077ACB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80D75B52294CC6A10077ACB6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		80D75B54294CC6A10077ACB6 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		80D75B5D294CC6A10077ACB6 /* Declare AlarmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Declare AlarmTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		80D75B61294CC6A10077ACB6 /* Declare_AlarmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Declare_AlarmTests.swift; sourceTree = "<group>"; };
-		80D75B67294CC6A10077ACB6 /* Declare AlarmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Declare AlarmUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		80D75B6B294CC6A10077ACB6 /* Declare_AlarmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Declare_AlarmUITests.swift; sourceTree = "<group>"; };
-		80D75B6D294CC6A10077ACB6 /* Declare_AlarmUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Declare_AlarmUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		80D75B5D294CC6A10077ACB6 /* SnowclockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnowclockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		80D75B61294CC6A10077ACB6 /* SnowclockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowclockTests.swift; sourceTree = "<group>"; };
+		80D75B67294CC6A10077ACB6 /* SnowclockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnowclockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		80D75B6B294CC6A10077ACB6 /* SnowclockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowclockUITests.swift; sourceTree = "<group>"; };
+		80D75B6D294CC6A10077ACB6 /* SnowclockUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowclockUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		80D75B7C294D10740077ACB6 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		80D75B7E294D32A40077ACB6 /* AddAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,10 +114,9 @@
 		80D75B3F294CC69F0077ACB6 = {
 			isa = PBXGroup;
 			children = (
-				8088041029523A23007A68EF /* DAUserNotifications.swift */,
-				80D75B4A294CC69F0077ACB6 /* Declare Alarm */,
-				80D75B60294CC6A10077ACB6 /* Declare AlarmTests */,
-				80D75B6A294CC6A10077ACB6 /* Declare AlarmUITests */,
+				80D75B4A294CC69F0077ACB6 /* Snowclock */,
+				80D75B60294CC6A10077ACB6 /* SnowclockTests */,
+				80D75B6A294CC6A10077ACB6 /* SnowclockUITests */,
 				80D75B49294CC69F0077ACB6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -128,36 +124,36 @@
 		80D75B49294CC69F0077ACB6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				80D75B48294CC69F0077ACB6 /* Declare Alarm.app */,
-				80D75B5D294CC6A10077ACB6 /* Declare AlarmTests.xctest */,
-				80D75B67294CC6A10077ACB6 /* Declare AlarmUITests.xctest */,
+				80D75B48294CC69F0077ACB6 /* Snowclock.app */,
+				80D75B5D294CC6A10077ACB6 /* SnowclockTests.xctest */,
+				80D75B67294CC6A10077ACB6 /* SnowclockUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		80D75B4A294CC69F0077ACB6 /* Declare Alarm */ = {
+		80D75B4A294CC69F0077ACB6 /* Snowclock */ = {
 			isa = PBXGroup;
 			children = (
-				808804402954DC9C007A68EF /* audio.caf */,
-				808804392954C5F2007A68EF /* Declare Alarm.entitlements */,
+				808804392954C5F2007A68EF /* Snowclock.entitlements */,
 				8088043A2954D749007A68EF /* MP3_700KB.mp3 */,
-				808804412954E27B007A68EF /* Declare-Alarm-Info.plist */,
+				80C3EB36295CB0BD0062E103 /* snowtone.aiff */,
+				808804412954E27B007A68EF /* Snowclock-Info.plist */,
 				80D75B7E294D32A40077ACB6 /* AddAlarmView.swift */,
 				8088043329541380007A68EF /* AlarmBoxView.swift */,
 				804E41D22950FDF200890C7A /* AlarmDetailsView.swift */,
 				8088043E2954D78A007A68EF /* AVPlayerView.swift */,
 				80D75B4D294CC69F0077ACB6 /* ContentView.swift */,
 				80D75B7C294D10740077ACB6 /* ScheduleView.swift */,
-				80D75B4B294CC69F0077ACB6 /* Declare_AlarmApp.swift */,
 				804E41D42950FED600890C7A /* Formatters.swift */,
 				80D75B54294CC6A10077ACB6 /* Persistence.swift */,
 				8088043129535F7E007A68EF /* RoutineView.swift */,
+				8052E1BD295B843D00958811 /* Snowclock_v_0_0_2.xcdatamodeld */,
+				80D75B4B294CC69F0077ACB6 /* SnowclockApp.swift */,
 				80D75B4F294CC6A10077ACB6 /* Assets.xcassets */,
 				80A060F32955417800D49BC3 /* extensions */,
 				80D75B51294CC6A10077ACB6 /* Preview Content */,
-				8096AFB42950F33800FD9EFF /* testing_Declare_Alarm_v_0_0_2.xcdatamodeld */,
 			);
-			path = "Declare Alarm";
+			path = Snowclock;
 			sourceTree = "<group>";
 		};
 		80D75B51294CC6A10077ACB6 /* Preview Content */ = {
@@ -168,29 +164,29 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		80D75B60294CC6A10077ACB6 /* Declare AlarmTests */ = {
+		80D75B60294CC6A10077ACB6 /* SnowclockTests */ = {
 			isa = PBXGroup;
 			children = (
-				80D75B61294CC6A10077ACB6 /* Declare_AlarmTests.swift */,
+				80D75B61294CC6A10077ACB6 /* SnowclockTests.swift */,
 			);
-			path = "Declare AlarmTests";
+			path = SnowclockTests;
 			sourceTree = "<group>";
 		};
-		80D75B6A294CC6A10077ACB6 /* Declare AlarmUITests */ = {
+		80D75B6A294CC6A10077ACB6 /* SnowclockUITests */ = {
 			isa = PBXGroup;
 			children = (
-				80D75B6B294CC6A10077ACB6 /* Declare_AlarmUITests.swift */,
-				80D75B6D294CC6A10077ACB6 /* Declare_AlarmUITestsLaunchTests.swift */,
+				80D75B6B294CC6A10077ACB6 /* SnowclockUITests.swift */,
+				80D75B6D294CC6A10077ACB6 /* SnowclockUITestsLaunchTests.swift */,
 			);
-			path = "Declare AlarmUITests";
+			path = SnowclockUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		80D75B47294CC69F0077ACB6 /* Declare Alarm */ = {
+		80D75B47294CC69F0077ACB6 /* Snowclock */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 80D75B71294CC6A10077ACB6 /* Build configuration list for PBXNativeTarget "Declare Alarm" */;
+			buildConfigurationList = 80D75B71294CC6A10077ACB6 /* Build configuration list for PBXNativeTarget "Snowclock" */;
 			buildPhases = (
 				80D75B44294CC69F0077ACB6 /* Sources */,
 				80D75B45294CC69F0077ACB6 /* Frameworks */,
@@ -200,14 +196,14 @@
 			);
 			dependencies = (
 			);
-			name = "Declare Alarm";
-			productName = "Declare Alarm";
-			productReference = 80D75B48294CC69F0077ACB6 /* Declare Alarm.app */;
+			name = Snowclock;
+			productName = Snowclock;
+			productReference = 80D75B48294CC69F0077ACB6 /* Snowclock.app */;
 			productType = "com.apple.product-type.application";
 		};
-		80D75B5C294CC6A10077ACB6 /* Declare AlarmTests */ = {
+		80D75B5C294CC6A10077ACB6 /* SnowclockTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 80D75B74294CC6A10077ACB6 /* Build configuration list for PBXNativeTarget "Declare AlarmTests" */;
+			buildConfigurationList = 80D75B74294CC6A10077ACB6 /* Build configuration list for PBXNativeTarget "SnowclockTests" */;
 			buildPhases = (
 				80D75B59294CC6A10077ACB6 /* Sources */,
 				80D75B5A294CC6A10077ACB6 /* Frameworks */,
@@ -218,14 +214,14 @@
 			dependencies = (
 				80D75B5F294CC6A10077ACB6 /* PBXTargetDependency */,
 			);
-			name = "Declare AlarmTests";
-			productName = "Declare AlarmTests";
-			productReference = 80D75B5D294CC6A10077ACB6 /* Declare AlarmTests.xctest */;
+			name = SnowclockTests;
+			productName = SnowclockTests;
+			productReference = 80D75B5D294CC6A10077ACB6 /* SnowclockTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		80D75B66294CC6A10077ACB6 /* Declare AlarmUITests */ = {
+		80D75B66294CC6A10077ACB6 /* SnowclockUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 80D75B77294CC6A10077ACB6 /* Build configuration list for PBXNativeTarget "Declare AlarmUITests" */;
+			buildConfigurationList = 80D75B77294CC6A10077ACB6 /* Build configuration list for PBXNativeTarget "SnowclockUITests" */;
 			buildPhases = (
 				80D75B63294CC6A10077ACB6 /* Sources */,
 				80D75B64294CC6A10077ACB6 /* Frameworks */,
@@ -236,9 +232,9 @@
 			dependencies = (
 				80D75B69294CC6A10077ACB6 /* PBXTargetDependency */,
 			);
-			name = "Declare AlarmUITests";
-			productName = "Declare AlarmUITests";
-			productReference = 80D75B67294CC6A10077ACB6 /* Declare AlarmUITests.xctest */;
+			name = SnowclockUITests;
+			productName = SnowclockUITests;
+			productReference = 80D75B67294CC6A10077ACB6 /* SnowclockUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -277,9 +273,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				80D75B47294CC69F0077ACB6 /* Declare Alarm */,
-				80D75B5C294CC6A10077ACB6 /* Declare AlarmTests */,
-				80D75B66294CC6A10077ACB6 /* Declare AlarmUITests */,
+				80D75B47294CC69F0077ACB6 /* Snowclock */,
+				80D75B5C294CC6A10077ACB6 /* SnowclockTests */,
+				80D75B66294CC6A10077ACB6 /* SnowclockUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -290,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80D75B53294CC6A10077ACB6 /* Preview Assets.xcassets in Resources */,
+				80C3EB37295CB0BD0062E103 /* snowtone.aiff in Resources */,
 				80D75B50294CC6A10077ACB6 /* Assets.xcassets in Resources */,
 				8088043B2954D749007A68EF /* MP3_700KB.mp3 in Resources */,
 			);
@@ -319,17 +316,16 @@
 				80D75B55294CC6A10077ACB6 /* Persistence.swift in Sources */,
 				80D75B4E294CC69F0077ACB6 /* ContentView.swift in Sources */,
 				8088043F2954D78A007A68EF /* AVPlayerView.swift in Sources */,
+				8052E1C1295B843D00958811 /* Snowclock_v_0_0_2.xcdatamodeld in Sources */,
 				8088043429541380007A68EF /* AlarmBoxView.swift in Sources */,
 				804E41D52950FED700890C7A /* Formatters.swift in Sources */,
 				80A060F02955409100D49BC3 /* extension_Date.swift in Sources */,
 				804E41D32950FDF200890C7A /* AlarmDetailsView.swift in Sources */,
 				80D75B7D294D10740077ACB6 /* ScheduleView.swift in Sources */,
-				8088041129523A23007A68EF /* DAUserNotifications.swift in Sources */,
 				8088043629541971007A68EF /* extension_Followup.swift in Sources */,
-				80D75B4C294CC69F0077ACB6 /* Declare_AlarmApp.swift in Sources */,
+				80D75B4C294CC69F0077ACB6 /* SnowclockApp.swift in Sources */,
 				80A060F2295540C700D49BC3 /* extension_Alarm.swift in Sources */,
 				8088043229535F7E007A68EF /* RoutineView.swift in Sources */,
-				8096AFB72950F33800FD9EFF /* testing_Declare_Alarm_v_0_0_2.xcdatamodeld in Sources */,
 				80D75B7F294D32A40077ACB6 /* AddAlarmView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,7 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80D75B62294CC6A10077ACB6 /* Declare_AlarmTests.swift in Sources */,
+				80D75B62294CC6A10077ACB6 /* SnowclockTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,8 +342,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80D75B6C294CC6A10077ACB6 /* Declare_AlarmUITests.swift in Sources */,
-				80D75B6E294CC6A10077ACB6 /* Declare_AlarmUITestsLaunchTests.swift in Sources */,
+				80D75B6C294CC6A10077ACB6 /* SnowclockUITests.swift in Sources */,
+				80D75B6E294CC6A10077ACB6 /* SnowclockUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,12 +352,12 @@
 /* Begin PBXTargetDependency section */
 		80D75B5F294CC6A10077ACB6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 80D75B47294CC69F0077ACB6 /* Declare Alarm */;
+			target = 80D75B47294CC69F0077ACB6 /* Snowclock */;
 			targetProxy = 80D75B5E294CC6A10077ACB6 /* PBXContainerItemProxy */;
 		};
 		80D75B69294CC6A10077ACB6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 80D75B47294CC69F0077ACB6 /* Declare Alarm */;
+			target = 80D75B47294CC69F0077ACB6 /* Snowclock */;
 			targetProxy = 80D75B68294CC6A10077ACB6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -486,27 +482,29 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Declare Alarm/Declare Alarm.entitlements";
+				CODE_SIGN_ENTITLEMENTS = Snowclock/Snowclock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Declare Alarm/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Snowclock/Preview Content\"";
 				DEVELOPMENT_TEAM = PK7HCG46US;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Declare-Alarm-Info.plist";
+				INFOPLIST_FILE = "Snowclock-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "net.snowskeleton.Declare-Alarm";
+				PRODUCT_BUNDLE_IDENTIFIER = net.snowskeleton.Snowclock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -522,27 +520,29 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Declare Alarm/Declare Alarm.entitlements";
+				CODE_SIGN_ENTITLEMENTS = Snowclock/Snowclock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Declare Alarm/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Snowclock/Preview Content\"";
 				DEVELOPMENT_TEAM = PK7HCG46US;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Declare-Alarm-Info.plist";
+				INFOPLIST_FILE = "Snowclock-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "net.snowskeleton.Declare-Alarm";
+				PRODUCT_BUNDLE_IDENTIFIER = net.snowskeleton.Snowclock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -564,12 +564,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "net.snowskeleton.Declare-AlarmTests";
+				PRODUCT_BUNDLE_IDENTIFIER = net.snowskeleton.SnowclockTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Declare Alarm.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Declare Alarm";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snowclock.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Snowclock";
 			};
 			name = Debug;
 		};
@@ -584,12 +584,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "net.snowskeleton.Declare-AlarmTests";
+				PRODUCT_BUNDLE_IDENTIFIER = net.snowskeleton.SnowclockTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Declare Alarm.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Declare Alarm";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snowclock.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Snowclock";
 			};
 			name = Release;
 		};
@@ -602,12 +602,12 @@
 				DEVELOPMENT_TEAM = PK7HCG46US;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "net.snowskeleton.Declare-AlarmUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = net.snowskeleton.SnowclockUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Declare Alarm";
+				TEST_TARGET_NAME = Snowclock;
 			};
 			name = Debug;
 		};
@@ -620,12 +620,12 @@
 				DEVELOPMENT_TEAM = PK7HCG46US;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "net.snowskeleton.Declare-AlarmUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = net.snowskeleton.SnowclockUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Declare Alarm";
+				TEST_TARGET_NAME = Snowclock;
 			};
 			name = Release;
 		};
@@ -641,7 +641,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		80D75B71294CC6A10077ACB6 /* Build configuration list for PBXNativeTarget "Declare Alarm" */ = {
+		80D75B71294CC6A10077ACB6 /* Build configuration list for PBXNativeTarget "Snowclock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				80D75B72294CC6A10077ACB6 /* Debug */,
@@ -650,7 +650,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		80D75B74294CC6A10077ACB6 /* Build configuration list for PBXNativeTarget "Declare AlarmTests" */ = {
+		80D75B74294CC6A10077ACB6 /* Build configuration list for PBXNativeTarget "SnowclockTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				80D75B75294CC6A10077ACB6 /* Debug */,
@@ -659,7 +659,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		80D75B77294CC6A10077ACB6 /* Build configuration list for PBXNativeTarget "Declare AlarmUITests" */ = {
+		80D75B77294CC6A10077ACB6 /* Build configuration list for PBXNativeTarget "SnowclockUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				80D75B78294CC6A10077ACB6 /* Debug */,
@@ -671,15 +671,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		8096AFB42950F33800FD9EFF /* testing_Declare_Alarm_v_0_0_2.xcdatamodeld */ = {
+		8052E1BD295B843D00958811 /* Snowclock_v_0_0_2.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				8088040F29512CF5007A68EF /* Declare_Alarm 3.xcdatamodel */,
-				8096AFB52950F33800FD9EFF /* Declare_Alarm 2 .xcdatamodel */,
-				8096AFB62950F33800FD9EFF /* Declare_Alarm.xcdatamodel */,
+				8052E1BF295B843D00958811 /* Snowclock.xcdatamodel */,
 			);
-			currentVersion = 8096AFB52950F33800FD9EFF /* Declare_Alarm 2 .xcdatamodel */;
-			path = testing_Declare_Alarm_v_0_0_2.xcdatamodeld;
+			currentVersion = 8052E1BF295B843D00958811 /* Snowclock.xcdatamodel */;
+			path = Snowclock_v_0_0_2.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

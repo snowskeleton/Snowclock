@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "80D75B47294CC69F0077ACB6"
-               BuildableName = "Declare Alarm.app"
-               BlueprintName = "Declare Alarm"
+               BuildableName = "Snowclock.app"
+               BlueprintName = "Snowclock"
                ReferencedContainer = "container:Snowclock.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,8 +34,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "80D75B5C294CC6A10077ACB6"
-               BuildableName = "Declare AlarmTests.xctest"
-               BlueprintName = "Declare AlarmTests"
+               BuildableName = "SnowclockTests.xctest"
+               BlueprintName = "SnowclockTests"
                ReferencedContainer = "container:Snowclock.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -45,8 +45,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "80D75B66294CC6A10077ACB6"
-               BuildableName = "Declare AlarmUITests.xctest"
-               BlueprintName = "Declare AlarmUITests"
+               BuildableName = "SnowclockUITests.xctest"
+               BlueprintName = "SnowclockUITests"
                ReferencedContainer = "container:Snowclock.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -58,7 +58,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      ignoresPersistentStateOnLaunch = "NO"
+      ignoresPersistentStateOnLaunch = "YES"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
@@ -67,8 +67,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "80D75B47294CC69F0077ACB6"
-            BuildableName = "Declare Alarm.app"
-            BlueprintName = "Declare Alarm"
+            BuildableName = "Snowclock.app"
+            BlueprintName = "Snowclock"
             ReferencedContainer = "container:Snowclock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -84,8 +84,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "80D75B47294CC69F0077ACB6"
-            BuildableName = "Declare Alarm.app"
-            BlueprintName = "Declare Alarm"
+            BuildableName = "Snowclock.app"
+            BlueprintName = "Snowclock"
             ReferencedContainer = "container:Snowclock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

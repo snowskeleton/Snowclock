@@ -38,7 +38,7 @@ struct PersistenceController {
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "testing_Declare_Alarm_v_0_0_2")
+        container = NSPersistentContainer(name: "Snowclock_v_0_0_2")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }

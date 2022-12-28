@@ -20,8 +20,7 @@ struct ContentView: View {
     private var noalarms: FetchedResults<Alarm>
     var nextAlarm: Optional<Alarm> {
         let val = noalarms.filter( {$0.enabled} )
-        let max = val.max(by: { $0.time! < $1.time! })
-        return max
+        return val.min(by: { $0.time! > $1.time! })
     }
     
     @FetchRequest(
@@ -69,16 +68,32 @@ struct ContentView: View {
 //                print(nextAlarm!.time!.description)
             }
             
-            let sound = Bundle.main.path(forResource: "MP3_700KB", ofType: "mp3")
+            let sound = Bundle.main.path(forResource: "snowtone", ofType: "aiff")
             audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
 
             switch newScenePhase {
-            case .active:
-                setPlayer(to: nextAlarm!, with: audioPlayer)
-            case .inactive:
-                setPlayer(to: nextAlarm!, with: audioPlayer)
-            case .background:
-                setPlayer(to: nextAlarm!, with: audioPlayer)
+            case .active, .background, .inactive:
+                UNUserNotificationCenter.current().removeAllDeliveredNotifications() //get rid of current cruft
+                UNUserNotificationCenter.current().getPendingNotificationRequests { notes in //get rid of upcoming cruft
+                    for n in notes {
+//                        if n.content.threadIdentifier
+                    }
+                }
+                // remove sending notifications
+                break
+//                let ai = AVAudioSession.sharedInstance()
+//                try? ai.setCategory(.playAndRecord, options: [.duckOthers, .defaultToSpeaker])
+//                try? ai.setActive(true)
+//
+//                let cur = audioPlayer.deviceCurrentTime
+//                let add = nextAlarm?.secondsTilNextOccurance() ?? 0
+//                let new = cur + add
+//
+//                print("Current time: " + String(describing: cur))
+//                print("new time in: " + String(describing: Int(new - cur)))
+//                if add != 0 {
+//                    audioPlayer.play(atTime: new)
+//                }
             @unknown default:
                 print("Something weird happened")
             }
@@ -94,25 +109,6 @@ struct ContentView: View {
         withAnimation {
             offsets.map { alarms[$0] }.forEach(viewContext.delete)
         }
-    }
-    
-    fileprivate func getEnabledAlarms() -> FetchRequest<Alarm> {
-        let fr: FetchRequest<Alarm>
-        let request: NSFetchRequest<Alarm> = Alarm.fetchRequest()
-        var alarms: FetchedResults<Alarm> { fr.wrappedValue }
-        
-        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [
-            NSPredicate(format: "enabled == %@", "yes")
-        ])
-        
-        request.sortDescriptors = [
-            NSSortDescriptor(
-                keyPath: \Alarm.time,
-                ascending: true
-            )
-        ]
-        
-        return FetchRequest<Alarm>(fetchRequest: request)
     }
 }
 
