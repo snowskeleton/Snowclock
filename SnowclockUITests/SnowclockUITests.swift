@@ -1,13 +1,13 @@
 //
-//  Declare_AlarmUITests.swift
-//  Declare AlarmUITests
+//  SnowclockUITests.swift
+//  SnowclockUITests
 //
 //  Created by snow on 12/16/22.
 //
 
 import XCTest
 
-final class Declare_AlarmUITests: XCTestCase {
+final class SnowclockUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

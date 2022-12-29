@@ -1,13 +1,13 @@
 //
-//  Declare_AlarmUITestsLaunchTests.swift
-//  Declare AlarmUITests
+//  SnowclockUITestsLaunchTests.swift
+//  SnowclockUITests
 //
 //  Created by snow on 12/16/22.
 //
 
 import XCTest
 
-final class Declare_AlarmUITestsLaunchTests: XCTestCase {
+final class SnowclockUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

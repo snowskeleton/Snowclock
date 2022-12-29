@@ -1,13 +1,13 @@
 //
 //  ContentView.swift
-//  Declare Alarm
+//  Snowclock
 //
 //  Created by snow on 12/16/22.
 //
 
 import SwiftUI
 import CoreData
-import AVKit
+//import AVKit
 
 
 struct ContentView: View {
@@ -28,7 +28,7 @@ struct ContentView: View {
         animation: .default)
     private var alarms: FetchedResults<Alarm>
     @State var showAddAlarm = false
-    @State var audioPlayer: AVAudioPlayer!
+//    @State var audioPlayer: AVAudioPlayer!
     
     
     init(preview: Bool = false, showSheet: Bool = false) {
@@ -60,44 +60,44 @@ struct ContentView: View {
                 }
             }
         }
-        .onChange(of: scenePhase) { (newScenePhase) in
-            if nextAlarm == nil {
-                print("Nothing scheduled")
-                return
-            } else {
-//                print(nextAlarm!.time!.description)
-            }
-            
-            let sound = Bundle.main.path(forResource: "snowtone", ofType: "aiff")
-            audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
-
-            switch newScenePhase {
-            case .active, .background, .inactive:
-                UNUserNotificationCenter.current().removeAllDeliveredNotifications() //get rid of current cruft
-                UNUserNotificationCenter.current().getPendingNotificationRequests { notes in //get rid of upcoming cruft
-                    for n in notes {
-//                        if n.content.threadIdentifier
-                    }
-                }
-                // remove sending notifications
-                break
-//                let ai = AVAudioSession.sharedInstance()
-//                try? ai.setCategory(.playAndRecord, options: [.duckOthers, .defaultToSpeaker])
-//                try? ai.setActive(true)
+//        .onChange(of: scenePhase) { (newScenePhase) in
+//            if nextAlarm == nil {
+//                print("Nothing scheduled")
+//                return
+//            } else {
+////                print(nextAlarm!.time!.description)
+//            }
 //
-//                let cur = audioPlayer.deviceCurrentTime
-//                let add = nextAlarm?.secondsTilNextOccurance() ?? 0
-//                let new = cur + add
+//            let sound = Bundle.main.path(forResource: "snowtone", ofType: "aiff")
+//            audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
 //
-//                print("Current time: " + String(describing: cur))
-//                print("new time in: " + String(describing: Int(new - cur)))
-//                if add != 0 {
-//                    audioPlayer.play(atTime: new)
+//            switch newScenePhase {
+//            case .active, .background, .inactive:
+//                UNUserNotificationCenter.current().removeAllDeliveredNotifications() //get rid of current cruft
+//                UNUserNotificationCenter.current().getPendingNotificationRequests { notes in //get rid of upcoming cruft
+//                    for n in notes {
+////                        if n.content.threadIdentifier
+//                    }
 //                }
-            @unknown default:
-                print("Something weird happened")
-            }
-        }
+//                // remove sending notifications
+//                break
+////                let ai = AVAudioSession.sharedInstance()
+////                try? ai.setCategory(.playAndRecord, options: [.duckOthers, .defaultToSpeaker])
+////                try? ai.setActive(true)
+////
+////                let cur = audioPlayer.deviceCurrentTime
+////                let add = nextAlarm?.secondsTilNextOccurance() ?? 0
+////                let new = cur + add
+////
+////                print("Current time: " + String(describing: cur))
+////                print("new time in: " + String(describing: Int(new - cur)))
+////                if add != 0 {
+////                    audioPlayer.play(atTime: new)
+////                }
+//            @unknown default:
+//                print("Something weird happened")
+//            }
+//        }
         .sheet(isPresented: $showAddAlarm) {
             AddAlarmView()
                 .presentationDetents([.medium])

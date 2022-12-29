@@ -1,6 +1,6 @@
 //
 //  AlarmSetterView.swift
-//  Declare Alarm
+//  Snowclock
 //
 //  Created by snow on 12/16/22.
 //

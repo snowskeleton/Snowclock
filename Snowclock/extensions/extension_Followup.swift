@@ -1,6 +1,6 @@
 //
 //  Extensions.swift
-//  Declare Alarm
+//  Snowclock
 //
 //  Created by snow on 12/21/22.
 //

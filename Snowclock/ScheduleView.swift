@@ -1,6 +1,6 @@
 //
 //  DayOfTheWeekPicker.swift
-//  Declare Alarm
+//  Snowclock
 //
 //  Created by Isaac Lyons on 10/1/20.
 //

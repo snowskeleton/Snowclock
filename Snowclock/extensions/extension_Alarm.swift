@@ -1,6 +1,6 @@
 //
 //  extension_Alarm.swift
-//  Declare Alarm
+//  Snowclock
 //
 //  Created by snow on 12/22/22.
 //
@@ -25,8 +25,8 @@ extension Alarm {
                     var triggerDate = Calendar.current.dateComponents([.hour, .minute, .day, .weekday], from: fireDate!)
                     triggerDate.minute! += Int(fu.delay)
                     let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
-                    let fireDate = trigger.nextTriggerDate()
-                    times.append(fu.time)
+                    let newFireDate = trigger.nextTriggerDate()
+                    times.append(newFireDate!)
                 }
             }
         }
@@ -109,6 +109,7 @@ extension Alarm {
         content.body = self.name!
         content.badge = 0
         content.interruptionLevel = .timeSensitive
+        content.categoryIdentifier = "ALARM"
         content.userInfo = [
             "SOME_TAG": self.id?.uuidString ?? "no ID"
         ]
