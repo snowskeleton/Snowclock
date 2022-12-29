@@ -9,7 +9,6 @@ import SwiftUI
 import CoreData
 
 struct AlarmDetailsView: View {
-//    @Environment(\.managedObjectContext) private var viewContext: NSManagedObjectContext
     @Environment(\.dismiss) private var dismiss
     @Binding var alarm: Alarm
     @State var showSchedule: Bool = false
