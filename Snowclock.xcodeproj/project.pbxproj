@@ -32,6 +32,7 @@
 		80DD2C94295F75C90037CAF9 /* Snowclock-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 808804412954E27B007A68EF /* Snowclock-Info.plist */; };
 		80DD2C95295F75CA0037CAF9 /* Snowclock-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 808804412954E27B007A68EF /* Snowclock-Info.plist */; };
 		80DD2C97295F939A0037CAF9 /* extension_CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DD2C96295F939A0037CAF9 /* extension_CoreData.swift */; };
+		80DD2C99295F95B40037CAF9 /* extension_Alarm_Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DD2C98295F95B40037CAF9 /* extension_Alarm_Notifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		80D75B7C294D10740077ACB6 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		80D75B7E294D32A40077ACB6 /* AddAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmView.swift; sourceTree = "<group>"; };
 		80DD2C96295F939A0037CAF9 /* extension_CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension_CoreData.swift; sourceTree = "<group>"; };
+		80DD2C98295F95B40037CAF9 /* extension_Alarm_Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension_Alarm_Notifications.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				80A060EF2955409100D49BC3 /* extension_Date.swift */,
 				8088043529541971007A68EF /* extension_Followup.swift */,
 				80DD2C96295F939A0037CAF9 /* extension_CoreData.swift */,
+				80DD2C98295F95B40037CAF9 /* extension_Alarm_Notifications.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80DD2C99295F95B40037CAF9 /* extension_Alarm_Notifications.swift in Sources */,
 				80D75B55294CC6A10077ACB6 /* Persistence.swift in Sources */,
 				80D75B4E294CC69F0077ACB6 /* ContentView.swift in Sources */,
 				8088043F2954D78A007A68EF /* AVPlayerView.swift in Sources */,

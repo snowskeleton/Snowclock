@@ -19,25 +19,29 @@ final class SnowclockTests: XCTestCase {
         XCTAssertTrue(alarm.allTimes.count == 1)
 
         // with followups
-        for num in [7, 11, 140] {
-            alarm.addFollowup(with: num)
-        }
-        XCTAssertTrue(alarm.allTimes.count == 4)
+        for num in [7, 11, 140] { alarm.addFollowup(with: num) }
+        XCTAssert(alarm.allTimes.count == 4)
+        
+        // if we fail, this checks if we generate an incorrect number vs generate nothing (0)
+        XCTAssert(alarm.allTimes.count != 0)
 
         // more days with followups
-        alarm.schedule![1] = true
-        alarm.schedule![2] = true
+        for i in [1, 2] { alarm.schedule![i] = true }
         XCTAssertTrue(alarm.allTimes.count == 12)
 
     }
     
     func testNumericalWeekdays() throws {
-        let alarm = alarmMaker(context: PersistenceController.preview.container.viewContext)
+        let alarm = alarmMaker(context: nil)
         XCTAssertTrue(alarm.numericalWeekdays == [])
         alarm.schedule![0] = true
         XCTAssertTrue(alarm.numericalWeekdays == [1])
     }
   
+    func testLatestFollowup() throws {
+        let alarm = alarmMaker(context: nil)
+        alarm.addFollowup(with: 5)
+    }
 //
 //    func testExample() throws {
 //        // This is an example of a functional test case.
