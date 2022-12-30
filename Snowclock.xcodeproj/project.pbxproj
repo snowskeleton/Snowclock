@@ -28,6 +28,10 @@
 		80D75B6E294CC6A10077ACB6 /* SnowclockUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B6D294CC6A10077ACB6 /* SnowclockUITestsLaunchTests.swift */; };
 		80D75B7D294D10740077ACB6 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B7C294D10740077ACB6 /* ScheduleView.swift */; };
 		80D75B7F294D32A40077ACB6 /* AddAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B7E294D32A40077ACB6 /* AddAlarmView.swift */; };
+		80DD2C93295F75C80037CAF9 /* Snowclock-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 808804412954E27B007A68EF /* Snowclock-Info.plist */; };
+		80DD2C94295F75C90037CAF9 /* Snowclock-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 808804412954E27B007A68EF /* Snowclock-Info.plist */; };
+		80DD2C95295F75CA0037CAF9 /* Snowclock-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 808804412954E27B007A68EF /* Snowclock-Info.plist */; };
+		80DD2C97295F939A0037CAF9 /* extension_CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DD2C96295F939A0037CAF9 /* extension_CoreData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +78,7 @@
 		80D75B6D294CC6A10077ACB6 /* SnowclockUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowclockUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		80D75B7C294D10740077ACB6 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		80D75B7E294D32A40077ACB6 /* AddAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmView.swift; sourceTree = "<group>"; };
+		80DD2C96295F939A0037CAF9 /* extension_CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension_CoreData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +112,7 @@
 				80A060F1295540C700D49BC3 /* extension_Alarm.swift */,
 				80A060EF2955409100D49BC3 /* extension_Date.swift */,
 				8088043529541971007A68EF /* extension_Followup.swift */,
+				80DD2C96295F939A0037CAF9 /* extension_CoreData.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -286,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80D75B53294CC6A10077ACB6 /* Preview Assets.xcassets in Resources */,
+				80DD2C94295F75C90037CAF9 /* Snowclock-Info.plist in Resources */,
 				80C3EB37295CB0BD0062E103 /* snowtone.aiff in Resources */,
 				80D75B50294CC6A10077ACB6 /* Assets.xcassets in Resources */,
 				8088043B2954D749007A68EF /* MP3_700KB.mp3 in Resources */,
@@ -296,6 +303,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80DD2C93295F75C80037CAF9 /* Snowclock-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80DD2C95295F75CA0037CAF9 /* Snowclock-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +335,7 @@
 				80D75B4C294CC69F0077ACB6 /* SnowclockApp.swift in Sources */,
 				80A060F2295540C700D49BC3 /* extension_Alarm.swift in Sources */,
 				8088043229535F7E007A68EF /* RoutineView.swift in Sources */,
+				80DD2C97295F939A0037CAF9 /* extension_CoreData.swift in Sources */,
 				80D75B7F294D32A40077ACB6 /* AddAlarmView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -26,7 +26,9 @@ extension Alarm {
                     triggerDate.minute! += Int(fu.delay)
                     let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
                     let newFireDate = trigger.nextTriggerDate()
-                    times.append(newFireDate!)
+                    if newFireDate != nil {
+                        times.append(newFireDate!)
+                    }
                 }
             }
         }
@@ -142,6 +144,11 @@ extension Alarm {
         } else {
             return 0.0
         }
+    }
+    
+    func addFollowup(with delay: Int) -> Void {
+        let _ = followupMaker(context: self.managedObjectContext, alarm: self)
+        
     }
 }
 

@@ -6,29 +6,38 @@
 //
 
 import XCTest
+import CoreData
 @testable import Snowclock
 
 final class SnowclockTests: XCTestCase {
-//
-//    override func setUpWithError() throws {
-//    }
-//
-//    override func tearDownWithError() throws {
-//    }
-    
-//    func testObjectsExist() throws {
-//        let alarms = PersistenceController.preview.container.viewContext.registeredObjects
-//        XCTAssertTrue(alarms.count != 0)
-//        XCTAssertFalse(alarms.count == 0)
-//    }
+    func testAllTimes() throws {
+        let alarm = alarmMaker(context: nil)
+        XCTAssertTrue(alarm.allTimes.count == 0)
 
-    func testAllTimesFiltering() throws {
-        // test that it returns the most recent rather than any other
-        let date = Date()
-        let alarm = alarmMaker(context: nil, time: date)
-        let allTimes = alarm.allTimes
-        XCTAssertTrue(allTimes.count == 0)
+        // one scheduled day
+        alarm.schedule![0] = true
+        XCTAssertTrue(alarm.allTimes.count == 1)
+
+        // with followups
+        for num in [7, 11, 140] {
+            alarm.addFollowup(with: num)
+        }
+        XCTAssertTrue(alarm.allTimes.count == 4)
+
+        // more days with followups
+        alarm.schedule![1] = true
+        alarm.schedule![2] = true
+        XCTAssertTrue(alarm.allTimes.count == 12)
+
     }
+    
+    func testNumericalWeekdays() throws {
+        let alarm = alarmMaker(context: PersistenceController.preview.container.viewContext)
+        XCTAssertTrue(alarm.numericalWeekdays == [])
+        alarm.schedule![0] = true
+        XCTAssertTrue(alarm.numericalWeekdays == [1])
+    }
+  
 //
 //    func testExample() throws {
 //        // This is an example of a functional test case.

@@ -69,11 +69,8 @@ struct RoutineView: View {
     }
     
     fileprivate func addFollowup() {
-        let highest = alarm.latestFollowup()
-        let fol = Followup(context: viewContext)
-        fol.id = UUID()
-        fol.delay = (highest?.delay ?? 0) + 5
-        fol.alarm = alarm
+        let delay = (alarm.latestFollowup()?.delay ?? 0) + 5
+        alarm.addFollowup(with: Int(delay))
     }
     
     fileprivate func someDelete(offsets: IndexSet) {
