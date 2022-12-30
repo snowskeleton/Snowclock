@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import AVKit
 
 
 struct ContentView: View {
@@ -14,20 +15,30 @@ struct ContentView: View {
     @Environment(\.scenePhase) private var scenePhase
     
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Alarm.time, ascending: false)],
+        sortDescriptors: [
+            NSSortDescriptor(
+                keyPath: \Alarm.time,
+                ascending: false
+            )],
         animation: .default)
     private var noalarms: FetchedResults<Alarm>
+    
     var nextAlarm: Optional<Alarm> {
         let val = noalarms.filter( {$0.enabled} )
         return val.min(by: { $0.time! > $1.time! })
     }
     
+    
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Alarm.time, ascending: true)],
+        sortDescriptors: [
+            NSSortDescriptor(
+                keyPath: \Alarm.time,
+                ascending: true
+            )],
         animation: .default)
     private var alarms: FetchedResults<Alarm>
     @State var showAddAlarm = false
-    
+    @State var audioPlayer: AVAudioPlayer!
     
     init(preview: Bool = false, showSheet: Bool = false) {
         _showAddAlarm = State(initialValue: showSheet)
@@ -58,13 +69,34 @@ struct ContentView: View {
                 }
             }
         }
+        .onChange(of: scenePhase) { phase in
+            let delta = nextAlarm?.secondsTilNextOccurance()
+            if delta != 0.0 {
+                let sound = Bundle.main.path(forResource: "snowtone", ofType: "aiff")
+                audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+                
+                let ai = AVAudioSession.sharedInstance()
+                try? ai.setCategory(.playAndRecord, options: [.duckOthers, .defaultToSpeaker, .interruptSpokenAudioAndMixWithOthers])
+                try? ai.setActive(true)
+                
+                let now = audioPlayer.deviceCurrentTime
+                let then = now + delta!
+                print(delta!)
+                print("-")
+                print(now)
+                print("=")
+                print(delta! - now)
+                
+                audioPlayer.play(atTime: then)
+            }
+        }
         .sheet(isPresented: $showAddAlarm) {
             AddAlarmView()
                 .presentationDetents([.medium])
                 .environment(\.managedObjectContext, viewContext)
         }
     }
- 
+    
     fileprivate func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { alarms[$0] }.forEach(viewContext.delete)

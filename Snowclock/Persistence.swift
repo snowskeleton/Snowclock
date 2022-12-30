@@ -14,15 +14,11 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for _ in 0..<5 {
-            let newItem = Alarm(context: viewContext)
-            newItem.time = Date()
-            newItem.id = UUID()
-            newItem.schedule = NO_REPEATS
-            newItem.enabled = true
+            let alarm = alarmMaker(context: viewContext)
             let f = Followup(context: viewContext)
             f.delay = 2
             f.id = UUID()
-            f.alarm = newItem
+            f.alarm = alarm
         }
         do {
             try viewContext.save()
