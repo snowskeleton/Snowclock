@@ -18,9 +18,13 @@ public let shortDate: DateFormatter = {
 
 public let NO_REPEATS = [false,false,false,false,false,false,false]
 
-public func alarmMaker(context: NSManagedObjectContext, time: Date = Date()) -> Alarm {
-    // caller supplied values
-    let alarm = Alarm(context: context)
+public func alarmMaker(
+    context: NSManagedObjectContext?,
+    time: Date = Date()
+) -> Alarm {
+    let _context = context != nil ? context! : PersistenceController.preview.container.viewContext
+    
+    let alarm = Alarm(context: _context)
     alarm.time = time
     
     // default values
@@ -31,3 +35,9 @@ public func alarmMaker(context: NSManagedObjectContext, time: Date = Date()) -> 
     
     return alarm
 }
+
+public func nextAlarm(from alarms: FetchedResults<Alarm>) -> Optional<Alarm> {
+    let val = alarms.filter( {$0.enabled} )
+    return val.min(by: { $0.time! > $1.time! })
+}
+    

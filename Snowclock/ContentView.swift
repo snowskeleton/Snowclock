@@ -13,22 +13,6 @@ import AVKit
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext: NSManagedObjectContext
     @Environment(\.scenePhase) private var scenePhase
-    
-    @FetchRequest(
-        sortDescriptors: [
-            NSSortDescriptor(
-                keyPath: \Alarm.time,
-                ascending: false
-            )],
-        animation: .default)
-    private var noalarms: FetchedResults<Alarm>
-    
-    var nextAlarm: Optional<Alarm> {
-        let val = noalarms.filter( {$0.enabled} )
-        return val.min(by: { $0.time! > $1.time! })
-    }
-    
-    
     @FetchRequest(
         sortDescriptors: [
             NSSortDescriptor(
@@ -70,13 +54,19 @@ struct ContentView: View {
             }
         }
         .onChange(of: scenePhase) { phase in
-            let delta = nextAlarm?.secondsTilNextOccurance()
+            let delta = nextAlarm(from: alarms)?.secondsTilNextOccurance()
             if delta != 0.0 {
                 let sound = Bundle.main.path(forResource: "snowtone", ofType: "aiff")
                 audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
                 
                 let ai = AVAudioSession.sharedInstance()
-                try? ai.setCategory(.playAndRecord, options: [.duckOthers, .defaultToSpeaker, .interruptSpokenAudioAndMixWithOthers])
+                try? ai.setCategory(
+                    .playAndRecord,
+                    options: [
+                        .duckOthers,
+                        .defaultToSpeaker,
+                        .interruptSpokenAudioAndMixWithOthers
+                    ])
                 try? ai.setActive(true)
                 
                 let now = audioPlayer.deviceCurrentTime
