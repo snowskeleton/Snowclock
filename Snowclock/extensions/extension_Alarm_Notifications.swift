@@ -56,30 +56,26 @@ extension Alarm {
         for time in self.allTimes {
             // schedule a separate notification for every separate weekday
             for day in self.numericalWeekdays {
-                //                let triggers = setSixty(at: time)
                 var triggerDate = Calendar.current.dateComponents([.hour,.minute], from: time)
                 triggerDate.weekday = day
                 let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
-                let triggers = expandTriggers(from: trigger.nextTriggerDate()!)
-                for trigger in triggers {
-                    let identifier = UUID().uuidString
-                    let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-                    UNUserNotificationCenter.current().add(request)
-                    tempArray.append(identifier)
-                }
+                let identifier = UUID().uuidString
+                let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+                UNUserNotificationCenter.current().add(request)
+                tempArray.append(identifier)
             }
         }
         self.notificationsIDs = tempArray
     }
 }
 
-fileprivate func expandTriggers(from trigger: Date) -> [UNCalendarNotificationTrigger] {
-    var tempArray: [UNCalendarNotificationTrigger] = []
-    for num in 0..<60 {
-        var triggerDate = Calendar.current.dateComponents([.hour, .minute, .day, .weekday], from: trigger)
-        triggerDate.second = num
-        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-        tempArray.append(trigger)
-    }
-    return tempArray
-}
+//fileprivate func expandTriggers(from trigger: Date) -> [UNCalendarNotificationTrigger] {
+//    var tempArray: [UNCalendarNotificationTrigger] = []
+//    for num in 0..<1 {
+//        var triggerDate = Calendar.current.dateComponents([.hour, .minute, .day, .weekday], from: trigger)
+//        triggerDate.second = num
+//        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+//        tempArray.append(trigger)
+//    }
+//    return tempArray
+//}

@@ -69,7 +69,11 @@ struct RoutineView: View {
     }
     
     fileprivate func addFollowup() {
-        let delay = (alarm.latestFollowup()?.delay ?? 0) + 5
+        let fu = alarm.latestFollowup()
+        let idelay = fu?.delay ?? 0
+        let delay = idelay + 5
+        print(idelay)
+        print(delay)
         alarm.addFollowup(with: Int(delay))
     }
     

@@ -53,33 +53,6 @@ struct ContentView: View {
                 }
             }
         }
-        .onChange(of: scenePhase) { phase in
-            let delta = nextAlarm(from: alarms)?.secondsTilNextOccurance()
-            if delta != 0.0 {
-                let sound = Bundle.main.path(forResource: "snowtone", ofType: "aiff")
-                audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
-                
-                let ai = AVAudioSession.sharedInstance()
-                try? ai.setCategory(
-                    .playAndRecord,
-                    options: [
-                        .duckOthers,
-                        .defaultToSpeaker,
-                        .interruptSpokenAudioAndMixWithOthers
-                    ])
-                try? ai.setActive(true)
-                
-                let now = audioPlayer.deviceCurrentTime
-                let then = now + delta!
-                print(delta!)
-                print("-")
-                print(now)
-                print("=")
-                print(delta! - now)
-                
-                audioPlayer.play(atTime: then)
-            }
-        }
         .sheet(isPresented: $showAddAlarm) {
             AddAlarmView()
                 .presentationDetents([.medium])

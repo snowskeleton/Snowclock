@@ -10,6 +10,11 @@ import SwiftUI
 
 extension Followup {
     
+    convenience init(to alarm: Alarm) {
+        self.init()
+        self.alarm = alarm
+    }
+    
     var time: Date {
         let atime = self.alarm!.time
         var offset = DateComponents()

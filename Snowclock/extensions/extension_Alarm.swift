@@ -8,6 +8,7 @@
 import Foundation
 import UserNotifications
 import AVKit
+import CoreData
 
 extension Alarm {
     var allTimes: [Date] {
@@ -85,8 +86,22 @@ extension Alarm {
     }
     
     func addFollowup(with delay: Int) -> Void {
-        let _ = followupMaker(context: self.managedObjectContext, alarm: self)
+        let _ = followupMaker(context: self.managedObjectContext, delay: Int64(delay), alarm: self)
         
     }
+}
+
+public func followupMaker(
+    context: NSManagedObjectContext?,
+    delay: Int64 = 5,
+    alarm: Alarm
+) -> Followup {
+    let _context = context != nil ? context! : PersistenceController.preview.container.viewContext
+    
+    let fu = Followup(context: _context)
+    fu.delay = delay
+    fu.id = UUID()
+    fu.alarm = alarm
+    return fu
 }
 
