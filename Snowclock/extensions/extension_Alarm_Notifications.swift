@@ -64,6 +64,15 @@ extension Alarm {
                 UNUserNotificationCenter.current().add(request)
                 tempArray.append(identifier)
             }
+            if self.numericalWeekdays.isEmpty {
+                // if no schedule is chosen, but the alarm is still enabled, schedule a non-repeating alarm
+                let triggerDate = Calendar.current.dateComponents([.hour,.minute], from: time)
+                let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+                let identifier = UUID().uuidString
+                let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+                UNUserNotificationCenter.current().add(request)
+                tempArray.append(identifier)
+            }
         }
         self.notificationsIDs = tempArray
     }

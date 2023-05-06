@@ -29,7 +29,6 @@
 		80D75B7D294D10740077ACB6 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B7C294D10740077ACB6 /* ScheduleView.swift */; };
 		80D75B7F294D32A40077ACB6 /* AddAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B7E294D32A40077ACB6 /* AddAlarmView.swift */; };
 		80DD2C93295F75C80037CAF9 /* Snowclock-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 808804412954E27B007A68EF /* Snowclock-Info.plist */; };
-		80DD2C94295F75C90037CAF9 /* Snowclock-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 808804412954E27B007A68EF /* Snowclock-Info.plist */; };
 		80DD2C95295F75CA0037CAF9 /* Snowclock-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 808804412954E27B007A68EF /* Snowclock-Info.plist */; };
 		80DD2C97295F939A0037CAF9 /* extension_CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DD2C96295F939A0037CAF9 /* extension_CoreData.swift */; };
 		80DD2C99295F95B40037CAF9 /* extension_Alarm_Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DD2C98295F95B40037CAF9 /* extension_Alarm_Notifications.swift */; };
@@ -254,7 +253,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					80D75B47294CC69F0077ACB6 = {
 						CreatedOnToolsVersion = 14.2;
@@ -295,7 +294,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				80D75B53294CC6A10077ACB6 /* Preview Assets.xcassets in Resources */,
-				80DD2C94295F75C90037CAF9 /* Snowclock-Info.plist in Resources */,
 				80C3EB37295CB0BD0062E103 /* snowtone.aiff in Resources */,
 				80D75B50294CC6A10077ACB6 /* Assets.xcassets in Resources */,
 				8088043B2954D749007A68EF /* MP3_700KB.mp3 in Resources */,
