@@ -27,6 +27,9 @@ struct AlarmBoxView: View {
                 VStack {
                     Spacer()
                     Toggle(isOn: $alarm.enabled) {}
+                        .onChange(of: alarm.enabled) { _ in
+                            alarm.updateNotifications()
+                        }
                 }
             }
             HStack {
