@@ -19,20 +19,20 @@ struct AlarmBoxView: View {
         return s
     }
     var body: some View {
-        HStack {
-            VStack {
-                HStack {
-                    Text(alarm.time!, formatter: shortDate)
-                        .font(.title)
-                    Text(alarm.stringyFollowups)
+        VStack {
+            HStack {
+                Text(alarm.time!, formatter: shortDate)
+                    .font(.title)
+                Text(alarm.stringyFollowups)
+                VStack {
                     Spacer()
-                }
-                HStack {
-                    Text(showthis)
-                    Spacer()
+                    Toggle(isOn: $alarm.enabled) {}
                 }
             }
-            Toggle(isOn: $alarm.enabled) {}
+            HStack {
+                Text(showthis)
+                Spacer()
+            }
         }
         .foregroundColor(alarm.enabled ? Color.primary : Color.secondary)
         .italic(!alarm.enabled)
