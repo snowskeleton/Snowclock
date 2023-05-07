@@ -57,23 +57,40 @@ extension Alarm {
             for time in self.allTimes {
                 // schedule a separate notification for every separate weekday
                 for day in self.numericalWeekdays {
-                    var triggerDate = Calendar.current.dateComponents([.hour,.minute], from: time)
+                    var triggerDate = Calendar.current.dateComponents(
+                        [.hour,.minute],
+                        from: time
+                    )
                     triggerDate.weekday = day
-                    let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
-                    let identifier = UUID().uuidString
-                    let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+                    let trigger = UNCalendarNotificationTrigger(
+                        dateMatching: triggerDate,
+                        repeats: true
+                    )
+                    let request = UNNotificationRequest(
+                        identifier: UUID().uuidString,
+                        content: content,
+                        trigger: trigger
+                    )
                     UNUserNotificationCenter.current().add(request)
-                    tempArray.append(identifier)
+                    tempArray.append(request.identifier)
                 }
             }
         } else {
             // if no schedule is chosen, but the alarm is still enabled, schedule a non-repeating alarm
-            let triggerDate = Calendar.current.dateComponents([.hour,.minute], from: self.time!)
-            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-            let identifier = UUID().uuidString
-            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+            let trigger = UNCalendarNotificationTrigger(
+                dateMatching: Calendar.current.dateComponents(
+                    [.hour,.minute],
+                    from: self.time!
+                ),
+                repeats: false
+            )
+            let request = UNNotificationRequest(
+                identifier: UUID().uuidString,
+                content: content,
+                trigger: trigger
+            )
             UNUserNotificationCenter.current().add(request)
-            tempArray.append(identifier)
+            tempArray.append(request.identifier)
         }
         self.notificationsIDs = tempArray
     }
