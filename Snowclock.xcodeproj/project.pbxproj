@@ -10,6 +10,7 @@
 		804E41D32950FDF200890C7A /* AlarmDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E41D22950FDF200890C7A /* AlarmDetailsView.swift */; };
 		804E41D52950FED700890C7A /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E41D42950FED600890C7A /* Formatters.swift */; };
 		8052E1C1295B843D00958811 /* Snowclock_v_0_0_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8052E1BD295B843D00958811 /* Snowclock_v_0_0_2.xcdatamodeld */; };
+		807837EB2A081D7400E88FBC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807837EA2A081D7400E88FBC /* SettingsView.swift */; };
 		8088043229535F7E007A68EF /* RoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088043129535F7E007A68EF /* RoutineView.swift */; };
 		8088043429541380007A68EF /* AlarmBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088043329541380007A68EF /* AlarmBoxView.swift */; };
 		8088043629541971007A68EF /* extension_Followup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088043529541971007A68EF /* extension_Followup.swift */; };
@@ -55,6 +56,7 @@
 		804E41D22950FDF200890C7A /* AlarmDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailsView.swift; sourceTree = "<group>"; };
 		804E41D42950FED600890C7A /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		8052E1BF295B843D00958811 /* Snowclock.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Snowclock.xcdatamodel; sourceTree = "<group>"; };
+		807837EA2A081D7400E88FBC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8088043129535F7E007A68EF /* RoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineView.swift; sourceTree = "<group>"; };
 		8088043329541380007A68EF /* AlarmBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmBoxView.swift; sourceTree = "<group>"; };
 		8088043529541971007A68EF /* extension_Followup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension_Followup.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				8088043A2954D749007A68EF /* MP3_700KB.mp3 */,
 				80C3EB36295CB0BD0062E103 /* snowtone.aiff */,
 				808804412954E27B007A68EF /* Snowclock-Info.plist */,
+				807837EA2A081D7400E88FBC /* SettingsView.swift */,
 				80D75B4B294CC69F0077ACB6 /* SnowclockApp.swift */,
 				80D75B7E294D32A40077ACB6 /* AddAlarmView.swift */,
 				8088043329541380007A68EF /* AlarmBoxView.swift */,
@@ -328,6 +331,7 @@
 				80D75B4E294CC69F0077ACB6 /* ContentView.swift in Sources */,
 				8088043F2954D78A007A68EF /* AVPlayerView.swift in Sources */,
 				8052E1C1295B843D00958811 /* Snowclock_v_0_0_2.xcdatamodeld in Sources */,
+				807837EB2A081D7400E88FBC /* SettingsView.swift in Sources */,
 				8088043429541380007A68EF /* AlarmBoxView.swift in Sources */,
 				804E41D52950FED700890C7A /* Formatters.swift in Sources */,
 				80A060F02955409100D49BC3 /* extension_Date.swift in Sources */,
@@ -506,10 +510,10 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -545,10 +549,10 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

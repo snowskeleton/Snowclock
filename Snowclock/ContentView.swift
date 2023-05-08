@@ -22,6 +22,7 @@ struct ContentView: View {
         animation: .default)
     private var alarms: FetchedResults<Alarm>
     @State var showAddAlarm = false
+    @State var showSettings = false
     @State var audioPlayer: AVAudioPlayer!
     
     init(preview: Bool = false, showSheet: Bool = false) {
@@ -41,6 +42,17 @@ struct ContentView: View {
                 }.onDelete(perform: deleteItems)
             }
             .toolbar {
+                ToolbarItemGroup(placement: .navigationBarLeading) {
+                    Button(
+                        action: { showSettings = true },
+                        label:  {
+                            Image(systemName: "gear.circle")
+                                .foregroundColor(Color.secondary)
+                        }
+                    )
+                }
+            }
+            .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
                     Button(
                         action: { showAddAlarm = true },
@@ -56,6 +68,10 @@ struct ContentView: View {
         .sheet(isPresented: $showAddAlarm) {
             AddAlarmView()
                 .presentationDetents([.medium])
+                .environment(\.managedObjectContext, viewContext)
+        }
+        .sheet(isPresented: $showSettings) {
+            SettingsView()
                 .environment(\.managedObjectContext, viewContext)
         }
     }
