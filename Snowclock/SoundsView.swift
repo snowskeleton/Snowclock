@@ -61,19 +61,22 @@ struct SoundsView: View {
     var body: some View {
             VStack {
                 List {
-                    ForEach(sounds, id: \.self) { sound in
-                        Button(action: {
-                            schedule[days.firstIndex(of: day)!].toggle()
-                        }) {
-                            HStack {
-                                Text("\(day)")
-                                if schedule[days.firstIndex(of: day)!] == true {
-                                    Spacer()
-                                    Image(systemName: "checkmark")
-                                }
-                            }
-                        }
+                    ForEach(sounds, id: \.self) { key in
+                        Text(key)
                     }
+//                    ForEach(sounds, id: \.self) { sound in
+//                        Button(action: {
+//                            schedule[days.firstIndex(of: day)!].toggle()
+//                        }) {
+//                            HStack {
+//                                Text("\(day)")
+//                                if schedule[days.firstIndex(of: day)!] == true {
+//                                    Spacer()
+//                                    Image(systemName: "checkmark")
+//                                }
+//                            }
+//                        }
+//                    }
                 }
                 Spacer()
                 HStack {
