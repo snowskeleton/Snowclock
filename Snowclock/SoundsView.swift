@@ -46,7 +46,6 @@ struct SoundsView: View {
         var urlIsaDirectory: ObjCBool = ObjCBool(false)
         var soundPaths: [String] = []
         for url in URLs! {
-            print(url)
             fileManager.fileExists(
                 atPath: url.path,
                 isDirectory: &urlIsaDirectory
