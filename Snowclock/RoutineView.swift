@@ -63,7 +63,10 @@ struct RoutineView: View {
             HStack {
                 Button(action: {
                     addFollowup()
-                }) { Image(systemName: "plus");Text("Routine").foregroundColor(Color.secondary)}
+                }) {
+                    Image(systemName: "plus")
+                    Text("Routine").foregroundColor(Color.secondary)
+                }
             }
         }
     }
