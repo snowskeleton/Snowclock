@@ -6,7 +6,7 @@
         <attribute name="name" attributeType="String" defaultValueString="Alarm"/>
         <attribute name="notificationsIDs" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
         <attribute name="schedule" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[Bool]"/>
-        <attribute name="soundName" optional="YES" attributeType="String"/>
+        <attribute name="soundName" optional="YES" attributeType="String" defaultValueString=""/>
         <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="followups" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Followup" inverseName="alarm" inverseEntity="Followup"/>
     </entity>

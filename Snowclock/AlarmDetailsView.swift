@@ -16,6 +16,7 @@ struct AlarmDetailsView: View {
     @State var showSounds: Bool = false
     @State var newDate: Date
     @State var newName: String
+    @State var newSound: String
     @State var newSchedule: [Bool]
     @State var newEnabledStatus: Bool
     
@@ -28,6 +29,7 @@ struct AlarmDetailsView: View {
         _alarm = alarm
         _newName = State(initialValue: alarm.wrappedValue.name!)
         _newDate = State(initialValue: alarm.wrappedValue.time!)
+        _newSound = State(initialValue: alarm.wrappedValue.soundName!)
         _newEnabledStatus = State(initialValue: alarm.wrappedValue.enabled)
         _newSchedule = State(
             initialValue: (_alarm.wrappedValue.schedule != nil)
@@ -102,7 +104,7 @@ struct AlarmDetailsView: View {
                                 .foregroundColor(Color.primary)
                         }
                         .sheet(isPresented: $showSounds) {
-                            SoundsView(alarm: Binding<Alarm>.constant(alarm))
+                            SoundsView(newSound: Binding<String>.constant(newSound))
                         }
                         .environment(\.managedObjectContext, viewContext)
                     }

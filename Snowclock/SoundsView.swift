@@ -10,14 +10,13 @@ import SwiftUI
 struct SoundsView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.managedObjectContext) private var viewContext
-    @Binding var alarm: Alarm
+    @Binding var newSound: String
     @State var sounds: [String]
     
     ///File Manager alows us access to the device's files to which we are allowed.
     let fileManager: FileManager = FileManager()
     
-    init(alarm: Binding<Alarm>) {
-        _alarm = alarm
+    init(newSound: Binding<String>) {
         let rootSoundDirectory = "/Library/Ringtones"
         let newDirectory: NSMutableDictionary = [
             "path" : "\(rootSoundDirectory)",
@@ -55,27 +54,32 @@ struct SoundsView: View {
             }
         }
         _sounds = State(initialValue: soundPaths)
+        _newSound = newSound
     }
     
     var body: some View {
             VStack {
                 List {
-                    ForEach(sounds, id: \.self) { key in
-                        Text(key)
-                    }
-//                    ForEach(sounds, id: \.self) { sound in
-//                        Button(action: {
-//                            schedule[days.firstIndex(of: day)!].toggle()
-//                        }) {
-//                            HStack {
-//                                Text("\(day)")
-//                                if schedule[days.firstIndex(of: day)!] == true {
-//                                    Spacer()
-//                                    Image(systemName: "checkmark")
-//                                }
-//                            }
+//                    ForEach(sounds, id: \.self) { key in
+//                        Text(key)
+//                        if alarm.soundName == key {
+//                            Spacer()
+//                            Image(systemName: "checkmark")
 //                        }
 //                    }
+                    ForEach(sounds, id: \.self) { sound in
+                        Button(action: {
+                            newSound = sound
+                        }) {
+                            HStack {
+                                Text("\(sound)")
+                                if newSound == sound {
+                                    Spacer()
+                                    Image(systemName: "checkmark")
+                                }
+                            }
+                        }
+                    }
                 }
                 Spacer()
                 HStack {
