@@ -11,6 +11,7 @@
 		804E41D52950FED700890C7A /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E41D42950FED600890C7A /* Formatters.swift */; };
 		8052E1C1295B843D00958811 /* Snowclock_v_0_0_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8052E1BD295B843D00958811 /* Snowclock_v_0_0_2.xcdatamodeld */; };
 		807837EB2A081D7400E88FBC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807837EA2A081D7400E88FBC /* SettingsView.swift */; };
+		807837EF2A09759800E88FBC /* SoundsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807837EE2A09759800E88FBC /* SoundsView.swift */; };
 		8088043229535F7E007A68EF /* RoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088043129535F7E007A68EF /* RoutineView.swift */; };
 		8088043429541380007A68EF /* AlarmBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088043329541380007A68EF /* AlarmBoxView.swift */; };
 		8088043629541971007A68EF /* extension_Followup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088043529541971007A68EF /* extension_Followup.swift */; };
@@ -57,6 +58,7 @@
 		804E41D42950FED600890C7A /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		8052E1BF295B843D00958811 /* Snowclock.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Snowclock.xcdatamodel; sourceTree = "<group>"; };
 		807837EA2A081D7400E88FBC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		807837EE2A09759800E88FBC /* SoundsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundsView.swift; sourceTree = "<group>"; };
 		8088043129535F7E007A68EF /* RoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineView.swift; sourceTree = "<group>"; };
 		8088043329541380007A68EF /* AlarmBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmBoxView.swift; sourceTree = "<group>"; };
 		8088043529541971007A68EF /* extension_Followup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension_Followup.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				80D75B7E294D32A40077ACB6 /* AddAlarmView.swift */,
 				8088043329541380007A68EF /* AlarmBoxView.swift */,
 				804E41D22950FDF200890C7A /* AlarmDetailsView.swift */,
+				807837EE2A09759800E88FBC /* SoundsView.swift */,
 				8088043E2954D78A007A68EF /* AVPlayerView.swift */,
 				80D75B4D294CC69F0077ACB6 /* ContentView.swift */,
 				80D75B7C294D10740077ACB6 /* ScheduleView.swift */,
@@ -342,6 +345,7 @@
 				80A060F2295540C700D49BC3 /* extension_Alarm.swift in Sources */,
 				8088043229535F7E007A68EF /* RoutineView.swift in Sources */,
 				80DD2C97295F939A0037CAF9 /* extension_CoreData.swift in Sources */,
+				807837EF2A09759800E88FBC /* SoundsView.swift in Sources */,
 				80D75B7F294D32A40077ACB6 /* AddAlarmView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

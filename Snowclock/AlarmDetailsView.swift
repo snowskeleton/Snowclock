@@ -13,6 +13,7 @@ struct AlarmDetailsView: View {
     @Environment(\.dismiss) private var dismiss
     @Binding var alarm: Alarm
     @State var showSchedule: Bool = false
+    @State var showSounds: Bool = false
     @State var newDate: Date
     @State var newName: String
     @State var newSchedule: [Bool]
@@ -87,6 +88,23 @@ struct AlarmDetailsView: View {
                         }
                         .environment(\.managedObjectContext, viewContext)
             
+                    }
+                    
+                    HStack {
+                        Text("Sound")
+                            .foregroundColor(Color.secondary)
+                            .padding(.leading, 10)
+                        Spacer()
+                        Button {
+                            showSounds = true
+                        } label: {
+                            Text(daysAsString(days: newSchedule))
+                                .foregroundColor(Color.primary)
+                        }
+                        .sheet(isPresented: $showSounds) {
+                            SoundsView(alarm: Binding<Alarm>.constant(alarm))
+                        }
+                        .environment(\.managedObjectContext, viewContext)
                     }
                     
                     HStack {
