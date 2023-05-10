@@ -10,7 +10,7 @@ func getSounds() -> [String]{
     ///File Manager alows us access to the device's files to which we are allowed.
     let fileManager: FileManager = FileManager()
     
-    let rootSoundDirectory = "/Library/Ringtones"
+    let rootSoundDirectory = "Sounds"
     let newDirectory: NSMutableDictionary = [
         "path" : "\(rootSoundDirectory)",
         "files" : [] as [String]
