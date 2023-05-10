@@ -21,7 +21,6 @@
 		8088043F2954D78A007A68EF /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088043E2954D78A007A68EF /* AVPlayerView.swift */; };
 		80A060F02955409100D49BC3 /* extension_Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A060EF2955409100D49BC3 /* extension_Date.swift */; };
 		80A060F2295540C700D49BC3 /* extension_Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A060F1295540C700D49BC3 /* extension_Alarm.swift */; };
-		80C3EB37295CB0BD0062E103 /* marimba.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 80C3EB36295CB0BD0062E103 /* marimba.aiff */; };
 		80D75B4C294CC69F0077ACB6 /* SnowclockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B4B294CC69F0077ACB6 /* SnowclockApp.swift */; };
 		80D75B4E294CC69F0077ACB6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B4D294CC69F0077ACB6 /* ContentView.swift */; };
 		80D75B50294CC6A10077ACB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80D75B4F294CC6A10077ACB6 /* Assets.xcassets */; };
@@ -72,7 +71,6 @@
 		808804412954E27B007A68EF /* Snowclock-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Snowclock-Info.plist"; sourceTree = SOURCE_ROOT; };
 		80A060EF2955409100D49BC3 /* extension_Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension_Date.swift; sourceTree = "<group>"; };
 		80A060F1295540C700D49BC3 /* extension_Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension_Alarm.swift; sourceTree = "<group>"; };
-		80C3EB36295CB0BD0062E103 /* marimba.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = marimba.aiff; sourceTree = "<group>"; };
 		80D75B48294CC69F0077ACB6 /* Snowclock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snowclock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D75B4B294CC69F0077ACB6 /* SnowclockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowclockApp.swift; sourceTree = "<group>"; };
 		80D75B4D294CC69F0077ACB6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -160,7 +158,6 @@
 			children = (
 				807837F42A0BF30200E88FBC /* Sounds */,
 				808804392954C5F2007A68EF /* Snowclock.entitlements */,
-				80C3EB36295CB0BD0062E103 /* marimba.aiff */,
 				808804412954E27B007A68EF /* Snowclock-Info.plist */,
 				807837EA2A081D7400E88FBC /* SettingsView.swift */,
 				807837F72A0BFC5400E88FBC /* PermissionsView.swift */,
@@ -314,7 +311,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				80D75B53294CC6A10077ACB6 /* Preview Assets.xcassets in Resources */,
-				80C3EB37295CB0BD0062E103 /* marimba.aiff in Resources */,
 				80D75B50294CC6A10077ACB6 /* Assets.xcassets in Resources */,
 				807837F62A0BF34200E88FBC /* defaultSound.m4r in Resources */,
 			);
