@@ -12,14 +12,16 @@
 		8052E1C1295B843D00958811 /* Snowclock_v_0_0_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8052E1BD295B843D00958811 /* Snowclock_v_0_0_2.xcdatamodeld */; };
 		807837EB2A081D7400E88FBC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807837EA2A081D7400E88FBC /* SettingsView.swift */; };
 		807837EF2A09759800E88FBC /* SoundsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807837EE2A09759800E88FBC /* SoundsView.swift */; };
+		807837F12A098AE200E88FBC /* GetSounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807837F02A098AE200E88FBC /* GetSounds.swift */; };
+		807837F62A0BF34200E88FBC /* defaultSound.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 807837F52A0BF34200E88FBC /* defaultSound.m4r */; };
+		807837F82A0BFC5400E88FBC /* PermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807837F72A0BFC5400E88FBC /* PermissionsView.swift */; };
 		8088043229535F7E007A68EF /* RoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088043129535F7E007A68EF /* RoutineView.swift */; };
 		8088043429541380007A68EF /* AlarmBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088043329541380007A68EF /* AlarmBoxView.swift */; };
 		8088043629541971007A68EF /* extension_Followup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088043529541971007A68EF /* extension_Followup.swift */; };
-		8088043B2954D749007A68EF /* MP3_700KB.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8088043A2954D749007A68EF /* MP3_700KB.mp3 */; };
 		8088043F2954D78A007A68EF /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088043E2954D78A007A68EF /* AVPlayerView.swift */; };
 		80A060F02955409100D49BC3 /* extension_Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A060EF2955409100D49BC3 /* extension_Date.swift */; };
 		80A060F2295540C700D49BC3 /* extension_Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A060F1295540C700D49BC3 /* extension_Alarm.swift */; };
-		80C3EB37295CB0BD0062E103 /* snowtone.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 80C3EB36295CB0BD0062E103 /* snowtone.aiff */; };
+		80C3EB37295CB0BD0062E103 /* marimba.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 80C3EB36295CB0BD0062E103 /* marimba.aiff */; };
 		80D75B4C294CC69F0077ACB6 /* SnowclockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B4B294CC69F0077ACB6 /* SnowclockApp.swift */; };
 		80D75B4E294CC69F0077ACB6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B4D294CC69F0077ACB6 /* ContentView.swift */; };
 		80D75B50294CC6A10077ACB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80D75B4F294CC6A10077ACB6 /* Assets.xcassets */; };
@@ -59,16 +61,18 @@
 		8052E1BF295B843D00958811 /* Snowclock.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Snowclock.xcdatamodel; sourceTree = "<group>"; };
 		807837EA2A081D7400E88FBC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		807837EE2A09759800E88FBC /* SoundsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundsView.swift; sourceTree = "<group>"; };
+		807837F02A098AE200E88FBC /* GetSounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSounds.swift; sourceTree = "<group>"; };
+		807837F52A0BF34200E88FBC /* defaultSound.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = defaultSound.m4r; sourceTree = "<group>"; };
+		807837F72A0BFC5400E88FBC /* PermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsView.swift; sourceTree = "<group>"; };
 		8088043129535F7E007A68EF /* RoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineView.swift; sourceTree = "<group>"; };
 		8088043329541380007A68EF /* AlarmBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmBoxView.swift; sourceTree = "<group>"; };
 		8088043529541971007A68EF /* extension_Followup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension_Followup.swift; sourceTree = "<group>"; };
 		808804392954C5F2007A68EF /* Snowclock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Snowclock.entitlements; sourceTree = "<group>"; };
-		8088043A2954D749007A68EF /* MP3_700KB.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MP3_700KB.mp3; sourceTree = "<group>"; };
 		8088043E2954D78A007A68EF /* AVPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerView.swift; sourceTree = "<group>"; };
 		808804412954E27B007A68EF /* Snowclock-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Snowclock-Info.plist"; sourceTree = SOURCE_ROOT; };
 		80A060EF2955409100D49BC3 /* extension_Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension_Date.swift; sourceTree = "<group>"; };
 		80A060F1295540C700D49BC3 /* extension_Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension_Alarm.swift; sourceTree = "<group>"; };
-		80C3EB36295CB0BD0062E103 /* snowtone.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = snowtone.aiff; sourceTree = "<group>"; };
+		80C3EB36295CB0BD0062E103 /* marimba.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = marimba.aiff; sourceTree = "<group>"; };
 		80D75B48294CC69F0077ACB6 /* Snowclock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snowclock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D75B4B294CC69F0077ACB6 /* SnowclockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowclockApp.swift; sourceTree = "<group>"; };
 		80D75B4D294CC69F0077ACB6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -111,6 +115,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		807837F42A0BF30200E88FBC /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				807837F52A0BF34200E88FBC /* defaultSound.m4r */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		80A060F32955417800D49BC3 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,16 +158,18 @@
 		80D75B4A294CC69F0077ACB6 /* Snowclock */ = {
 			isa = PBXGroup;
 			children = (
+				807837F42A0BF30200E88FBC /* Sounds */,
 				808804392954C5F2007A68EF /* Snowclock.entitlements */,
-				8088043A2954D749007A68EF /* MP3_700KB.mp3 */,
-				80C3EB36295CB0BD0062E103 /* snowtone.aiff */,
+				80C3EB36295CB0BD0062E103 /* marimba.aiff */,
 				808804412954E27B007A68EF /* Snowclock-Info.plist */,
 				807837EA2A081D7400E88FBC /* SettingsView.swift */,
+				807837F72A0BFC5400E88FBC /* PermissionsView.swift */,
 				80D75B4B294CC69F0077ACB6 /* SnowclockApp.swift */,
 				80D75B7E294D32A40077ACB6 /* AddAlarmView.swift */,
 				8088043329541380007A68EF /* AlarmBoxView.swift */,
 				804E41D22950FDF200890C7A /* AlarmDetailsView.swift */,
 				807837EE2A09759800E88FBC /* SoundsView.swift */,
+				807837F02A098AE200E88FBC /* GetSounds.swift */,
 				8088043E2954D78A007A68EF /* AVPlayerView.swift */,
 				80D75B4D294CC69F0077ACB6 /* ContentView.swift */,
 				80D75B7C294D10740077ACB6 /* ScheduleView.swift */,
@@ -300,9 +314,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				80D75B53294CC6A10077ACB6 /* Preview Assets.xcassets in Resources */,
-				80C3EB37295CB0BD0062E103 /* snowtone.aiff in Resources */,
+				80C3EB37295CB0BD0062E103 /* marimba.aiff in Resources */,
 				80D75B50294CC6A10077ACB6 /* Assets.xcassets in Resources */,
-				8088043B2954D749007A68EF /* MP3_700KB.mp3 in Resources */,
+				807837F62A0BF34200E88FBC /* defaultSound.m4r in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,8 +346,10 @@
 				80DD2C99295F95B40037CAF9 /* extension_Alarm_Notifications.swift in Sources */,
 				80D75B55294CC6A10077ACB6 /* Persistence.swift in Sources */,
 				80D75B4E294CC69F0077ACB6 /* ContentView.swift in Sources */,
+				807837F82A0BFC5400E88FBC /* PermissionsView.swift in Sources */,
 				8088043F2954D78A007A68EF /* AVPlayerView.swift in Sources */,
 				8052E1C1295B843D00958811 /* Snowclock_v_0_0_2.xcdatamodeld in Sources */,
+				807837F12A098AE200E88FBC /* GetSounds.swift in Sources */,
 				807837EB2A081D7400E88FBC /* SettingsView.swift in Sources */,
 				8088043429541380007A68EF /* AlarmBoxView.swift in Sources */,
 				804E41D52950FED700890C7A /* Formatters.swift in Sources */,

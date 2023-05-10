@@ -40,6 +40,11 @@ extension Alarm {
             return
         }
         
+//        if let appSettings = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(appSettings) {
+//            print(appSettings)
+//            UIApplication.shared.open(appSettings)
+//        }
+        
         let content = UNMutableNotificationContent()
         content.title = self.stringyTime
         content.body = self.name!
@@ -50,7 +55,7 @@ extension Alarm {
             "SOME_TAG": self.id?.uuidString ?? "no ID"
         ]
         content.threadIdentifier = String(describing: self.id!)
-        content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "snowtone.aiff"))
+        content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "defaultSound.m4r"))
         
         var tempArray = self.notificationsIDs ?? []
         if !self.allTimes.isEmpty {

@@ -23,6 +23,7 @@ struct ContentView: View {
     private var alarms: FetchedResults<Alarm>
     @State var showAddAlarm = false
     @State var showSettings = false
+    @State var showPermissions = false
     @State var audioPlayer: AVAudioPlayer!
     
     init(preview: Bool = false, showSheet: Bool = false) {
@@ -53,6 +54,17 @@ struct ContentView: View {
                 }
             }
             .toolbar {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Button(
+                        action: { showPermissions = true },
+                        label:  {
+                            Image(systemName: "bell")
+                                .foregroundColor(Color.secondary)
+                        }
+                    )
+                }
+            }
+            .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
                     Button(
                         action: { showAddAlarm = true },
@@ -72,6 +84,10 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showSettings) {
             SettingsView()
+                .environment(\.managedObjectContext, viewContext)
+        }
+        .sheet(isPresented: $showPermissions) {
+            PermissionsView()
                 .environment(\.managedObjectContext, viewContext)
         }
     }

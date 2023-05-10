@@ -29,7 +29,7 @@ struct AlarmDetailsView: View {
         _alarm = alarm
         _newName = State(initialValue: alarm.wrappedValue.name!)
         _newDate = State(initialValue: alarm.wrappedValue.time!)
-        _newSound = State(initialValue: alarm.wrappedValue.soundName!)
+        _newSound = State(initialValue: alarm.wrappedValue.soundName ?? "Alarm.m4r")
         _newEnabledStatus = State(initialValue: alarm.wrappedValue.enabled)
         _newSchedule = State(
             initialValue: (_alarm.wrappedValue.schedule != nil)
@@ -100,11 +100,11 @@ struct AlarmDetailsView: View {
                         Button {
                             showSounds = true
                         } label: {
-                            Text(daysAsString(days: newSchedule))
+                            Text( newSound)
                                 .foregroundColor(Color.primary)
                         }
                         .sheet(isPresented: $showSounds) {
-                            SoundsView(newSound: Binding<String>.constant(newSound))
+                            SoundsView(newSound: $newSound)
                         }
                         .environment(\.managedObjectContext, viewContext)
                     }
@@ -129,6 +129,7 @@ struct AlarmDetailsView: View {
                     alarm.time = newDate
                     alarm.name = newName
                     alarm.schedule = newSchedule
+                    alarm.soundName = newSound
                     alarm.enabled = newEnabledStatus
                     alarm.updateNotifications()
                     dismiss()
