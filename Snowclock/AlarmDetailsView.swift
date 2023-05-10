@@ -92,22 +92,22 @@ struct AlarmDetailsView: View {
             
                     }
                     
-                    HStack {
-                        Text("Sound")
-                            .foregroundColor(Color.secondary)
-                            .padding(.leading, 10)
-                        Spacer()
-                        Button {
-                            showSounds = true
-                        } label: {
-                            Text( newSound)
-                                .foregroundColor(Color.primary)
-                        }
-                        .sheet(isPresented: $showSounds) {
-                            SoundsView(newSound: $newSound)
-                        }
-                        .environment(\.managedObjectContext, viewContext)
-                    }
+//                    HStack {
+//                        Text("Sound")
+//                            .foregroundColor(Color.secondary)
+//                            .padding(.leading, 10)
+//                        Spacer()
+//                        Button {
+//                            showSounds = true
+//                        } label: {
+//                            Text( newSound)
+//                                .foregroundColor(Color.primary)
+//                        }
+//                        .sheet(isPresented: $showSounds) {
+//                            SoundsView(newSound: $newSound)
+//                        }
+//                        .environment(\.managedObjectContext, viewContext)
+//                    }
                     
                     HStack {
                         Spacer()

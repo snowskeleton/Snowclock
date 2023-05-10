@@ -20,10 +20,8 @@ struct IndiPermissionView: View {
         }
     }
 }
+
 struct PermissionsView: View {
-    @Environment(\.managedObjectContext) private var viewContext: NSManagedObjectContext
-    @Environment(\.dismiss) private var dismiss
-    
     @State var persistentBannerEnabled = false
     @State var bannerEnabled = false
     @State var soundEnabled = false
@@ -58,13 +56,6 @@ struct PermissionsView: View {
                 }
                 Section(footer: Text("Ensure Snowclock has permission for any Focus modes you use.")) {}
                 
-            }
-        }
-        .toolbar {
-            ToolbarItem(placement: .confirmationAction) {
-                Button("Save", action: {
-                    dismiss()
-                })
             }
         }
         .task {

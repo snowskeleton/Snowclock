@@ -42,17 +42,17 @@ struct ContentView: View {
                     }
                 }.onDelete(perform: deleteItems)
             }
-            .toolbar {
-                ToolbarItemGroup(placement: .navigationBarLeading) {
-                    Button(
-                        action: { showSettings = true },
-                        label:  {
-                            Image(systemName: "gear.circle")
-                                .foregroundColor(Color.secondary)
-                        }
-                    )
-                }
-            }
+//            .toolbar {
+//                ToolbarItemGroup(placement: .navigationBarLeading) {
+//                    Button(
+//                        action: { showSettings = true },
+//                        label:  {
+//                            Image(systemName: "gear.circle")
+//                                .foregroundColor(Color.secondary)
+//                        }
+//                    )
+//                }
+//            }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button(
@@ -82,10 +82,10 @@ struct ContentView: View {
                 .presentationDetents([.medium])
                 .environment(\.managedObjectContext, viewContext)
         }
-        .sheet(isPresented: $showSettings) {
-            SettingsView()
-                .environment(\.managedObjectContext, viewContext)
-        }
+//        .sheet(isPresented: $showSettings) {
+//            SettingsView()
+//                .environment(\.managedObjectContext, viewContext)
+//        }
         .sheet(isPresented: $showPermissions) {
             PermissionsView()
                 .environment(\.managedObjectContext, viewContext)
