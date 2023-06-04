@@ -22,7 +22,7 @@ final class SnowclockTests: XCTestCase {
     
     func testAllTimes() throws {
         let alarm = alarmMaker(context: nil)
-        XCTAssertEqual(alarm.allTimes.count, 0)
+        XCTAssertEqual(alarm.allTimes.count, 1)
 
         // one scheduled day
         alarm.schedule![0] = true

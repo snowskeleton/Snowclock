@@ -10,8 +10,55 @@ import UserNotifications
 import AVKit
 
 extension Alarm {
+        
     func updateNotifications() -> Void {
-        // check for permission
+        self.verifyPermissions()
+        self.cancelNotifications()
+        if !self.enabled {
+            print("Alarm disabled.")
+            return
+        }
+//        let center = UNUserNotificationCenter.current()
+        
+        let content = createContent(
+            title: self.stringyTime,
+            body: self.name!,
+            id: self.id!.uuidString
+        )
+        
+        var tempArray = self.notificationsIDs ?? []
+//        if !self.allTimes.isEmpty {
+        for time in self.allTimes {
+            if !self.numericalWeekdays.isEmpty {
+                // schedule a separate notification for every separate weekday
+                for day in self.numericalWeekdays {
+                    let request = createRequest(with: content, at: time, on: day)
+                    UNUserNotificationCenter.current().add(request)
+                    tempArray.append(request.identifier)
+                }
+            } else {
+                // if no schedule is chosen, but the alarm is still enabled, schedule a non-repeating alarm
+                let request = createRequest(with: content, at: time, on: nil)
+                UNUserNotificationCenter.current().add(request)
+                tempArray.append(request.identifier)
+            }
+        }
+        self.notificationsIDs = tempArray
+    }
+    
+    func cancelNotifications() -> Void {
+        for note in self.notificationsIDs ?? [] {
+            UNUserNotificationCenter
+                .current()
+                .removePendingNotificationRequests(
+                    withIdentifiers: [note])
+            self.notificationsIDs?.remove(
+                at: (self.notificationsIDs?.firstIndex(
+                    of: note))!)
+        }
+    }
+    
+    func verifyPermissions() {
         UNUserNotificationCenter.current()
             .requestAuthorization(options: [
                 .alert, .badge, .sound
@@ -22,81 +69,50 @@ extension Alarm {
                     print(error.localizedDescription)
                 }
             }
-        
-        // cancel old notifications
-        let oldNotifs = self.notificationsIDs ?? []
-        for note in oldNotifs {
-            UNUserNotificationCenter
-                .current()
-                .removePendingNotificationRequests(
-                    withIdentifiers: [note])
-            self.notificationsIDs?.remove(
-                at: (self.notificationsIDs?.firstIndex(
-                    of: note))!)
-        }
-        // schedule new notifications
-        if self.enabled == false {
-            print("Alarm not enabled. Returning early.")
-            return
-        }
-        
-//        if let appSettings = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(appSettings) {
-//            print(appSettings)
-//            UIApplication.shared.open(appSettings)
-//        }
-        
-        let content = UNMutableNotificationContent()
-        content.title = self.stringyTime
-        content.body = self.name!
-        content.badge = 0
-        content.interruptionLevel = .timeSensitive
-        content.categoryIdentifier = "ALARM"
-        content.userInfo = [
-            "SOME_TAG": self.id?.uuidString ?? "no ID"
-        ]
-        content.threadIdentifier = String(describing: self.id!)
-        content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "defaultSound.m4r"))
-        
-        var tempArray = self.notificationsIDs ?? []
-        if !self.allTimes.isEmpty {
-            for time in self.allTimes {
-                // schedule a separate notification for every separate weekday
-                for day in self.numericalWeekdays {
-                    var triggerDate = Calendar.current.dateComponents(
-                        [.hour,.minute],
-                        from: time
-                    )
-                    triggerDate.weekday = day
-                    let trigger = UNCalendarNotificationTrigger(
-                        dateMatching: triggerDate,
-                        repeats: true
-                    )
-                    let request = UNNotificationRequest(
-                        identifier: UUID().uuidString,
-                        content: content,
-                        trigger: trigger
-                    )
-                    UNUserNotificationCenter.current().add(request)
-                    tempArray.append(request.identifier)
-                }
-            }
-        } else {
-            // if no schedule is chosen, but the alarm is still enabled, schedule a non-repeating alarm
-            let trigger = UNCalendarNotificationTrigger(
-                dateMatching: Calendar.current.dateComponents(
-                    [.hour,.minute],
-                    from: self.time!
-                ),
-                repeats: false
-            )
-            let request = UNNotificationRequest(
-                identifier: UUID().uuidString,
-                content: content,
-                trigger: trigger
-            )
-            UNUserNotificationCenter.current().add(request)
-            tempArray.append(request.identifier)
-        }
-        self.notificationsIDs = tempArray
     }
+}
+
+fileprivate func createContent(
+    title: String,
+    body: String,
+    id: String,
+    sound: String = "defaultSound.m4r"
+) -> UNMutableNotificationContent {
+    let content = UNMutableNotificationContent()
+    content.title = title
+    content.body = body
+    content.badge = 0
+    content.interruptionLevel = .timeSensitive
+    content.categoryIdentifier = "ALARM"
+    content.userInfo = [
+        "SOME_TAG": id
+    ]
+    content.threadIdentifier = id
+    content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: sound))
+    return content
+}
+
+fileprivate func createRequest(
+    with content: UNMutableNotificationContent,
+    at time: Date,
+    on day: Int?
+) -> UNNotificationRequest {
+    var triggerDate = Calendar.current.dateComponents(
+        [.hour,.minute],
+        from: time
+    )
+    let repeats = day != nil
+    if repeats {
+        triggerDate.weekday = day
+    }
+    let trigger = UNCalendarNotificationTrigger(
+        dateMatching: triggerDate,
+        repeats: repeats
+    )
+    let request = UNNotificationRequest(
+        identifier: UUID().uuidString,
+        content: content,
+        trigger: trigger
+    )
+    return request
 }

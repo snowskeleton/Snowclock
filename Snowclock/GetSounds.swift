@@ -10,35 +10,31 @@ func getSounds() -> [String]{
     ///File Manager alows us access to the device's files to which we are allowed.
     let fileManager: FileManager = FileManager()
     
-//    let rootSoundDirectory = "/Library/Application Support/Sounds"
+//    let rootSoundDirectory = Bundle.main.resourcePath
+////    print(rootSoundDirectory!)
 //    let newDirectory: NSMutableDictionary = [
-//        "path" : "\(rootSoundDirectory)",
+//        "path" : "\(rootSoundDirectory!)",
 //        "files" : [] as [String]
 //    ]
-//    /**
-//     For each directory, it looks at each item (file or directory) and only appends the sound files to the soundfiles[i]files array.
-//
-//     - URLs: All of the contents of the directory (files and sub-directories).
-//     */
+    /**
+     For each directory, it looks at each item (file or directory) and only appends the sound files to the soundfiles[i]files array.
+     
+     - URLs: All of the contents of the directory (files and sub-directories).
+     */
 //    let directoryURL: URL = URL(
 //        fileURLWithPath: newDirectory.value(forKey: "path") as! String,
 //        isDirectory: true
 //    )
-    
-    let url = Bundle.main.url(forResource: "Sounds", withExtension: "json")
-    let data = try Data(contentsOf: url)
-    let configuration = try jsonDecoder.decode(Configuration.self, from: data)
-    let directoryURL = try FileManager.default.url(
-        for: .applicationSupportDirectory,
-        in: .userDomainMask,
-        appropriateFor: nil,
-        create: false)
+    var directoryURL = Bundle.main.resourceURL
+    print(directoryURL)
+//    directoryURL = directoryURL!.appendingPathComponent("Snowclock")
+//    print(directoryURL)
     
     
     var URLs: [URL] = []
     do {
         URLs = try fileManager.contentsOfDirectory(
-            at: directoryURL,
+            at: directoryURL!,
             includingPropertiesForKeys: [URLResourceKey.isDirectoryKey],
             options: FileManager.DirectoryEnumerationOptions()
         )
@@ -52,8 +48,7 @@ func getSounds() -> [String]{
             atPath: url.path,
             isDirectory: &urlIsaDirectory
         )
-        if !urlIsaDirectory.boolValue {
-            print(url)
+        if !urlIsaDirectory.boolValue && url.absoluteString.hasSuffix(".m4r") {
             soundPaths.append("\(url.lastPathComponent)")
         }
     }

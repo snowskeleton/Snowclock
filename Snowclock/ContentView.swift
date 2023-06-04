@@ -24,6 +24,7 @@ struct ContentView: View {
     @State var showAddAlarm = false
     @State var showSettings = false
     @State var showPermissions = false
+    @State var showPendingNotifications = false
     @State var audioPlayer: AVAudioPlayer!
     
     init(preview: Bool = false, showSheet: Bool = false) {
@@ -41,6 +42,17 @@ struct ContentView: View {
                             .environment(\.managedObjectContext, viewContext)
                     }
                 }.onDelete(perform: deleteItems)
+            }
+            .toolbar {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Button(
+                        action: { showPendingNotifications = true },
+                        label:  {
+                            Image(systemName: "gear")
+                                .foregroundColor(Color.secondary)
+                        }
+                    )
+                }
             }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
@@ -73,6 +85,10 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showPermissions) {
             PermissionsView()
+                .environment(\.managedObjectContext, viewContext)
+        }
+        .sheet(isPresented: $showPendingNotifications) {
+            PendingNotificationsView()
                 .environment(\.managedObjectContext, viewContext)
         }
     }

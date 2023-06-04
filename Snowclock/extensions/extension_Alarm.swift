@@ -10,28 +10,58 @@ import UserNotifications
 import AVKit
 import CoreData
 
+fileprivate func timedateFromCalendar(comps: DateComponents, repeats: Bool) -> Date? {
+    let trigger = UNCalendarNotificationTrigger(dateMatching: comps, repeats: repeats)
+    return trigger.nextTriggerDate()
+}
+
+fileprivate func calendarFromTimeAddDay(fuse time: Date, with day: Int) -> DateComponents {
+    var triggerDate = Calendar.current.dateComponents([.hour,.minute], from: time)
+    triggerDate.weekday = day
+    return triggerDate
+}
+
+fileprivate func calendarFromTimeAddMinutes(fuse time: Date, with minutes: Int) -> DateComponents {
+    var triggerDate = Calendar.current.dateComponents([.hour,.minute], from: time)
+    triggerDate.minute! += minutes
+    return triggerDate
+}
+
 extension Alarm {
     var allTimes: [Date] {
         var times: [Date] = []
+        let daylessTimes = self.allTimesWithoutDays
+        for t in daylessTimes {
+            times.append(t)
+        }
+        if self.numericalWeekdays.isEmpty {
+            return times
+        } else {
+            times = []
+        }
         
         for day in self.numericalWeekdays {
-            // schedule a separate notification for every separate weekday
-            var triggerDate = Calendar.current.dateComponents([.hour,.minute], from: self.time!)
-            triggerDate.weekday = day
-            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
-            let fireDate = trigger.nextTriggerDate()
-            if fireDate != nil {
-                times.append(fireDate!)
-                for fu in self.followups?.allObjects as! [Followup] {
-                    var triggerDate = Calendar.current.dateComponents([.hour, .minute, .day, .weekday], from: fireDate!)
-                    triggerDate.minute! += Int(fu.delay)
-                    let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
-                    let newFireDate = trigger.nextTriggerDate()
-                    if newFireDate != nil {
-                        times.append(newFireDate!)
-                    }
-                }
+            for time in daylessTimes {
+                let timeWithDay = calendarFromTimeAddDay(fuse: time, with: day)
+                let finalTimedate = timedateFromCalendar(comps: timeWithDay, repeats: true)
+                if finalTimedate == nil { continue }
+                times.append(finalTimedate!)
             }
+        }
+        return times
+    }
+    
+    var allTimesWithoutDays: [Date] {
+        var times: [Date] = []
+        
+        times.append(self.time!)
+        
+        let additionalTimes = self.followups?.allObjects as! [Followup]
+        for time in additionalTimes {
+            let cal = calendarFromTimeAddMinutes(fuse: self.time!, with: Int(time.delay))
+            let newtime = timedateFromCalendar(comps: cal, repeats: false)
+            if newtime == nil { continue }
+            times.append(newtime!)
         }
         return times
     }
