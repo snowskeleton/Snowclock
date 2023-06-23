@@ -70,11 +70,11 @@ struct ContentView: View {
                 }
             }
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                ToolbarItemGroup(placement: .navigationBarLeading) {
                     Button(
                         action: { showPermissions = true },
                         label:  {
-                            Image(systemName: "bell")
+                            Image(systemName: "bell.badge.fill")
                                 .foregroundColor(Color.secondary)
                         }
                     )
@@ -117,7 +117,7 @@ struct ContentView: View {
 
 struct AlarmListBoxView: View {
     @Binding var alarm: Alarm
-    var showthis: String {
+    var weeklySchedule: String {
         var s = String()
         s += alarm.name!
         let stringySchedule = daysAsString(days: alarm.schedule!)
@@ -142,7 +142,7 @@ struct AlarmListBoxView: View {
                 }
             }
             HStack {
-                Text(showthis)
+                Text(weeklySchedule)
                 Spacer()
             }
         }
