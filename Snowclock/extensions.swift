@@ -86,8 +86,14 @@ extension Alarm {
     }
     
     func addFollowup(with delay: Int) -> Void {
-        let _ = followupMaker(context: self.managedObjectContext, delay: Int64(delay), alarm: self)
-        
+        var context = self.managedObjectContext
+        if context == nil {
+            context = PersistenceController.preview.container.viewContext
+        }
+        let fu = Followup(context: context!)
+        fu.delay = Int64(delay)
+        fu.id = UUID()
+        fu.alarm = self
     }
 }
 
@@ -110,21 +116,6 @@ extension Followup {
         return self.time.formatted(date: .omitted, time: .shortened)
     }
 }
-
-fileprivate func followupMaker(
-    context: NSManagedObjectContext?,
-    delay: Int64 = 5,
-    alarm: Alarm
-) -> Followup {
-    let _context = context != nil ? context! : PersistenceController.preview.container.viewContext
-    
-    let fu = Followup(context: _context)
-    fu.delay = delay
-    fu.id = UUID()
-    fu.alarm = alarm
-    return fu
-}
-
 
 fileprivate func createRequest(
     with content: UNMutableNotificationContent,
@@ -173,27 +164,19 @@ extension Date {
     func get(_ direction: SearchDirection, _ weekDay: Weekday, considerToday consider: Bool = false) -> Date {
         
         let dayName = weekDay.rawValue
-        
         let weekdaysName = getWeekDaysInEnglish().map { $0.lowercased() }
-        
-        assert(weekdaysName.contains(dayName), "weekday symbol should be in form \(weekdaysName)")
-        
         let searchWeekdayIndex = weekdaysName.firstIndex(of: dayName)! + 1
-        
         let calendar = Calendar(identifier: .gregorian)
-        
         if consider && calendar.component(.weekday, from: self) == searchWeekdayIndex {
             return self
         }
         
         var nextDateComponent = calendar.dateComponents([.hour, .minute, .second], from: self)
         nextDateComponent.weekday = searchWeekdayIndex
-        
         let date = calendar.nextDate(after: self,
                                      matching: nextDateComponent,
                                      matchingPolicy: .nextTime,
                                      direction: direction.calendarSearchDirection)
-        
         return date!
     }
     
