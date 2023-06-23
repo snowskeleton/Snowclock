@@ -182,8 +182,8 @@ func getSounds() -> [String]{
 //        fileURLWithPath: newDirectory.value(forKey: "path") as! String,
 //        isDirectory: true
 //    )
-    var directoryURL = Bundle.main.resourceURL
-    print(directoryURL)
+    let directoryURL = Bundle.main.resourceURL
+    print(directoryURL as Any)
 //    directoryURL = directoryURL!.appendingPathComponent("Snowclock")
 //    print(directoryURL)
 
