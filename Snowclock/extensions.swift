@@ -43,7 +43,7 @@ extension Alarm {
             UNUserNotificationCenter.current().add(request)
             newNotificationIDs.append(request.identifier)
             for fu in self.followups?.allObjects as! [Followup] {
-                content.title = "\(content.title) + \(fu.delay)"
+                content.title = "\(self.time!.formatted(date: .omitted, time: .shortened)) + \(fu.delay)"
                 let request = createRequest(with: content, at: self.time!, on: day, addDelay: Int(fu.delay))
                 UNUserNotificationCenter.current().add(request)
                 newNotificationIDs.append(request.identifier)

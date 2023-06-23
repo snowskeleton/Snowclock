@@ -16,7 +16,7 @@ struct AlarmView: View {
     @State var showSounds: Bool = false
     @State var newDate: Date
     @State var newName: String
-    @State var newSound: String
+//    @State var newSound: String
     @State var newSchedule: [Bool]
     @State var newEnabledStatus: Bool
     
@@ -29,7 +29,7 @@ struct AlarmView: View {
         _alarm = alarm
         _newName = State(initialValue: alarm.wrappedValue.name!)
         _newDate = State(initialValue: alarm.wrappedValue.time!)
-        _newSound = State(initialValue: alarm.wrappedValue.soundName ?? "Alarm.m4r")
+//        _newSound = State(initialValue: alarm.wrappedValue.soundName ?? "Alarm.m4r")
         _newEnabledStatus = State(initialValue: alarm.wrappedValue.enabled)
         _newSchedule = State(
             initialValue: (_alarm.wrappedValue.schedule != nil)
@@ -79,10 +79,7 @@ struct AlarmView: View {
                         Spacer()
                         Button(
                             action: { showSchedule = true },
-                            label: {
-                                Text(daysAsString(days: newSchedule))
-                                    .foregroundColor(Color.primary)
-                            }
+                            label: { Text(daysAsString(days: newSchedule)).foregroundColor(Color.primary) }
                         )
                         .sheet(isPresented: $showSchedule) {
                             ScheduleView(schedule: $newSchedule)
@@ -91,31 +88,27 @@ struct AlarmView: View {
             
                     }
                     
-                    HStack {
-                        Text("Sound")
-                            .foregroundColor(Color.secondary)
-                            .padding(.leading, 10)
-                        Spacer()
-                        Button {
-                            showSounds = true
-                        } label: {
-                            Text( newSound)
-                                .foregroundColor(Color.primary)
-                        }
-                        .sheet(isPresented: $showSounds) {
-                            SoundsView(newSound: $newSound)
-                        }
-                        .environment(\.managedObjectContext, viewContext)
-                    }
+//                    HStack {
+//                        Text("Sound")
+//                            .foregroundColor(Color.secondary)
+//                            .padding(.leading, 10)
+//                        Spacer()
+//                        Button {
+//                            showSounds = true
+//                        } label: {
+//                            Text( newSound)
+//                                .foregroundColor(Color.primary)
+//                        }
+//                        .sheet(isPresented: $showSounds) {
+//                            SoundsView(newSound: $newSound)
+//                        }
+//                        .environment(\.managedObjectContext, viewContext)
+//                    }
                     
                     HStack {
                         Spacer()
-                        Toggle(
-                            isOn: $newEnabledStatus,
-                            label: {
-                                Text("Enabled")
-                                    .foregroundColor(Color.secondary)
-                            }
+                        Toggle(isOn: $newEnabledStatus,
+                               label: { Text("Enabled") .foregroundColor(Color.secondary) }
                         )
                     }
                 }
@@ -128,7 +121,7 @@ struct AlarmView: View {
                     alarm.time = newDate
                     alarm.name = newName
                     alarm.schedule = newSchedule
-                    alarm.soundName = newSound
+//                    alarm.soundName = newSound
                     alarm.enabled = newEnabledStatus
                     alarm.updateNotifications()
                     dismiss()
@@ -174,18 +167,12 @@ struct RoutineBox: View {
                     HStack {
                         Button(
                             action: { r.delay -= 1 },
-                            label:  {
-                                Image(systemName: "arrow.down")
-                                    .font(.title)
-                            })
+                            label:  { Image(systemName: "arrow.down").font(.title) })
                         .buttonStyle(BorderlessButtonStyle())
                         
                         Button(
                             action: { r.delay += 1 },
-                            label: {
-                                Image(systemName: "arrow.up")
-                                    .font(.title)
-                            })
+                            label: { Image(systemName: "arrow.up").font(.title) })
                         .buttonStyle(BorderlessButtonStyle())
                     }
                 }.padding()
@@ -193,24 +180,16 @@ struct RoutineBox: View {
         } header: {
             HStack {
                 Button(action: {
-                    addFollowup()
-                }) {
+                    let fu = alarm.latestFollowup()
+                    let idelay = fu?.delay ?? 0
+                    let delay = idelay + 5
+                    alarm.addFollowup(with: Int(delay))
+                }, label: {
                     Image(systemName: "plus")
                     Text("Routine").foregroundColor(Color.secondary)
-                }
+                })
             }
         }
-    }
-    
-    fileprivate func addFollowup() {
-        let fu = alarm.latestFollowup()
-        let idelay = fu?.delay ?? 0
-        let delay = idelay + 5
-        alarm.addFollowup(with: Int(delay))
-    }
-    
-    fileprivate func someDelete(offsets: IndexSet) {
-        offsets.map { followups[$0] }.forEach(viewContext.delete)
     }
 }
 struct AlarmDetailsView_Previews: PreviewProvider {

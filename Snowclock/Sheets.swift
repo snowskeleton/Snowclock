@@ -31,7 +31,6 @@ struct AddAlarmMiniSheet: View {
     }
 }
 
-
 struct IndiPermissionView: View {
     var title: String
     var toggle: Bool
@@ -98,8 +97,6 @@ struct PermissionsSheet: View {
     }
 }
 
-
-
 struct PendingNotificationsSheet: View {
     
 //    var notifications: [UNNotificationRequest] {
@@ -133,83 +130,7 @@ private func getNotes() -> [UNNotificationRequest] {
             print(temp)
         }
     }
-//    print(temp.count)
     return temp
-}
-
-struct SoundsView: View {
-    @Environment(\.dismiss) private var dismiss
-    @Environment(\.managedObjectContext) private var viewContext
-    @Binding var newSound: String
-    var body: some View {
-        VStack {
-            List {
-                ForEach(getSounds(), id: \.self) { sound in
-                    Button(action: {
-                        newSound = sound
-                    }, label: {
-                        HStack {
-                            Text("\(sound)")
-                            if newSound == sound {
-                                Spacer()
-                                Image(systemName: "checkmark")
-                            }
-                        }
-                    })
-                }
-            }
-            Spacer()
-            Button("Back") {dismiss()}
-        }
-    }
-}
-func getSounds() -> [String]{
-    ///File Manager alows us access to the device's files to which we are allowed.
-    let fileManager: FileManager = FileManager()
-
-//    let rootSoundDirectory = Bundle.main.resourcePath
-////    print(rootSoundDirectory!)
-//    let newDirectory: NSMutableDictionary = [
-//        "path" : "\(rootSoundDirectory!)",
-//        "files" : [] as [String]
-//    ]
-    /**
-     For each directory, it looks at each item (file or directory) and only appends the sound files to the soundfiles[i]files array.
-
-     - URLs: All of the contents of the directory (files and sub-directories).
-     */
-//    let directoryURL: URL = URL(
-//        fileURLWithPath: newDirectory.value(forKey: "path") as! String,
-//        isDirectory: true
-//    )
-    let directoryURL = Bundle.main.resourceURL
-    print(directoryURL as Any)
-//    directoryURL = directoryURL!.appendingPathComponent("Snowclock")
-//    print(directoryURL)
-
-
-    var URLs: [URL] = []
-    do {
-        URLs = try fileManager.contentsOfDirectory(
-            at: directoryURL!,
-            includingPropertiesForKeys: [URLResourceKey.isDirectoryKey],
-            options: FileManager.DirectoryEnumerationOptions()
-        )
-    } catch {
-        debugPrint("\(error)")
-    }
-    var urlIsaDirectory: ObjCBool = ObjCBool(false)
-    var soundPaths: [String] = []
-    for url in URLs {
-        fileManager.fileExists(
-            atPath: url.path,
-            isDirectory: &urlIsaDirectory
-        )
-        if !urlIsaDirectory.boolValue && url.absoluteString.hasSuffix(".m4r") {
-            soundPaths.append("\(url.lastPathComponent)")
-        }
-    }
-    return soundPaths
 }
 
 struct ScheduleView: View {
@@ -235,15 +156,11 @@ struct ScheduleView: View {
                 }
                 Spacer()
                 Button(action: {
-                    toggle(days: weekdays, value: !allWeekDaysSelected)
-                }) {
-                    Text("Weekdays")
-                }
+                    toggle(days: [1,2,3,4,5], value: !allWeekDaysSelected)
+                }) { Text("Weekdays") }
                 Button(action: {
-                    toggle(days: weekends, value: !allWeekEndsSelected)
-                }) {
-                    Text("Weekends")
-                }
+                    toggle(days: [0,6], value: !allWeekEndsSelected)
+                }) { Text("Weekends") }
             }
             Spacer()
             Button("Back") {dismiss()}
@@ -251,8 +168,6 @@ struct ScheduleView: View {
     }
     
     fileprivate let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    fileprivate let weekdays = [1,2,3,4,5]
-    fileprivate let weekends = [0,6]
     
     fileprivate var allWeekDaysSelected: Bool {
         return schedule[1] && schedule[2] && schedule[3] && schedule[4] && schedule[5]
