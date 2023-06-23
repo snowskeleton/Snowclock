@@ -346,7 +346,7 @@ struct ScheduleView: View {
 ////                    var triggerDate = Calendar.current.dateComponents([.hour,.minute,.second], from: onlyAlarm!.time!)
 ////
 ////                    audioPlayer.play(atTime: Double(triggerDate.second!))
-//                    
+//
 //        }
 //    }
 //}
