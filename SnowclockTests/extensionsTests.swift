@@ -20,26 +20,26 @@ final class SnowclockTests: XCTestCase {
         PersistenceController.preview.container.viewContext.reset()
     }
     
-    func testAllTimes() throws {
-        let alarm = alarmMaker(context: nil)
-        XCTAssertEqual(alarm.allTimes.count, 1)
-
-        // one scheduled day
-        alarm.schedule![0] = true
-        XCTAssertEqual(alarm.allTimes.count, 1)
-
-        // with followups
-        for num in [7, 11, 140] { alarm.addFollowup(with: num) }
-        XCTAssertEqual(alarm.allTimes.count, 4)
-//        XCTAssert(alarm.allTimes.min() == alarm.latestFollowup()?.time)
-        
-        // if we fail, this checks if we generate an incorrect number vs generate nothing (0)
-        XCTAssertNotEqual(alarm.allTimes.count, 0)
-
-        // more days with followups
-        for i in [1, 2] { alarm.schedule![i] = true }
-        XCTAssertEqual(alarm.allTimes.count, 12)
-    }
+//    func testAllTimes() throws {
+//        let alarm = alarmMaker(context: nil)
+//        XCTAssertEqual(alarm.allTimes.count, 1)
+//
+//        // one scheduled day
+//        alarm.schedule![0] = true
+//        XCTAssertEqual(alarm.allTimes.count, 1)
+//
+//        // with followups
+//        for num in [7, 11, 140] { alarm.addFollowup(with: num) }
+//        XCTAssertEqual(alarm.allTimes.count, 4)
+////        XCTAssert(alarm.allTimes.min() == alarm.latestFollowup()?.time)
+//
+//        // if we fail, this checks if we generate an incorrect number vs generate nothing (0)
+//        XCTAssertNotEqual(alarm.allTimes.count, 0)
+//
+//        // more days with followups
+//        for i in [1, 2] { alarm.schedule![i] = true }
+//        XCTAssertEqual(alarm.allTimes.count, 12)
+//    }
     
     func testNumericalWeekdays() throws {
         let alarm = alarmMaker(context: nil)

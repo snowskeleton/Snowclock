@@ -10,120 +10,46 @@ import UserNotifications
 import AVKit
 import CoreData
 
-fileprivate func timedateFromCalendar(comps: DateComponents, repeats: Bool) -> Date? {
-    let trigger = UNCalendarNotificationTrigger(dateMatching: comps, repeats: repeats)
-    return trigger.nextTriggerDate()
-}
-
-fileprivate func calendarFromTimeAddDay(fuse time: Date, with day: Int) -> DateComponents {
-    var triggerDate = Calendar.current.dateComponents([.hour,.minute], from: time)
-    triggerDate.weekday = day
-    return triggerDate
-}
-
-fileprivate func calendarFromTimeAddMinutes(fuse time: Date, with minutes: Int) -> DateComponents {
-    var triggerDate = Calendar.current.dateComponents([.hour,.minute], from: time)
-    triggerDate.minute! += minutes
-    return triggerDate
-}
 
 extension Alarm {
+    func updateNotifications() -> Void {
+        verifyPermissions()
+        for note in self.notificationsIDs ?? [] {
+            UNUserNotificationCenter
+                .current()
+                .removePendingNotificationRequests(
+                    withIdentifiers: [note])
+            self.notificationsIDs?.remove(
+                at: (self.notificationsIDs?.firstIndex(
+                    of: note))!)
+        }
+        if !self.enabled { return }
         
-        func updateNotifications() -> Void {
-            self.verifyPermissions()
-            self.cancelNotifications()
-            if !self.enabled {
-                print("Alarm disabled.")
-                return
-            }
-            //        let center = UNUserNotificationCenter.current()
-            
-            let content = createContent(
-                title: self.stringyTime,
-                body: self.name!,
-                id: self.id!.uuidString
-            )
-            
-            var tempArray = self.notificationsIDs ?? []
-            //        if !self.allTimes.isEmpty {
-            for time in self.allTimes {
-                if !self.numericalWeekdays.isEmpty {
-                    // schedule a separate notification for every separate weekday
-                    for day in self.numericalWeekdays {
-                        let request = createRequest(with: content, at: time, on: day)
-                        UNUserNotificationCenter.current().add(request)
-                        tempArray.append(request.identifier)
-                    }
-                } else {
-                    // if no schedule is chosen, but the alarm is still enabled, schedule a non-repeating alarm
-                    let request = createRequest(with: content, at: time, on: nil)
-                    UNUserNotificationCenter.current().add(request)
-                    tempArray.append(request.identifier)
-                }
-            }
-            self.notificationsIDs = tempArray
-        }
+        let content = UNMutableNotificationContent()
+        content.title = self.time!.formatted(date: .omitted, time: .shortened)
+        content.body = self.name!
+        content.badge = 0
+        content.interruptionLevel = .timeSensitive
+        content.categoryIdentifier = "ALARM"
+        content.userInfo = [
+            "SOME_TAG": self.id!.uuidString
+        ]
+        content.threadIdentifier = self.id!.uuidString
+        content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "defaultSound.m4r"))
         
-        func cancelNotifications() -> Void {
-            for note in self.notificationsIDs ?? [] {
-                UNUserNotificationCenter
-                    .current()
-                    .removePendingNotificationRequests(
-                        withIdentifiers: [note])
-                self.notificationsIDs?.remove(
-                    at: (self.notificationsIDs?.firstIndex(
-                        of: note))!)
-            }
-        }
-        
-        func verifyPermissions() {
-            UNUserNotificationCenter.current()
-                .requestAuthorization(options: [
-                    .alert, .badge, .sound
-                ]) { success, error in
-                    if success {
-                        
-                    } else if let error = error {
-                        print(error.localizedDescription)
-                    }
-                }
-        }
-    var allTimes: [Date] {
-        var times: [Date] = []
-        let daylessTimes = self.allTimesWithoutDays
-        for t in daylessTimes {
-            times.append(t)
-        }
-        if self.numericalWeekdays.isEmpty {
-            return times
-        } else {
-            times = []
-        }
-        
+        var newNotificationIDs = self.notificationsIDs ?? []
         for day in self.numericalWeekdays {
-            for time in daylessTimes {
-                let timeWithDay = calendarFromTimeAddDay(fuse: time, with: day)
-                let finalTimedate = timedateFromCalendar(comps: timeWithDay, repeats: true)
-                if finalTimedate == nil { continue }
-                times.append(finalTimedate!)
+            let request = createRequest(with: content, at: self.time!, on: day)
+            UNUserNotificationCenter.current().add(request)
+            newNotificationIDs.append(request.identifier)
+            for fu in self.followups?.allObjects as! [Followup] {
+                content.title = "\(content.title) + \(fu.delay)"
+                let request = createRequest(with: content, at: self.time!, on: day, addDelay: Int(fu.delay))
+                UNUserNotificationCenter.current().add(request)
+                newNotificationIDs.append(request.identifier)
             }
         }
-        return times
-    }
-    
-    var allTimesWithoutDays: [Date] {
-        var times: [Date] = []
-        
-        times.append(self.time!)
-        
-        let additionalTimes = self.followups?.allObjects as! [Followup]
-        for time in additionalTimes {
-            let cal = calendarFromTimeAddMinutes(fuse: self.time!, with: Int(time.delay))
-            let newtime = timedateFromCalendar(comps: cal, repeats: false)
-            if newtime == nil { continue }
-            times.append(newtime!)
-        }
-        return times
+        self.notificationsIDs = newNotificationIDs
     }
     
     func latestFollowup() -> Followup? {
@@ -141,14 +67,6 @@ extension Alarm {
             sch.append(i + 1)
         }
         return sch
-    }
-    
-    var stringyTime: String {
-        return self.time!.formatted(date: .omitted, time: .shortened)
-    }
-    
-    var stringySchedule: String {
-        return daysAsString(days: self.schedule!)
     }
     
     var stringyFollowups: String {
@@ -173,7 +91,27 @@ extension Alarm {
     }
 }
 
-public func followupMaker(
+extension Followup {
+    
+    convenience init(to alarm: Alarm) {
+        self.init()
+        self.alarm = alarm
+    }
+    
+    var time: Date {
+        let atime = self.alarm!.time
+        var offset = DateComponents()
+        offset.minute = Int(self.delay)
+        let newcal = Calendar.current
+        let newtime = newcal.date(byAdding: offset, to: atime!)
+        return newtime!
+    }
+    func asString() -> String {
+        return self.time.formatted(date: .omitted, time: .shortened)
+    }
+}
+
+fileprivate func followupMaker(
     context: NSManagedObjectContext?,
     delay: Int64 = 5,
     alarm: Alarm
@@ -187,30 +125,12 @@ public func followupMaker(
     return fu
 }
 
-fileprivate func createContent(
-    title: String,
-    body: String,
-    id: String,
-    sound: String = "defaultSound.m4r"
-) -> UNMutableNotificationContent {
-    let content = UNMutableNotificationContent()
-    content.title = title
-    content.body = body
-    content.badge = 0
-    content.interruptionLevel = .timeSensitive
-    content.categoryIdentifier = "ALARM"
-    content.userInfo = [
-        "SOME_TAG": id
-    ]
-    content.threadIdentifier = id
-    content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: sound))
-    return content
-}
 
 fileprivate func createRequest(
     with content: UNMutableNotificationContent,
     at time: Date,
-    on day: Int?
+    on day: Int?,
+    addDelay: Int? = nil
 ) -> UNNotificationRequest {
     var triggerDate = Calendar.current.dateComponents(
         [.hour,.minute],
@@ -219,6 +139,9 @@ fileprivate func createRequest(
     let repeats = day != nil
     if repeats {
         triggerDate.weekday = day
+    }
+    if addDelay != nil {
+        triggerDate.minute! += addDelay!
     }
     let trigger = UNCalendarNotificationTrigger(
         dateMatching: triggerDate,
@@ -233,8 +156,6 @@ fileprivate func createRequest(
 }
 
 
-
-
 extension Date {
     
     static func today() -> Date {
@@ -242,20 +163,14 @@ extension Date {
     }
     
     func next(_ weekday: Weekday, considerToday: Bool = false) -> Date {
-        return get(.next,
-                   weekday,
-                   considerToday: considerToday)
+        return get(.next, weekday, considerToday: considerToday)
     }
     
     func previous(_ weekday: Weekday, considerToday: Bool = false) -> Date {
-        return get(.previous,
-                   weekday,
-                   considerToday: considerToday)
+        return get(.previous, weekday, considerToday: considerToday)
     }
     
-    func get(_ direction: SearchDirection,
-             _ weekDay: Weekday,
-             considerToday consider: Bool = false) -> Date {
+    func get(_ direction: SearchDirection, _ weekDay: Weekday, considerToday consider: Bool = false) -> Date {
         
         let dayName = weekDay.rawValue
         
@@ -308,27 +223,6 @@ extension Date {
 }
 
 
-extension Followup {
-    
-    convenience init(to alarm: Alarm) {
-        self.init()
-        self.alarm = alarm
-    }
-    
-    var time: Date {
-        let atime = self.alarm!.time
-        var offset = DateComponents()
-        offset.minute = Int(self.delay)
-        let newcal = Calendar.current
-        let newtime = newcal.date(byAdding: offset, to: atime!)
-        return newtime!
-    }
-    func asString() -> String {
-        return self.time.formatted(date: .omitted, time: .shortened)
-    }
-}
-
-
 public extension NSManagedObject {
     convenience init(context: NSManagedObjectContext) {
         let name = String(describing: type(of: self))
@@ -339,3 +233,15 @@ public extension NSManagedObject {
 }
 
 
+fileprivate func verifyPermissions() {
+    UNUserNotificationCenter.current()
+        .requestAuthorization(options: [
+            .alert, .badge, .sound
+        ]) { success, error in
+            if success {
+                
+            } else if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+}

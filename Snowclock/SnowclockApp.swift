@@ -120,9 +120,10 @@ struct AlarmListBoxView: View {
     var showthis: String {
         var s = String()
         s += alarm.name!
-        if alarm.stringySchedule != "" {
+        let stringySchedule = daysAsString(days: alarm.schedule!)
+        if stringySchedule != "" {
             s += ", "
-            s += alarm.stringySchedule
+            s += stringySchedule
         }
         return s
     }
