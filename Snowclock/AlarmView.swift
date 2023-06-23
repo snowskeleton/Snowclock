@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-struct AlarmDetailsView: View {
+struct AlarmView: View {
     @Environment(\.managedObjectContext) private var viewContext: NSManagedObjectContext
     @Environment(\.dismiss) private var dismiss
     @Binding var alarm: Alarm
@@ -120,7 +120,7 @@ struct AlarmDetailsView: View {
                         )
                     }
                 }
-                RoutineView(alarm: Binding<Alarm>.constant(alarm))
+                RoutineBox(alarm: Binding<Alarm>.constant(alarm))
                     .environment(\.managedObjectContext, viewContext)
             }
         }.toolbar {
@@ -139,7 +139,7 @@ struct AlarmDetailsView: View {
     }
 }
 
-struct RoutineView: View {
+struct RoutineBox: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.managedObjectContext) private var viewContext
     @Binding var alarm: Alarm
@@ -216,7 +216,7 @@ struct RoutineView: View {
 }
 struct AlarmDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        AlarmDetailsView(preview: true).environment(
+        AlarmView(preview: true).environment(
             \.managedObjectContext,
              PersistenceController.preview.container.viewContext
         )

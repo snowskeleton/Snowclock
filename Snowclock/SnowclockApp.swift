@@ -50,10 +50,10 @@ struct ContentView: View {
             List {
                 ForEach(alarms) { alarm in
                     NavigationLink {
-                        AlarmDetailsView(alarm: Binding<Alarm>.constant(alarm))
+                        AlarmView(alarm: Binding<Alarm>.constant(alarm))
                             .environment(\.managedObjectContext, viewContext)
                     } label: {
-                        AlarmBoxView(alarm: Binding<Alarm>.constant(alarm))
+                        AlarmListBoxView(alarm: Binding<Alarm>.constant(alarm))
                             .environment(\.managedObjectContext, viewContext)
                     }
                 }.onDelete(perform: deleteItems)
@@ -94,16 +94,16 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $showAddAlarm) {
-            AddAlarmView()
+            AddAlarmMiniSheet()
                 .presentationDetents([.medium])
                 .environment(\.managedObjectContext, viewContext)
         }
         .sheet(isPresented: $showPermissions) {
-            PermissionsView()
+            PermissionsSheet()
                 .environment(\.managedObjectContext, viewContext)
         }
         .sheet(isPresented: $showPendingNotifications) {
-            PendingNotificationsView()
+            PendingNotificationsSheet()
                 .environment(\.managedObjectContext, viewContext)
         }
     }
@@ -115,7 +115,7 @@ struct ContentView: View {
     }
 }
 
-struct AlarmBoxView: View {
+struct AlarmListBoxView: View {
     @Binding var alarm: Alarm
     var showthis: String {
         var s = String()

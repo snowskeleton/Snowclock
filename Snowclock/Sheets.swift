@@ -7,7 +7,7 @@
 
 import SwiftUI
 import CoreData
-struct AddAlarmView: View {
+struct AddAlarmMiniSheet: View {
     @Environment(\.managedObjectContext) private var viewContext: NSManagedObjectContext
     @Environment(\.dismiss) private var dismiss
     @State private var date: Date = Date()
@@ -46,7 +46,7 @@ struct IndiPermissionView: View {
     }
 }
 
-struct PermissionsView: View {
+struct PermissionsSheet: View {
     @State var persistentBannerEnabled = false
     @State var bannerEnabled = false
     @State var soundEnabled = false
@@ -101,7 +101,7 @@ struct PermissionsView: View {
 
 
 
-struct PendingNotificationsView: View {
+struct PendingNotificationsSheet: View {
     
 //    var notifications: [UNNotificationRequest] {
 //        let center = UNUserNotificationCenter.current()
