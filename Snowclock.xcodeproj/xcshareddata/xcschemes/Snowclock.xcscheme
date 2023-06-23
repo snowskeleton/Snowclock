@@ -50,6 +50,17 @@
                ReferencedContainer = "container:Snowclock.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "804333702A2D1EF100203FEB"
+               BuildableName = "ScreenshotTests.xctest"
+               BlueprintName = "ScreenshotTests"
+               ReferencedContainer = "container:Snowclock.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
