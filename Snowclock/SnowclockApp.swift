@@ -130,7 +130,7 @@ struct AlarmListBoxView: View {
     var body: some View {
         VStack {
             HStack {
-                Text(alarm.time!, formatter: shortDate)
+                Text(alarm.time!.formatted(date: .omitted, time: .shortened))
                     .font(.title)
                 Text(alarm.stringyFollowups)
                 VStack {

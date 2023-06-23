@@ -9,13 +9,6 @@ import SwiftUI
 import CoreData
 
 
-public let shortDate: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.timeStyle = .short
-    formatter.dateStyle = .none
-    return formatter
-}()
-
 public let NO_REPEATS = [false,false,false,false,false,false,false]
 
 public func alarmMaker(
