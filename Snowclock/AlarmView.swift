@@ -38,7 +38,7 @@ struct AlarmView: View {
         )
     }
     
-    init(preview: Bool = false, showSchedule: Bool = false) {
+    init(preview: Bool = false) {
         let alarm = alarmMaker(context: PersistenceController.preview.container.viewContext)
         alarm.schedule![0] = true
         
@@ -51,7 +51,6 @@ struct AlarmView: View {
         }
         
         self.init(alarm: Binding<Alarm>.constant(alarm))
-        _showSchedule = State(initialValue: showSchedule)
     }
     
     var body: some View {
