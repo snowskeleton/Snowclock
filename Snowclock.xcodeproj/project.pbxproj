@@ -146,9 +146,6 @@
 		80D75B4A294CC69F0077ACB6 /* Snowclock */ = {
 			isa = PBXGroup;
 			children = (
-				808804392954C5F2007A68EF /* Snowclock.entitlements */,
-				807837F52A0BF34200E88FBC /* defaultSound.m4r */,
-				808804412954E27B007A68EF /* Snowclock-Info.plist */,
 				80D75B4B294CC69F0077ACB6 /* SnowclockApp.swift */,
 				804E41D22950FDF200890C7A /* AlarmView.swift */,
 				804333802A45348700203FEB /* Sheets.swift */,
@@ -157,6 +154,9 @@
 				80D75B54294CC6A10077ACB6 /* Persistence.swift */,
 				8052E1BD295B843D00958811 /* Snowclock_v_0_0_2.xcdatamodeld */,
 				80D75B4F294CC6A10077ACB6 /* Assets.xcassets */,
+				808804392954C5F2007A68EF /* Snowclock.entitlements */,
+				807837F52A0BF34200E88FBC /* defaultSound.m4r */,
+				808804412954E27B007A68EF /* Snowclock-Info.plist */,
 				80D75B51294CC6A10077ACB6 /* Preview Content */,
 			);
 			path = Snowclock;
