@@ -30,11 +30,7 @@ extension Alarm {
         content.body = self.name!
         content.badge = 0
         content.interruptionLevel = .timeSensitive
-        content.categoryIdentifier = "ALARM"
-        content.userInfo = [
-            "SOME_TAG": self.id!.uuidString
-        ]
-        content.threadIdentifier = self.id!.uuidString
+//        content.threadIdentifier = self.id!.uuidString
         content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "defaultSound.m4r"))
         
         var newNotificationIDs = self.notificationsIDs ?? []
@@ -42,8 +38,10 @@ extension Alarm {
             let request = createRequest(with: content, at: self.time!, on: day)
             UNUserNotificationCenter.current().add(request)
             newNotificationIDs.append(request.identifier)
+            
             for fu in self.followups?.allObjects as! [Followup] {
                 content.title = "\(self.time!.formatted(date: .omitted, time: .shortened)) + \(fu.delay)"
+                
                 let request = createRequest(with: content, at: self.time!, on: day, addDelay: Int(fu.delay))
                 UNUserNotificationCenter.current().add(request)
                 newNotificationIDs.append(request.identifier)

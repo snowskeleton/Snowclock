@@ -17,6 +17,10 @@
 		804E41D52950FED700890C7A /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E41D42950FED600890C7A /* Formatters.swift */; };
 		8052E1C1295B843D00958811 /* Snowclock_v_0_0_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8052E1BD295B843D00958811 /* Snowclock_v_0_0_2.xcdatamodeld */; };
 		807837F62A0BF34200E88FBC /* defaultSound.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 807837F52A0BF34200E88FBC /* defaultSound.m4r */; };
+		80B9CAA92A4B29EB004224E5 /* Blacksmith in Resources */ = {isa = PBXBuildFile; fileRef = 800753AD2A4B2860003AB798 /* Blacksmith */; };
+		80B9CAAA2A4B29EB004224E5 /* Blacksmith in Resources */ = {isa = PBXBuildFile; fileRef = 800753AD2A4B2860003AB798 /* Blacksmith */; };
+		80B9CAAB2A4B29EC004224E5 /* Blacksmith in Resources */ = {isa = PBXBuildFile; fileRef = 800753AD2A4B2860003AB798 /* Blacksmith */; };
+		80B9CAAC2A4B29F6004224E5 /* Blacksmith in Resources */ = {isa = PBXBuildFile; fileRef = 800753AD2A4B2860003AB798 /* Blacksmith */; };
 		80D75B4C294CC69F0077ACB6 /* SnowclockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B4B294CC69F0077ACB6 /* SnowclockApp.swift */; };
 		80D75B50294CC6A10077ACB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80D75B4F294CC6A10077ACB6 /* Assets.xcassets */; };
 		80D75B53294CC6A10077ACB6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80D75B52294CC6A10077ACB6 /* Preview Assets.xcassets */; };
@@ -53,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		800753AD2A4B2860003AB798 /* Blacksmith */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Blacksmith; sourceTree = "<group>"; };
 		804333712A2D1EF100203FEB /* ScreenshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScreenshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		804333732A2D1EF100203FEB /* ScreenshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotTests.swift; sourceTree = "<group>"; };
 		804333752A2D1EF100203FEB /* ScreenshotTestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotTestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -113,6 +118,7 @@
 		804333722A2D1EF100203FEB /* ScreenshotTests */ = {
 			isa = PBXGroup;
 			children = (
+				800753AD2A4B2860003AB798 /* Blacksmith */,
 				8043337C2A2D21E500203FEB /* Snapfile */,
 				8043337D2A2D21E500203FEB /* SnapshotHelper.swift */,
 				804333732A2D1EF100203FEB /* ScreenshotTests.swift */,
@@ -314,6 +320,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80B9CAAC2A4B29F6004224E5 /* Blacksmith in Resources */,
 				8043337E2A2D21E500203FEB /* Snapfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +329,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80B9CAA92A4B29EB004224E5 /* Blacksmith in Resources */,
 				80D75B53294CC6A10077ACB6 /* Preview Assets.xcassets in Resources */,
 				80D75B50294CC6A10077ACB6 /* Assets.xcassets in Resources */,
 				807837F62A0BF34200E88FBC /* defaultSound.m4r in Resources */,
@@ -332,6 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80B9CAAA2A4B29EB004224E5 /* Blacksmith in Resources */,
 				80DD2C93295F75C80037CAF9 /* Snowclock-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +349,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80B9CAAB2A4B29EC004224E5 /* Blacksmith in Resources */,
 				80DD2C95295F75CA0037CAF9 /* Snowclock-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -566,7 +576,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Snowclock/Snowclock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Snowclock/Preview Content\"";
 				DEVELOPMENT_TEAM = PK7HCG46US;
 				ENABLE_PREVIEWS = YES;
@@ -605,7 +615,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Snowclock/Snowclock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Snowclock/Preview Content\"";
 				DEVELOPMENT_TEAM = PK7HCG46US;
 				ENABLE_PREVIEWS = YES;
