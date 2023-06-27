@@ -8,26 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		804333742A2D1EF100203FEB /* ScreenshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804333732A2D1EF100203FEB /* ScreenshotTests.swift */; };
-		804333762A2D1EF100203FEB /* ScreenshotTestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804333752A2D1EF100203FEB /* ScreenshotTestsLaunchTests.swift */; };
-		8043337E2A2D21E500203FEB /* Snapfile in Resources */ = {isa = PBXBuildFile; fileRef = 8043337C2A2D21E500203FEB /* Snapfile */; };
-		8043337F2A2D21E500203FEB /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8043337D2A2D21E500203FEB /* SnapshotHelper.swift */; };
 		804333812A45348700203FEB /* Sheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804333802A45348700203FEB /* Sheets.swift */; };
 		804333852A453AE000203FEB /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804333842A453AE000203FEB /* extensions.swift */; };
 		804E41D32950FDF200890C7A /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E41D22950FDF200890C7A /* AlarmView.swift */; };
 		804E41D52950FED700890C7A /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E41D42950FED600890C7A /* Formatters.swift */; };
 		8052E1C1295B843D00958811 /* Snowclock_v_0_0_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8052E1BD295B843D00958811 /* Snowclock_v_0_0_2.xcdatamodeld */; };
 		807837F62A0BF34200E88FBC /* defaultSound.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 807837F52A0BF34200E88FBC /* defaultSound.m4r */; };
-		80B9CAA92A4B29EB004224E5 /* Blacksmith in Resources */ = {isa = PBXBuildFile; fileRef = 800753AD2A4B2860003AB798 /* Blacksmith */; };
-		80B9CAAA2A4B29EB004224E5 /* Blacksmith in Resources */ = {isa = PBXBuildFile; fileRef = 800753AD2A4B2860003AB798 /* Blacksmith */; };
-		80B9CAAB2A4B29EC004224E5 /* Blacksmith in Resources */ = {isa = PBXBuildFile; fileRef = 800753AD2A4B2860003AB798 /* Blacksmith */; };
 		80B9CAAC2A4B29F6004224E5 /* Blacksmith in Resources */ = {isa = PBXBuildFile; fileRef = 800753AD2A4B2860003AB798 /* Blacksmith */; };
 		80D75B4C294CC69F0077ACB6 /* SnowclockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B4B294CC69F0077ACB6 /* SnowclockApp.swift */; };
 		80D75B50294CC6A10077ACB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80D75B4F294CC6A10077ACB6 /* Assets.xcassets */; };
 		80D75B53294CC6A10077ACB6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80D75B52294CC6A10077ACB6 /* Preview Assets.xcassets */; };
 		80D75B55294CC6A10077ACB6 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B54294CC6A10077ACB6 /* Persistence.swift */; };
 		80D75B62294CC6A10077ACB6 /* extensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B61294CC6A10077ACB6 /* extensionsTests.swift */; };
-		80D75B6C294CC6A10077ACB6 /* SnowclockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B6B294CC6A10077ACB6 /* SnowclockUITests.swift */; };
-		80D75B6E294CC6A10077ACB6 /* SnowclockUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B6D294CC6A10077ACB6 /* SnowclockUITestsLaunchTests.swift */; };
 		80DD2C93295F75C80037CAF9 /* Snowclock-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 808804412954E27B007A68EF /* Snowclock-Info.plist */; };
 		80DD2C95295F75CA0037CAF9 /* Snowclock-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 808804412954E27B007A68EF /* Snowclock-Info.plist */; };
 /* End PBXBuildFile section */
@@ -60,9 +52,6 @@
 		800753AD2A4B2860003AB798 /* Blacksmith */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Blacksmith; sourceTree = "<group>"; };
 		804333712A2D1EF100203FEB /* ScreenshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScreenshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		804333732A2D1EF100203FEB /* ScreenshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotTests.swift; sourceTree = "<group>"; };
-		804333752A2D1EF100203FEB /* ScreenshotTestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotTestsLaunchTests.swift; sourceTree = "<group>"; };
-		8043337C2A2D21E500203FEB /* Snapfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Snapfile; sourceTree = "<group>"; };
-		8043337D2A2D21E500203FEB /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		804333802A45348700203FEB /* Sheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sheets.swift; sourceTree = "<group>"; };
 		804333842A453AE000203FEB /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		804E41D22950FDF200890C7A /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
@@ -79,8 +68,6 @@
 		80D75B5D294CC6A10077ACB6 /* SnowclockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnowclockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D75B61294CC6A10077ACB6 /* extensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionsTests.swift; sourceTree = "<group>"; };
 		80D75B67294CC6A10077ACB6 /* SnowclockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnowclockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		80D75B6B294CC6A10077ACB6 /* SnowclockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowclockUITests.swift; sourceTree = "<group>"; };
-		80D75B6D294CC6A10077ACB6 /* SnowclockUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowclockUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,10 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				800753AD2A4B2860003AB798 /* Blacksmith */,
-				8043337C2A2D21E500203FEB /* Snapfile */,
-				8043337D2A2D21E500203FEB /* SnapshotHelper.swift */,
 				804333732A2D1EF100203FEB /* ScreenshotTests.swift */,
-				804333752A2D1EF100203FEB /* ScreenshotTestsLaunchTests.swift */,
 			);
 			path = ScreenshotTests;
 			sourceTree = "<group>";
@@ -132,7 +116,6 @@
 			children = (
 				80D75B4A294CC69F0077ACB6 /* Snowclock */,
 				80D75B60294CC6A10077ACB6 /* SnowclockTests */,
-				80D75B6A294CC6A10077ACB6 /* SnowclockUITests */,
 				804333722A2D1EF100203FEB /* ScreenshotTests */,
 				80D75B49294CC69F0077ACB6 /* Products */,
 			);
@@ -182,15 +165,6 @@
 				80D75B61294CC6A10077ACB6 /* extensionsTests.swift */,
 			);
 			path = SnowclockTests;
-			sourceTree = "<group>";
-		};
-		80D75B6A294CC6A10077ACB6 /* SnowclockUITests */ = {
-			isa = PBXGroup;
-			children = (
-				80D75B6B294CC6A10077ACB6 /* SnowclockUITests.swift */,
-				80D75B6D294CC6A10077ACB6 /* SnowclockUITestsLaunchTests.swift */,
-			);
-			path = SnowclockUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,7 +295,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				80B9CAAC2A4B29F6004224E5 /* Blacksmith in Resources */,
-				8043337E2A2D21E500203FEB /* Snapfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,7 +302,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80B9CAA92A4B29EB004224E5 /* Blacksmith in Resources */,
 				80D75B53294CC6A10077ACB6 /* Preview Assets.xcassets in Resources */,
 				80D75B50294CC6A10077ACB6 /* Assets.xcassets in Resources */,
 				807837F62A0BF34200E88FBC /* defaultSound.m4r in Resources */,
@@ -340,7 +312,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80B9CAAA2A4B29EB004224E5 /* Blacksmith in Resources */,
 				80DD2C93295F75C80037CAF9 /* Snowclock-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,7 +320,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80B9CAAB2A4B29EC004224E5 /* Blacksmith in Resources */,
 				80DD2C95295F75CA0037CAF9 /* Snowclock-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,9 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				804333762A2D1EF100203FEB /* ScreenshotTestsLaunchTests.swift in Sources */,
 				804333742A2D1EF100203FEB /* ScreenshotTests.swift in Sources */,
-				8043337F2A2D21E500203FEB /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,8 +361,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80D75B6C294CC6A10077ACB6 /* SnowclockUITests.swift in Sources */,
-				80D75B6E294CC6A10077ACB6 /* SnowclockUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
