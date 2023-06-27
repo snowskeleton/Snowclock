@@ -37,41 +37,41 @@ public extension XCTestCase {
 }
 
 public extension XCUIScreenshot {
-//#if os(macOS)
-//    func quickExportWithTitle(
-//        _ title: String,
-//        background: ImageBackground,
-//        exportSize: ExportSize,
-//        alignment: TitleAlignment,
-//        font: Font = .system(size: 50, weight: .regular, design: .rounded)
-//    ) {
-//        do {
-//            let image = ScreenshotWithTitle(
-//                title: title,
-//                image: Image(nsImage: self.image),
-//                background: background,
-//                exportSize: exportSize,
-//                alignment: alignment,
-//                font: font
-//            ).edgesIgnoringSafeArea(.all)
-//
-//            guard let nsImage = image.renderAsImage(),
-//                  let representation = nsImage.tiffRepresentation else { return }
-//
-//            guard let bitmap = NSBitmapImageRep(data: representation) else { return }
-//            let pngData = bitmap.representation(using: .png, properties: [:])
-//
-//            let url = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("\(title.replacingOccurrences(of: ".", with: "")).png")
-//
-//            try pngData?.write(to: url)
-//            print("Blacksmith: ☑️ Exported marketing image to \(url).")
-//        } catch {
-//            print(error)
-//        }
-//    }
-//#endif
+#if os(macOS)
+    func quickExportWithTitle(
+        _ title: String,
+        background: ImageBackground,
+        exportSize: ExportSize,
+        alignment: TitleAlignment,
+        font: Font = .system(size: 50, weight: .regular, design: .rounded)
+    ) {
+        do {
+            let image = ScreenshotWithTitle(
+                title: title,
+                image: Image(nsImage: self.image),
+                background: background,
+                exportSize: exportSize,
+                alignment: alignment,
+                font: font
+            ).edgesIgnoringSafeArea(.all)
+            
+            guard let nsImage = image.renderAsImage(),
+                  let representation = nsImage.tiffRepresentation else { return }
+            
+            guard let bitmap = NSBitmapImageRep(data: representation) else { return }
+            let pngData = bitmap.representation(using: .png, properties: [:])
+            
+            let url = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("\(title.replacingOccurrences(of: ".", with: "")).png")
+            
+            try pngData?.write(to: url)
+            print("Blacksmith: ☑️ Exported marketing image to \(url).")
+        } catch {
+            print(error)
+        }
+    }
+#endif
     
-//#if os(iOS)
+#if os(iOS)
     func quickExportWithTitle(
         _ title: String,
         background: ImageBackground,
@@ -96,5 +96,5 @@ public extension XCUIScreenshot {
         
         return attachment
     }
-//#endif
+#endif
 }
