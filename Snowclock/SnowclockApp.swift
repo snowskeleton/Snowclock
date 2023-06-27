@@ -39,7 +39,6 @@ struct ContentView: View {
     @State var showAddAlarm = false
     @State var showSettings = false
     @State var showPermissions = false
-    @State var showPendingNotifications = false
     @State var audioPlayer: AVAudioPlayer!
     
     init(preview: Bool = false, showSheet: Bool = false) {
@@ -59,17 +58,6 @@ struct ContentView: View {
                 }.onDelete(perform: deleteItems)
             }
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button(
-                        action: { showPendingNotifications = true },
-                        label:  {
-                            Image(systemName: "gear")
-                                .foregroundColor(Color.secondary)
-                        }
-                    )
-                }
-            }
-            .toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
                     Button(
                         action: { showPermissions = true },
@@ -77,7 +65,7 @@ struct ContentView: View {
                             Image(systemName: "bell.badge.fill")
                                 .foregroundColor(Color.secondary)
                         }
-                    )
+                    ).accessibilityLabel(("Check Permissions"))
                 }
             }
             .toolbar {
@@ -89,7 +77,7 @@ struct ContentView: View {
                                 .font(.largeTitle)
                                 .foregroundColor(Color.secondary)
                         }
-                    )
+                    ).accessibilityLabel(("New Alarm"))
                 }
             }
         }
@@ -100,10 +88,6 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showPermissions) {
             PermissionsSheet()
-                .environment(\.managedObjectContext, viewContext)
-        }
-        .sheet(isPresented: $showPendingNotifications) {
-            PendingNotificationsSheet()
                 .environment(\.managedObjectContext, viewContext)
         }
     }

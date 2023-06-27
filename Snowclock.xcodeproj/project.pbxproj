@@ -7,47 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8007E6442A4B3243004B4C1B /* SnowclockScreenshotGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D102EF2A4B2B5300DF7046 /* SnowclockScreenshotGenerator.swift */; };
+		8007E6452A4B3243004B4C1B /* SnowclockScreenshotGeneratorLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D102F12A4B2B5300DF7046 /* SnowclockScreenshotGeneratorLaunchTests.swift */; };
 		804333812A45348700203FEB /* Sheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804333802A45348700203FEB /* Sheets.swift */; };
 		804333852A453AE000203FEB /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804333842A453AE000203FEB /* extensions.swift */; };
 		804E41D32950FDF200890C7A /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E41D22950FDF200890C7A /* AlarmView.swift */; };
 		804E41D52950FED700890C7A /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E41D42950FED600890C7A /* Formatters.swift */; };
 		8052E1C1295B843D00958811 /* Snowclock_v_0_0_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8052E1BD295B843D00958811 /* Snowclock_v_0_0_2.xcdatamodeld */; };
 		807837F62A0BF34200E88FBC /* defaultSound.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 807837F52A0BF34200E88FBC /* defaultSound.m4r */; };
-		80D102F02A4B2B5300DF7046 /* SnowclockScreenshotGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D102EF2A4B2B5300DF7046 /* SnowclockScreenshotGenerator.swift */; };
-		80D102F22A4B2B5300DF7046 /* SnowclockScreenshotGeneratorLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D102F12A4B2B5300DF7046 /* SnowclockScreenshotGeneratorLaunchTests.swift */; };
-		80D102FA2A4B2B9F00DF7046 /* Blacksmith in Resources */ = {isa = PBXBuildFile; fileRef = 80D102F92A4B2B9F00DF7046 /* Blacksmith */; };
+		80D53F4E2A4B340B00B3A917 /* CapturingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D53F442A4B340B00B3A917 /* CapturingView.swift */; };
+		80D53F4F2A4B340B00B3A917 /* ScreenshotWithTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D53F452A4B340B00B3A917 /* ScreenshotWithTitle.swift */; };
+		80D53F502A4B340B00B3A917 /* ImageBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D53F472A4B340B00B3A917 /* ImageBackground.swift */; };
+		80D53F512A4B340B00B3A917 /* ExportSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D53F482A4B340B00B3A917 /* ExportSize.swift */; };
+		80D53F522A4B340B00B3A917 /* ExportMarketingImageToURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D53F492A4B340B00B3A917 /* ExportMarketingImageToURL.swift */; };
+		80D53F532A4B340B00B3A917 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D53F4A2A4B340B00B3A917 /* Localization.swift */; };
+		80D53F542A4B340B00B3A917 /* ViewToUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D53F4B2A4B340B00B3A917 /* ViewToUIImage.swift */; };
+		80D53F552A4B340B00B3A917 /* ViewToNSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D53F4C2A4B340B00B3A917 /* ViewToNSImage.swift */; };
+		80D53F562A4B340B00B3A917 /* TitleAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D53F4D2A4B340B00B3A917 /* TitleAlignment.swift */; };
 		80D75B4C294CC69F0077ACB6 /* SnowclockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B4B294CC69F0077ACB6 /* SnowclockApp.swift */; };
 		80D75B50294CC6A10077ACB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80D75B4F294CC6A10077ACB6 /* Assets.xcassets */; };
 		80D75B53294CC6A10077ACB6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80D75B52294CC6A10077ACB6 /* Preview Assets.xcassets */; };
 		80D75B55294CC6A10077ACB6 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B54294CC6A10077ACB6 /* Persistence.swift */; };
-		80D75B62294CC6A10077ACB6 /* extensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D75B61294CC6A10077ACB6 /* extensionsTests.swift */; };
-		80DD2C93295F75C80037CAF9 /* Snowclock-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 808804412954E27B007A68EF /* Snowclock-Info.plist */; };
-		80DD2C95295F75CA0037CAF9 /* Snowclock-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 808804412954E27B007A68EF /* Snowclock-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		804333772A2D1EF100203FEB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 80D75B40294CC69F0077ACB6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 80D75B47294CC69F0077ACB6;
-			remoteInfo = Snowclock;
-		};
 		80D102F32A4B2B5300DF7046 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 80D75B40294CC69F0077ACB6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 80D75B47294CC69F0077ACB6;
-			remoteInfo = Snowclock;
-		};
-		80D75B5E294CC6A10077ACB6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 80D75B40294CC69F0077ACB6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 80D75B47294CC69F0077ACB6;
-			remoteInfo = Snowclock;
-		};
-		80D75B68294CC6A10077ACB6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 80D75B40294CC69F0077ACB6 /* Project object */;
 			proxyType = 1;
@@ -57,7 +41,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		804333712A2D1EF100203FEB /* ScreenshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScreenshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		804333802A45348700203FEB /* Sheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sheets.swift; sourceTree = "<group>"; };
 		804333842A453AE000203FEB /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		804E41D22950FDF200890C7A /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
@@ -69,25 +52,23 @@
 		80D102ED2A4B2B5300DF7046 /* SnowclockScreenshotGenerator.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnowclockScreenshotGenerator.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D102EF2A4B2B5300DF7046 /* SnowclockScreenshotGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowclockScreenshotGenerator.swift; sourceTree = "<group>"; };
 		80D102F12A4B2B5300DF7046 /* SnowclockScreenshotGeneratorLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowclockScreenshotGeneratorLaunchTests.swift; sourceTree = "<group>"; };
-		80D102F92A4B2B9F00DF7046 /* Blacksmith */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Blacksmith; sourceTree = "<group>"; };
+		80D53F442A4B340B00B3A917 /* CapturingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapturingView.swift; sourceTree = "<group>"; };
+		80D53F452A4B340B00B3A917 /* ScreenshotWithTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotWithTitle.swift; sourceTree = "<group>"; };
+		80D53F472A4B340B00B3A917 /* ImageBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBackground.swift; sourceTree = "<group>"; };
+		80D53F482A4B340B00B3A917 /* ExportSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportSize.swift; sourceTree = "<group>"; };
+		80D53F492A4B340B00B3A917 /* ExportMarketingImageToURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportMarketingImageToURL.swift; sourceTree = "<group>"; };
+		80D53F4A2A4B340B00B3A917 /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		80D53F4B2A4B340B00B3A917 /* ViewToUIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewToUIImage.swift; sourceTree = "<group>"; };
+		80D53F4C2A4B340B00B3A917 /* ViewToNSImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewToNSImage.swift; sourceTree = "<group>"; };
+		80D53F4D2A4B340B00B3A917 /* TitleAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleAlignment.swift; sourceTree = "<group>"; };
 		80D75B48294CC69F0077ACB6 /* Snowclock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snowclock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D75B4B294CC69F0077ACB6 /* SnowclockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowclockApp.swift; sourceTree = "<group>"; };
 		80D75B4F294CC6A10077ACB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80D75B52294CC6A10077ACB6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		80D75B54294CC6A10077ACB6 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		80D75B5D294CC6A10077ACB6 /* SnowclockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnowclockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		80D75B61294CC6A10077ACB6 /* extensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionsTests.swift; sourceTree = "<group>"; };
-		80D75B67294CC6A10077ACB6 /* SnowclockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnowclockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8043336E2A2D1EF100203FEB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		80D102EA2A4B2B5300DF7046 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -102,38 +83,55 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		80D75B5A294CC6A10077ACB6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		80D75B64294CC6A10077ACB6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		80D102EE2A4B2B5300DF7046 /* SnowclockScreenshotGenerator */ = {
 			isa = PBXGroup;
 			children = (
-				80D102F92A4B2B9F00DF7046 /* Blacksmith */,
+				80D53F422A4B340B00B3A917 /* Blacksmith */,
 				80D102EF2A4B2B5300DF7046 /* SnowclockScreenshotGenerator.swift */,
 				80D102F12A4B2B5300DF7046 /* SnowclockScreenshotGeneratorLaunchTests.swift */,
 			);
 			path = SnowclockScreenshotGenerator;
 			sourceTree = "<group>";
 		};
+		80D53F422A4B340B00B3A917 /* Blacksmith */ = {
+			isa = PBXGroup;
+			children = (
+				80D53F432A4B340B00B3A917 /* Views */,
+				80D53F462A4B340B00B3A917 /* Helpers */,
+			);
+			path = Blacksmith;
+			sourceTree = "<group>";
+		};
+		80D53F432A4B340B00B3A917 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				80D53F442A4B340B00B3A917 /* CapturingView.swift */,
+				80D53F452A4B340B00B3A917 /* ScreenshotWithTitle.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		80D53F462A4B340B00B3A917 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				80D53F472A4B340B00B3A917 /* ImageBackground.swift */,
+				80D53F482A4B340B00B3A917 /* ExportSize.swift */,
+				80D53F492A4B340B00B3A917 /* ExportMarketingImageToURL.swift */,
+				80D53F4A2A4B340B00B3A917 /* Localization.swift */,
+				80D53F4B2A4B340B00B3A917 /* ViewToUIImage.swift */,
+				80D53F4C2A4B340B00B3A917 /* ViewToNSImage.swift */,
+				80D53F4D2A4B340B00B3A917 /* TitleAlignment.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		80D75B3F294CC69F0077ACB6 = {
 			isa = PBXGroup;
 			children = (
 				80D75B4A294CC69F0077ACB6 /* Snowclock */,
-				80D75B60294CC6A10077ACB6 /* SnowclockTests */,
 				80D102EE2A4B2B5300DF7046 /* SnowclockScreenshotGenerator */,
 				80D75B49294CC69F0077ACB6 /* Products */,
 			);
@@ -143,9 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				80D75B48294CC69F0077ACB6 /* Snowclock.app */,
-				80D75B5D294CC6A10077ACB6 /* SnowclockTests.xctest */,
-				80D75B67294CC6A10077ACB6 /* SnowclockUITests.xctest */,
-				804333712A2D1EF100203FEB /* ScreenshotTests.xctest */,
 				80D102ED2A4B2B5300DF7046 /* SnowclockScreenshotGenerator.xctest */,
 			);
 			name = Products;
@@ -178,35 +173,9 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		80D75B60294CC6A10077ACB6 /* SnowclockTests */ = {
-			isa = PBXGroup;
-			children = (
-				80D75B61294CC6A10077ACB6 /* extensionsTests.swift */,
-			);
-			path = SnowclockTests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		804333702A2D1EF100203FEB /* ScreenshotTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 804333792A2D1EF100203FEB /* Build configuration list for PBXNativeTarget "ScreenshotTests" */;
-			buildPhases = (
-				8043336D2A2D1EF100203FEB /* Sources */,
-				8043336E2A2D1EF100203FEB /* Frameworks */,
-				8043336F2A2D1EF100203FEB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				804333782A2D1EF100203FEB /* PBXTargetDependency */,
-			);
-			name = ScreenshotTests;
-			productName = ScreenshotTests;
-			productReference = 804333712A2D1EF100203FEB /* ScreenshotTests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		80D102EC2A4B2B5300DF7046 /* SnowclockScreenshotGenerator */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 80D102F52A4B2B5300DF7046 /* Build configuration list for PBXNativeTarget "SnowclockScreenshotGenerator" */;
@@ -242,42 +211,6 @@
 			productReference = 80D75B48294CC69F0077ACB6 /* Snowclock.app */;
 			productType = "com.apple.product-type.application";
 		};
-		80D75B5C294CC6A10077ACB6 /* SnowclockTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 80D75B74294CC6A10077ACB6 /* Build configuration list for PBXNativeTarget "SnowclockTests" */;
-			buildPhases = (
-				80D75B59294CC6A10077ACB6 /* Sources */,
-				80D75B5A294CC6A10077ACB6 /* Frameworks */,
-				80D75B5B294CC6A10077ACB6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				80D75B5F294CC6A10077ACB6 /* PBXTargetDependency */,
-			);
-			name = SnowclockTests;
-			productName = SnowclockTests;
-			productReference = 80D75B5D294CC6A10077ACB6 /* SnowclockTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		80D75B66294CC6A10077ACB6 /* SnowclockUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 80D75B77294CC6A10077ACB6 /* Build configuration list for PBXNativeTarget "SnowclockUITests" */;
-			buildPhases = (
-				80D75B63294CC6A10077ACB6 /* Sources */,
-				80D75B64294CC6A10077ACB6 /* Frameworks */,
-				80D75B65294CC6A10077ACB6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				80D75B69294CC6A10077ACB6 /* PBXTargetDependency */,
-			);
-			name = SnowclockUITests;
-			productName = SnowclockUITests;
-			productReference = 80D75B67294CC6A10077ACB6 /* SnowclockUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -288,24 +221,12 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					804333702A2D1EF100203FEB = {
-						CreatedOnToolsVersion = 14.3.1;
-						TestTargetID = 80D75B47294CC69F0077ACB6;
-					};
 					80D102EC2A4B2B5300DF7046 = {
 						CreatedOnToolsVersion = 14.3.1;
 						TestTargetID = 80D75B47294CC69F0077ACB6;
 					};
 					80D75B47294CC69F0077ACB6 = {
 						CreatedOnToolsVersion = 14.2;
-					};
-					80D75B5C294CC6A10077ACB6 = {
-						CreatedOnToolsVersion = 14.2;
-						TestTargetID = 80D75B47294CC69F0077ACB6;
-					};
-					80D75B66294CC6A10077ACB6 = {
-						CreatedOnToolsVersion = 14.2;
-						TestTargetID = 80D75B47294CC69F0077ACB6;
 					};
 				};
 			};
@@ -323,27 +244,16 @@
 			projectRoot = "";
 			targets = (
 				80D75B47294CC69F0077ACB6 /* Snowclock */,
-				80D75B5C294CC6A10077ACB6 /* SnowclockTests */,
-				80D75B66294CC6A10077ACB6 /* SnowclockUITests */,
-				804333702A2D1EF100203FEB /* ScreenshotTests */,
 				80D102EC2A4B2B5300DF7046 /* SnowclockScreenshotGenerator */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		8043336F2A2D1EF100203FEB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		80D102EB2A4B2B5300DF7046 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80D102FA2A4B2B9F00DF7046 /* Blacksmith in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,38 +267,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		80D75B5B294CC6A10077ACB6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				80DD2C93295F75C80037CAF9 /* Snowclock-Info.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		80D75B65294CC6A10077ACB6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				80DD2C95295F75CA0037CAF9 /* Snowclock-Info.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8043336D2A2D1EF100203FEB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		80D102E92A4B2B5300DF7046 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80D102F22A4B2B5300DF7046 /* SnowclockScreenshotGeneratorLaunchTests.swift in Sources */,
-				80D102F02A4B2B5300DF7046 /* SnowclockScreenshotGenerator.swift in Sources */,
+				80D53F562A4B340B00B3A917 /* TitleAlignment.swift in Sources */,
+				80D53F522A4B340B00B3A917 /* ExportMarketingImageToURL.swift in Sources */,
+				80D53F512A4B340B00B3A917 /* ExportSize.swift in Sources */,
+				80D53F502A4B340B00B3A917 /* ImageBackground.swift in Sources */,
+				80D53F542A4B340B00B3A917 /* ViewToUIImage.swift in Sources */,
+				80D53F552A4B340B00B3A917 /* ViewToNSImage.swift in Sources */,
+				80D53F4F2A4B340B00B3A917 /* ScreenshotWithTitle.swift in Sources */,
+				8007E6442A4B3243004B4C1B /* SnowclockScreenshotGenerator.swift in Sources */,
+				80D53F4E2A4B340B00B3A917 /* CapturingView.swift in Sources */,
+				80D53F532A4B340B00B3A917 /* Localization.swift in Sources */,
+				8007E6452A4B3243004B4C1B /* SnowclockScreenshotGeneratorLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,86 +302,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		80D75B59294CC6A10077ACB6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				80D75B62294CC6A10077ACB6 /* extensionsTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		80D75B63294CC6A10077ACB6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		804333782A2D1EF100203FEB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 80D75B47294CC69F0077ACB6 /* Snowclock */;
-			targetProxy = 804333772A2D1EF100203FEB /* PBXContainerItemProxy */;
-		};
 		80D102F42A4B2B5300DF7046 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 80D75B47294CC69F0077ACB6 /* Snowclock */;
 			targetProxy = 80D102F32A4B2B5300DF7046 /* PBXContainerItemProxy */;
 		};
-		80D75B5F294CC6A10077ACB6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 80D75B47294CC69F0077ACB6 /* Snowclock */;
-			targetProxy = 80D75B5E294CC6A10077ACB6 /* PBXContainerItemProxy */;
-		};
-		80D75B69294CC6A10077ACB6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 80D75B47294CC69F0077ACB6 /* Snowclock */;
-			targetProxy = 80D75B68294CC6A10077ACB6 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		8043337A2A2D1EF100203FEB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PK7HCG46US;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.snowskeleton.ScreenshotTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Snowclock;
-			};
-			name = Debug;
-		};
-		8043337B2A2D1EF100203FEB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PK7HCG46US;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.snowskeleton.ScreenshotTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Snowclock;
-			};
-			name = Release;
-		};
 		80D102F62A4B2B5300DF7046 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PK7HCG46US;
@@ -504,6 +335,7 @@
 		80D102F72A4B2B5300DF7046 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PK7HCG46US;
@@ -640,7 +472,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Snowclock/Snowclock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Snowclock/Preview Content\"";
 				DEVELOPMENT_TEAM = PK7HCG46US;
 				ENABLE_PREVIEWS = YES;
@@ -679,7 +511,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Snowclock/Snowclock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Snowclock/Preview Content\"";
 				DEVELOPMENT_TEAM = PK7HCG46US;
 				ENABLE_PREVIEWS = YES;
@@ -711,94 +543,9 @@
 			};
 			name = Release;
 		};
-		80D75B75294CC6A10077ACB6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PK7HCG46US;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.snowskeleton.SnowclockTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snowclock.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Snowclock";
-			};
-			name = Debug;
-		};
-		80D75B76294CC6A10077ACB6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PK7HCG46US;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.snowskeleton.SnowclockTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snowclock.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Snowclock";
-			};
-			name = Release;
-		};
-		80D75B78294CC6A10077ACB6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PK7HCG46US;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.snowskeleton.SnowclockUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Snowclock;
-			};
-			name = Debug;
-		};
-		80D75B79294CC6A10077ACB6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PK7HCG46US;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.snowskeleton.SnowclockUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Snowclock;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		804333792A2D1EF100203FEB /* Build configuration list for PBXNativeTarget "ScreenshotTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8043337A2A2D1EF100203FEB /* Debug */,
-				8043337B2A2D1EF100203FEB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		80D102F52A4B2B5300DF7046 /* Build configuration list for PBXNativeTarget "SnowclockScreenshotGenerator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -822,24 +569,6 @@
 			buildConfigurations = (
 				80D75B72294CC6A10077ACB6 /* Debug */,
 				80D75B73294CC6A10077ACB6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		80D75B74294CC6A10077ACB6 /* Build configuration list for PBXNativeTarget "SnowclockTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				80D75B75294CC6A10077ACB6 /* Debug */,
-				80D75B76294CC6A10077ACB6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		80D75B77294CC6A10077ACB6 /* Build configuration list for PBXNativeTarget "SnowclockUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				80D75B78294CC6A10077ACB6 /* Debug */,
-				80D75B79294CC6A10077ACB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
