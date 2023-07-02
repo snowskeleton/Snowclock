@@ -50,48 +50,12 @@ extension Alarm {
         self.notificationsIDs = newNotificationIDs
     }
     
-    func latestFollowup() -> Followup? {
-        let unsorted = self.followups?.allObjects as! [Followup]
-        if unsorted.count > 0 {
-            return unsorted.max(by: { $0.delay < $1.delay })!
-        }
-        return nil
-        
-    }
-    
     var numericalWeekdays: [Int] {
         var sch = [Int]()
         for i in 0..<(self.schedule?.count)! where self.schedule![i] == true {
             sch.append(i + 1)
         }
         return sch
-    }
-    
-    var stringyFollowups: String {
-        var ans = String()
-        var set = self.followups?.allObjects as! [Followup]
-        set = set.sorted(by: { $0.delay < $1.delay })
-        for f in set {
-            let i = f.delay
-            if i > 0 {
-                ans += "+\(String(f.delay)) "
-            }
-            if i < 0 {
-                ans += "\(String(f.delay)) "
-            }
-        }
-        return ans
-    }
-    
-    func addFollowup(with delay: Int) -> Void {
-        var context = self.managedObjectContext
-        if context == nil {
-            context = PersistenceController.preview.container.viewContext
-        }
-        let fu = Followup(context: context!)
-        fu.delay = Int64(delay)
-        fu.id = UUID()
-        fu.alarm = self
     }
 }
 

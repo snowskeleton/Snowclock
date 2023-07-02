@@ -180,10 +180,16 @@ struct RoutineBox: View {
         } header: {
             HStack {
                 Button(action: {
-                    let fu = alarm.latestFollowup()
-                    let idelay = fu?.delay ?? 0
-                    let delay = idelay + 5
-                    alarm.addFollowup(with: Int(delay))
+                    let followups = alarm.followups?.allObjects as! [Followup]
+                    var delay: Int = 5
+                    if followups.count > 0 {
+                        let previousDelay = followups.max(by: { $0.delay < $1.delay })!.delay
+                        delay = Int(previousDelay) + 5
+                    }
+                    let fu = Followup(context: viewContext)
+                    fu.delay = Int64(delay)
+                    fu.id = UUID()
+                    fu.alarm = alarm
                 }, label: {
                     Image(systemName: "plus")
                     Text("Routine").foregroundColor(Color.secondary)
