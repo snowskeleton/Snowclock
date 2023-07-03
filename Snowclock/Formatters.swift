@@ -29,11 +29,6 @@ public func alarmMaker(
     return alarm
 }
 
-public func nextAlarm(from alarms: FetchedResults<Alarm>) -> Optional<Alarm> {
-    let val = alarms.filter( {$0.enabled} )
-    return val.min(by: { $0.time! > $1.time! })
-}
-
 public func daysAsString(days: [Bool]) -> String {
     var addWeekdays = true
     var addWeekends = true

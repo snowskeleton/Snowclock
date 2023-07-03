@@ -30,7 +30,7 @@ extension Alarm {
         content.body = self.name!
         content.badge = 0
         content.interruptionLevel = .timeSensitive
-//        content.threadIdentifier = self.id!.uuidString
+        content.threadIdentifier = self.id!.uuidString
         content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "defaultSound.m4r"))
         
         var newNotificationIDs = self.notificationsIDs ?? []
@@ -40,9 +40,11 @@ extension Alarm {
             newNotificationIDs.append(request.identifier)
             
             for fu in self.followups?.allObjects as! [Followup] {
-                content.title = "\(self.time!.formatted(date: .omitted, time: .shortened)) + \(fu.delay)"
+                content.title = "\(fu.time.formatted(date: .omitted, time: .shortened))"
                 
-                let request = createRequest(with: content, at: self.time!, on: day, addDelay: Int(fu.delay))
+                // this fails if the user schedules an Alarm for 23:59 and a followup for 5 min later at 0:04,
+                // since it won't update the weekday.
+                let request = createRequest(with: content, at: fu.time, on: day)
                 UNUserNotificationCenter.current().add(request)
                 newNotificationIDs.append(request.identifier)
             }
@@ -62,23 +64,16 @@ extension Alarm {
 fileprivate func createRequest(
     with content: UNMutableNotificationContent,
     at time: Date,
-    on day: Int?,
-    addDelay: Int? = nil
+    on day: Int
 ) -> UNNotificationRequest {
     var triggerDate = Calendar.current.dateComponents(
         [.hour,.minute],
         from: time
     )
-    let repeats = day != nil
-    if repeats {
-        triggerDate.weekday = day
-    }
-    if addDelay != nil {
-        triggerDate.minute! += addDelay!
-    }
+    triggerDate.weekday = day
     let trigger = UNCalendarNotificationTrigger(
         dateMatching: triggerDate,
-        repeats: repeats
+        repeats: true
     )
     let request = UNNotificationRequest(
         identifier: UUID().uuidString,
@@ -88,7 +83,6 @@ fileprivate func createRequest(
     return request
 }
 
-
 public extension NSManagedObject {
     convenience init(context: NSManagedObjectContext) {
         let name = String(describing: type(of: self))
@@ -97,7 +91,6 @@ public extension NSManagedObject {
     }
     
 }
-
 
 fileprivate func verifyPermissions() {
     UNUserNotificationCenter.current()
@@ -110,4 +103,15 @@ fileprivate func verifyPermissions() {
                 print(error.localizedDescription)
             }
         }
+}
+
+extension Followup {
+    var time: Date {
+        let atime = self.alarm!.time
+        var offset = DateComponents()
+        offset.minute = Int(self.delay)
+        let newcal = Calendar.current
+        let newtime = newcal.date(byAdding: offset, to: atime!)
+        return newtime!
+    }
 }

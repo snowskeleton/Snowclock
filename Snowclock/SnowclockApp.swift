@@ -111,12 +111,27 @@ struct AlarmListBoxView: View {
         }
         return s
     }
+    var stringyFollowups: String {
+        var ans = String()
+        var set = alarm.followups?.allObjects as! [Followup]
+        set = set.sorted(by: { $0.delay < $1.delay })
+        for f in set {
+            let i = f.delay
+            if i > 0 {
+                ans += "+\(String(f.delay)) "
+            }
+            if i < 0 {
+                ans += "\(String(f.delay)) "
+            }
+        }
+        return ans
+    }
     var body: some View {
         VStack {
             HStack {
                 Text(alarm.time!.formatted(date: .omitted, time: .shortened))
                     .font(.title)
-                Text(alarm.stringyFollowups)
+                Text(stringyFollowups)
                 VStack {
                     Spacer()
                     Toggle(isOn: $alarm.enabled) {}

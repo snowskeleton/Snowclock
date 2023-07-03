@@ -25,7 +25,7 @@ struct AddAlarmMiniSheet: View {
                 Button("Done") {
                     let _ = alarmMaker(context: viewContext, time: $date.wrappedValue)
                     dismiss()
-                }
+                }.accessibilityLabel("Save")
             }.padding()
         }
     }
