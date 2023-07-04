@@ -80,7 +80,7 @@ struct ContentView: View {
                     ).accessibilityLabel(("New Alarm"))
                 }
             }
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $showAddAlarm) {
             AddAlarmMiniSheet()
                 .presentationDetents([.medium])

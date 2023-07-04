@@ -54,7 +54,6 @@ struct AlarmView: View {
     }
     
     var body: some View {
-        NavigationView {
             List {
                 Section {
                     DatePicker("Alarm time",
@@ -114,7 +113,6 @@ struct AlarmView: View {
                 }
                 RoutineBox(alarm: Binding<Alarm>.constant(alarm))
                     .environment(\.managedObjectContext, viewContext)
-            }
         }.toolbar {
             ToolbarItem(placement: .confirmationAction) {
                 Button("Save", action: {
