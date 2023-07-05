@@ -6,54 +6,88 @@
 //
 
 import XCTest
+import SwiftUI
 
 final class SnowclockScreenshotGenerator: XCTestCase {
     func testExample() throws {
+        let sizes: [ExportSize] = [
+//            .iPhone_5_5_Inches,
+            .iPhone_6_5_Inches,
+//            .iPadPro_12_9_Inches
+        ]
         let app = XCUIApplication()
         app.launch()
+
+//        addUIInterruptionMonitor(withDescription: "System Dialog") {
+//            (alert) -> Bool in
+//            alert.buttons["Allow"].tap()
+//            app.swipeUp()
+//            return true
+//        }
         
-        let sc1 = app.screenshot()
-        if let attachment = sc1.quickExportWithTitle(
-            "1st Image",
-            background: .color(.blue),
-            exportSize: .iPhone_6_5_Inches,
-            alignment: .titleAbove) {
-            add(attachment)
+        let navView = app.collectionViews.element
+        while navView.cells.count > 0 {
+            navView.children(matching: .cell).firstMatch.swipeLeft()
+            app.buttons["Delete"].tap()
         }
-        
         app.buttons["New Alarm"].tap()
+        app.buttons["Save"].tap()
+        navView.children(matching: .cell).firstMatch.tap()
+        let routineButton = app.collectionViews.staticTexts["ROUTINE"]
+        routineButton.tap()
+        routineButton.tap()
+        routineButton.tap()
         
-        let sc2 = app.screenshot()
-        if let attachment = sc2.quickExportWithTitle(
-            "Add Alarm",
-            background: .color(.blue),
-            exportSize: .iPhone_6_5_Inches,
-            alignment: .titleAbove) {
-            add(attachment)
-        }
+        let detailsScreenshot = app.screenshot()
         
         app.buttons["Save"].tap()
         
-//        app.buttons["New Alarm"].tap()
-//        app.buttons["Save"].tap()
-        
-        let sc3 = app.screenshot()
-        if let attachment = sc3.quickExportWithTitle(
-            "Saved Alarm",
-            background: .color(.blue),
-            exportSize: .iPhone_6_5_Inches,
-            alignment: .titleAbove) {
-            add(attachment)
+        // allow notifications
+        let app2 = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+        let button = app2.alerts.firstMatch.buttons["Allow"]
+        if button.waitForExistence(timeout: 2) {
+            button.tap()
         }
         
-        let count = app.links.count
-        let sc4 = app.screenshot()
-        if let attachment = sc4.quickExportWithTitle(
-            "Number \(count)",
-            background: .color(.blue),
-            exportSize: .iPhone_6_5_Inches,
-            alignment: .titleAbove) {
-            add(attachment)
+        let mainscreenScreenShot = app.screenshot()
+        
+        for size in sizes {
+            if let attachment = detailsScreenshot.quickExportWithTitle(
+                "Fully Customizable",
+                background: .color(.blue),
+                exportSize: size,
+                alignment: .titleAbove) {
+                add(attachment)
+            }
+            if let attachment = mainscreenScreenShot.quickExportWithTitle(
+                "Simple Design",
+                background: .color(.blue),
+                exportSize: size,
+                alignment: .titleAbove) {
+                add(attachment)
+            }
         }
+        
+        
+        
+        
+//        app.buttons["ADD FOLLOWUP"].tap()
+        
+//        let someview = app.collectionViews
+//        someview.staticTexts["6:17 PM"].tap()
+
+////        someOtherview.staticTexts["ROUTINE"].tap()
+////        app.buttons["ROUTINE"].tap()
+//        let sc3 = app.screenshot()
+//        for size in sizes {
+//            if let attachment = sc3.quickExportWithTitle(
+//                "3rd Image",
+//                background: .color(.blue),
+//                exportSize: size,
+//                alignment: .titleAbove) {
+//                add(attachment)
+//            }
+//        }
     }
 }
+
