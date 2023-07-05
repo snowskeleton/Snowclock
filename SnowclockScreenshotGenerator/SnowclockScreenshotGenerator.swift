@@ -18,13 +18,6 @@ final class SnowclockScreenshotGenerator: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
-//        addUIInterruptionMonitor(withDescription: "System Dialog") {
-//            (alert) -> Bool in
-//            alert.buttons["Allow"].tap()
-//            app.swipeUp()
-//            return true
-//        }
-        
         let navView = app.collectionViews.element
         while navView.cells.count > 0 {
             navView.children(matching: .cell).firstMatch.swipeLeft()
@@ -67,27 +60,6 @@ final class SnowclockScreenshotGenerator: XCTestCase {
                 add(attachment)
             }
         }
-        
-        
-        
-        
-//        app.buttons["ADD FOLLOWUP"].tap()
-        
-//        let someview = app.collectionViews
-//        someview.staticTexts["6:17 PM"].tap()
-
-////        someOtherview.staticTexts["ROUTINE"].tap()
-////        app.buttons["ROUTINE"].tap()
-//        let sc3 = app.screenshot()
-//        for size in sizes {
-//            if let attachment = sc3.quickExportWithTitle(
-//                "3rd Image",
-//                background: .color(.blue),
-//                exportSize: size,
-//                alignment: .titleAbove) {
-//                add(attachment)
-//            }
-//        }
     }
 }
 
