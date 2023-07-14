@@ -14,15 +14,7 @@ import CoreData
 extension Alarm {
     func updateNotifications() -> Void {
         verifyPermissions()
-        for note in self.notificationsIDs ?? [] {
-            UNUserNotificationCenter
-                .current()
-                .removePendingNotificationRequests(
-                    withIdentifiers: [note])
-            self.notificationsIDs?.remove(
-                at: (self.notificationsIDs?.firstIndex(
-                    of: note))!)
-        }
+        self.cancelExistingNotifications()
         if !self.enabled { return }
         
         let content = UNMutableNotificationContent()
@@ -58,6 +50,18 @@ extension Alarm {
             sch.append(i + 1)
         }
         return sch
+    }
+    
+    func cancelExistingNotifications() -> Void {
+        for note in self.notificationsIDs ?? [] {
+            UNUserNotificationCenter
+                .current()
+                .removePendingNotificationRequests(
+                    withIdentifiers: [note])
+            self.notificationsIDs?.remove(
+                at: (self.notificationsIDs?.firstIndex(
+                    of: note))!)
+        }
     }
 }
 
