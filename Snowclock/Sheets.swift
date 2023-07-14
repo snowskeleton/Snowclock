@@ -57,6 +57,8 @@ struct PermissionsSheet: View {
         animation: .default)
     private var alarms: FetchedResults<Alarm>
     
+    private let timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
+    
     @State var persistentBannerEnabled = false
     @State var bannerEnabled = false
     @State var soundEnabled = false
@@ -66,37 +68,37 @@ struct PermissionsSheet: View {
     @State var criticalAlertsEnabled = false
     
     var body: some View {
-        NavigationView {
-            List {
-                IndiPermissionView(title: "Notifications", toggle: notificationsEnabled)
-                IndiPermissionView(title: "Sound", toggle: soundEnabled)
-                Section(header: Text("Where to show alarms")) {
-                    IndiPermissionView(title: "Lock Screen", toggle: lockScreenEnabled)
-                    IndiPermissionView(title: "Banner", toggle: bannerEnabled)
-                    if bannerEnabled {
-                        IndiPermissionView( title: "Persistent Banner", toggle: persistentBannerEnabled)
-                    }
-                }
-                Section(header: Text("Special Permissions")) {
-                    IndiPermissionView(title: "Time Sensitive", toggle: timeSensitiveEnabled)
-                    IndiPermissionView(title: "Critical Alerts", toggle: criticalAlertsEnabled)
-                }
-                
-                Section {
-                    Button("Open Notification Settings") {
-                        if let url = URL(string: UIApplication.openNotificationSettingsURLString) {
-                            UIApplication.shared.open(url)
-                        }
-                    }
-                }
-                Section(footer: Text("Ensure Snowclock has permission for any Focus modes you use.")) {}
-                
-                Section(footer: Text("Disables all alarms and removes all queued notifications.")) {
-                    Button("Clear all notifications", role: .destructive) { clearNotifications() }
+        List {
+            IndiPermissionView(title: "Notifications", toggle: notificationsEnabled)
+            IndiPermissionView(title: "Sound", toggle: soundEnabled)
+            Section(header: Text("Where to show alarms")) {
+                IndiPermissionView(title: "Lock Screen", toggle: lockScreenEnabled)
+                IndiPermissionView(title: "Banner", toggle: bannerEnabled)
+                if bannerEnabled {
+                    IndiPermissionView( title: "Persistent Banner", toggle: persistentBannerEnabled)
                 }
             }
+            Section(header: Text("Special Permissions")) {
+                IndiPermissionView(title: "Time Sensitive", toggle: timeSensitiveEnabled)
+                IndiPermissionView(title: "Critical Alerts", toggle: criticalAlertsEnabled)
+            }
+            
+            Section {
+                Button("Open Notification Settings") {
+                    if let url = URL(string: UIApplication.openNotificationSettingsURLString) {
+                        UIApplication.shared.open(url)
+                    }
+                }
+            }
+            Section(footer: Text("Ensure Snowclock has permission for any Focus modes you use.")) {}
+            
+            Section(footer: Text("Disables all alarms and removes all queued notifications.")) {
+                Button("Clear all notifications", role: .destructive) { clearNotifications() }
+            }
         }
-        .task { setStates() }
+        .onReceive(timer) { _ in
+            setStates()
+        }
     }
     
     fileprivate func setStates() {
