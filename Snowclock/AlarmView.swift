@@ -81,7 +81,7 @@ struct AlarmView: View {
                             label: { Text(daysAsString(days: newSchedule)).foregroundColor(Color.primary) }
                         )
                         .sheet(isPresented: $showSchedule) {
-                            ScheduleView(schedule: $newSchedule)
+                            ScheduleSheet(schedule: $newSchedule)
                         }
                         .environment(\.managedObjectContext, viewContext)
             

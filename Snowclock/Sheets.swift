@@ -133,7 +133,7 @@ struct ClearNotificationsButton: View {
 }
 
 
-struct ScheduleView: View {
+struct ScheduleSheet: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.managedObjectContext) private var viewContext
     @Binding var schedule: [Bool]
