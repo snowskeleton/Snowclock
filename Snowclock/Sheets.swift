@@ -45,18 +45,6 @@ struct IndiPermissionView: View {
 }
 
 struct PermissionsSheet: View {
-    @Environment(\.managedObjectContext) private var viewContext: NSManagedObjectContext
-    @Environment(\.dismiss) private var dismiss
-
-    @FetchRequest(
-        sortDescriptors: [
-            NSSortDescriptor(
-                keyPath: \Alarm.time,
-                ascending: true
-            )],
-        animation: .default)
-    private var alarms: FetchedResults<Alarm>
-    
     private let timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
     
     @State var persistentBannerEnabled = false
@@ -83,18 +71,15 @@ struct PermissionsSheet: View {
                 IndiPermissionView(title: "Critical Alerts", toggle: criticalAlertsEnabled)
             }
             
-            Section {
+            Section(footer: Text("Ensure Snowclock has permission for any Focus modes you use.")) {
                 Button("Open Notification Settings") {
                     if let url = URL(string: UIApplication.openNotificationSettingsURLString) {
                         UIApplication.shared.open(url)
                     }
                 }
             }
-            Section(footer: Text("Ensure Snowclock has permission for any Focus modes you use.")) {}
             
-            Section(footer: Text("Disables all alarms and removes all queued notifications.")) {
-                Button("Clear all notifications", role: .destructive) { clearNotifications() }
-            }
+            ClearNotificationsButton()
         }
         .onReceive(timer) { _ in
             setStates()
@@ -114,6 +99,20 @@ struct PermissionsSheet: View {
             timeSensitiveEnabled = settings.timeSensitiveSetting.rawValue == 2
         }
     }
+}
+
+struct ClearNotificationsButton: View {
+    @Environment(\.managedObjectContext) private var viewContext: NSManagedObjectContext
+    @Environment(\.dismiss) private var dismiss
+    
+    @FetchRequest(
+        sortDescriptors: [
+            NSSortDescriptor(
+                keyPath: \Alarm.time,
+                ascending: true
+            )],
+        animation: .default)
+    private var alarms: FetchedResults<Alarm>
     
     fileprivate func clearNotifications() {
         UNUserNotificationCenter
@@ -124,7 +123,12 @@ struct PermissionsSheet: View {
             alarm.updateNotifications()
         }
         dismiss()
-        
+    }
+    
+    var body: some View {
+        Section(footer: Text("Disables all alarms and removes all queued notifications.")) {
+            Button("Clear all notifications", role: .destructive) { clearNotifications() }
+        }
     }
 }
 
@@ -133,6 +137,7 @@ struct ScheduleView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.managedObjectContext) private var viewContext
     @Binding var schedule: [Bool]
+    fileprivate let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     
     var body: some View {
         VStack {
@@ -143,37 +148,30 @@ struct ScheduleView: View {
                     }) {
                         HStack {
                             Text("\(day)")
-                            if schedule[days.firstIndex(of: day)!] == true {
-                                Spacer()
-                                Image(systemName: "checkmark")
-                            }
+                            Spacer()
+                            Image(systemName: "checkmark")
+                                .opacity(schedule[days.firstIndex(of: day)!] == true ? 1 : 0)
                         }
                     }
                 }
                 Spacer()
-                Button(action: {
-                    toggle(days: [1,2,3,4,5], value: !allWeekDaysSelected)
-                }) { Text("Weekdays") }
-                Button(action: {
-                    toggle(days: [0,6], value: !allWeekEndsSelected)
-                }) { Text("Weekends") }
+                Button("Weekdays") { toggleWeekDays() }
+                Button("Weekends") { toggleWeekEnds() }
             }
             Spacer()
-            Button("Back") {dismiss()}
+            Button("Back") { dismiss() }
         }
     }
     
-    fileprivate let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    
-    fileprivate var allWeekDaysSelected: Bool {
-        return schedule[1] && schedule[2] && schedule[3] && schedule[4] && schedule[5]
+    fileprivate func toggleWeekDays() {
+        let value = schedule[1] && schedule[2] && schedule[3] && schedule[4] && schedule[5]
+        for i in [1,2,3,4,5] {
+            schedule[i] = value
+        }
     }
-    fileprivate var allWeekEndsSelected: Bool {
-        return schedule[0] && schedule[6]
-    }
-    
-    fileprivate func toggle(days: [Int], value: Bool) {
-        for i in days {
+    fileprivate func toggleWeekEnds() {
+        let value = schedule[0] && schedule[6]
+        for i in [0,6] {
             schedule[i] = value
         }
     }
