@@ -45,6 +45,18 @@ struct IndiPermissionView: View {
 }
 
 struct PermissionsSheet: View {
+    @Environment(\.managedObjectContext) private var viewContext: NSManagedObjectContext
+    @Environment(\.dismiss) private var dismiss
+
+    @FetchRequest(
+        sortDescriptors: [
+            NSSortDescriptor(
+                keyPath: \Alarm.time,
+                ascending: true
+            )],
+        animation: .default)
+    private var alarms: FetchedResults<Alarm>
+    
     @State var persistentBannerEnabled = false
     @State var bannerEnabled = false
     @State var soundEnabled = false
@@ -79,23 +91,41 @@ struct PermissionsSheet: View {
                 }
                 Section(footer: Text("Ensure Snowclock has permission for any Focus modes you use.")) {}
                 
+                Section(footer: Text("Disables all alarms and removes all queued notifications.")) {
+                    Button("Clear all notifications", role: .destructive) { clearNotifications() }
+                }
             }
         }
-        .task {
-            UNUserNotificationCenter.current().getNotificationSettings  { settings in
-                bannerEnabled = settings.alertSetting.rawValue == 2
-                criticalAlertsEnabled = settings.criticalAlertSetting.rawValue == 2
-                if bannerEnabled {
-                    persistentBannerEnabled = settings.alertStyle.rawValue == 2
-                }
-                soundEnabled = settings.soundSetting.rawValue == 2
-                lockScreenEnabled = settings.lockScreenSetting.rawValue == 2
-                notificationsEnabled = settings.authorizationStatus.rawValue == 2
-                timeSensitiveEnabled = settings.timeSensitiveSetting.rawValue == 2
+        .task { setStates() }
+    }
+    
+    fileprivate func setStates() {
+        UNUserNotificationCenter.current().getNotificationSettings  { settings in
+            bannerEnabled = settings.alertSetting.rawValue == 2
+            criticalAlertsEnabled = settings.criticalAlertSetting.rawValue == 2
+            if bannerEnabled {
+                persistentBannerEnabled = settings.alertStyle.rawValue == 2
             }
+            soundEnabled = settings.soundSetting.rawValue == 2
+            lockScreenEnabled = settings.lockScreenSetting.rawValue == 2
+            notificationsEnabled = settings.authorizationStatus.rawValue == 2
+            timeSensitiveEnabled = settings.timeSensitiveSetting.rawValue == 2
         }
     }
+    
+    fileprivate func clearNotifications() {
+        UNUserNotificationCenter
+            .current()
+            .removeAllPendingNotificationRequests()
+        for alarm in alarms {
+            alarm.enabled = false
+            alarm.updateNotifications()
+        }
+        dismiss()
+        
+    }
 }
+
 
 struct ScheduleView: View {
     @Environment(\.dismiss) private var dismiss
