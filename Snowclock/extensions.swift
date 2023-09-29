@@ -12,6 +12,11 @@ import CoreData
 
 
 extension Alarm {
+    var sortTime: String {
+        self.time?.formatted(date: .omitted, time: .shortened) ?? ""
+    }
+}
+extension Alarm {
     func updateNotifications() -> Void {
         verifyPermissions()
         self.cancelExistingNotifications()

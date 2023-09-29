@@ -47,7 +47,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(alarms) { alarm in
+                ForEach(alarms.sorted(using: KeyPathComparator(\.sortTime))) { alarm in
                     NavigationLink {
                         AlarmView(alarm: Binding<Alarm>.constant(alarm))
                             .environment(\.managedObjectContext, viewContext)
