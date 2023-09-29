@@ -164,13 +164,13 @@ struct ScheduleSheet: View {
     }
     
     fileprivate func toggleWeekDays() {
-        let value = schedule[1] && schedule[2] && schedule[3] && schedule[4] && schedule[5]
+        let value = !(schedule[1] && schedule[2] && schedule[3] && schedule[4] && schedule[5])
         for i in [1,2,3,4,5] {
             schedule[i] = value
         }
     }
     fileprivate func toggleWeekEnds() {
-        let value = schedule[0] && schedule[6]
+        let value = !(schedule[0] && schedule[6])
         for i in [0,6] {
             schedule[i] = value
         }
