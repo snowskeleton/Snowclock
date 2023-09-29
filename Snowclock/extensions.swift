@@ -10,6 +10,10 @@ import UserNotifications
 import AVKit
 import CoreData
 
+struct timePlusWeekday {
+    var time: Date
+    var day: Int
+}
 
 extension Alarm {
     var sortTime: String {
@@ -23,28 +27,27 @@ extension Alarm {
         if !self.enabled { return }
         
         let content = UNMutableNotificationContent()
-        content.title = self.time!.formatted(date: .omitted, time: .shortened)
         content.body = self.name!
         content.badge = 0
         content.interruptionLevel = .timeSensitive
         content.threadIdentifier = self.id!.uuidString
         content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "defaultSound.m4r"))
         
-        var newNotificationIDs = self.notificationsIDs ?? []
+        var times: [timePlusWeekday] = []
         for day in self.numericalWeekdays {
-            let request = createRequest(with: content, at: self.time!, on: day)
+            times.append(timePlusWeekday(time: self.time!, day: day))
+            for fu in self.followups?.allObjects as! [Followup] {
+                times.append(timePlusWeekday(time: fu.time, day: day))
+            }
+        }
+        var newNotificationIDs = self.notificationsIDs ?? []
+        for time in times {
+            // this fails if the user schedules an Alarm for 23:59 and a followup for 5 min later at 0:04,
+            // since it won't update the weekday.
+            content.title = time.time.formatted(date: .omitted, time: .shortened)
+            let request = createRequest(with: content, at: time.time, on: time.day)
             UNUserNotificationCenter.current().add(request)
             newNotificationIDs.append(request.identifier)
-            
-            for fu in self.followups?.allObjects as! [Followup] {
-                content.title = "\(fu.time.formatted(date: .omitted, time: .shortened))"
-                
-                // this fails if the user schedules an Alarm for 23:59 and a followup for 5 min later at 0:04,
-                // since it won't update the weekday.
-                let request = createRequest(with: content, at: fu.time, on: day)
-                UNUserNotificationCenter.current().add(request)
-                newNotificationIDs.append(request.identifier)
-            }
         }
         self.notificationsIDs = newNotificationIDs
     }

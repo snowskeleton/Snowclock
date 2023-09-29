@@ -20,10 +20,10 @@ struct AlarmView: View {
     @State var newSchedule: [Bool]
     @State var newEnabledStatus: Bool
     
-    private var routines: [Followup] {
-        let n = alarm.followups?.allObjects as! [Followup]
-        return n.sorted(by: { $0.delay < $1.delay })
-    }
+//    private var routines: [Followup] {
+//        let n = alarm.followups?.allObjects as! [Followup]
+//        return n.sorted(by: { $0.delay < $1.delay })
+//    }
     
     init(alarm: Binding<Alarm>) {
         _alarm = alarm

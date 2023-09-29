@@ -129,6 +129,7 @@ struct AlarmListBoxView: View {
     var body: some View {
         VStack {
             HStack {
+//                Text(String(describing: alarm.time!))
                 Text(alarm.time!.formatted(date: .omitted, time: .shortened))
                     .font(.title)
                 Text(stringyFollowups)
