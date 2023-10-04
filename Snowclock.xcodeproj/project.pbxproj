@@ -15,6 +15,8 @@
 		804E41D52950FED700890C7A /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E41D42950FED600890C7A /* Formatters.swift */; };
 		8052E1C1295B843D00958811 /* Snowclock_v_0_0_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8052E1BD295B843D00958811 /* Snowclock_v_0_0_2.xcdatamodeld */; };
 		807837F62A0BF34200E88FBC /* defaultSound.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 807837F52A0BF34200E88FBC /* defaultSound.m4r */; };
+		80D091432AC882DE00B91257 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D091412AC882DE00B91257 /* Alarm.swift */; };
+		80D091442AC882DE00B91257 /* Followup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D091422AC882DE00B91257 /* Followup.swift */; };
 		80D53F4E2A4B340B00B3A917 /* CapturingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D53F442A4B340B00B3A917 /* CapturingView.swift */; };
 		80D53F4F2A4B340B00B3A917 /* ScreenshotWithTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D53F452A4B340B00B3A917 /* ScreenshotWithTitle.swift */; };
 		80D53F502A4B340B00B3A917 /* ImageBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D53F472A4B340B00B3A917 /* ImageBackground.swift */; };
@@ -49,6 +51,8 @@
 		807837F52A0BF34200E88FBC /* defaultSound.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = defaultSound.m4r; sourceTree = "<group>"; };
 		808804392954C5F2007A68EF /* Snowclock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Snowclock.entitlements; sourceTree = "<group>"; };
 		808804412954E27B007A68EF /* Snowclock-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Snowclock-Info.plist"; sourceTree = SOURCE_ROOT; };
+		80D091412AC882DE00B91257 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		80D091422AC882DE00B91257 /* Followup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Followup.swift; sourceTree = "<group>"; };
 		80D102ED2A4B2B5300DF7046 /* SnowclockScreenshotGenerator.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnowclockScreenshotGenerator.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D102EF2A4B2B5300DF7046 /* SnowclockScreenshotGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowclockScreenshotGenerator.swift; sourceTree = "<group>"; };
 		80D102F12A4B2B5300DF7046 /* SnowclockScreenshotGeneratorLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowclockScreenshotGeneratorLaunchTests.swift; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 		80D75B3F294CC69F0077ACB6 = {
 			isa = PBXGroup;
 			children = (
+				80D091412AC882DE00B91257 /* Alarm.swift */,
+				80D091422AC882DE00B91257 /* Followup.swift */,
 				80D75B4A294CC69F0077ACB6 /* Snowclock */,
 				80D102EE2A4B2B5300DF7046 /* SnowclockScreenshotGenerator */,
 				80D75B49294CC69F0077ACB6 /* Products */,
@@ -295,8 +301,10 @@
 				80D75B55294CC6A10077ACB6 /* Persistence.swift in Sources */,
 				8052E1C1295B843D00958811 /* Snowclock_v_0_0_2.xcdatamodeld in Sources */,
 				804333812A45348700203FEB /* Sheets.swift in Sources */,
+				80D091432AC882DE00B91257 /* Alarm.swift in Sources */,
 				804E41D52950FED700890C7A /* Formatters.swift in Sources */,
 				804E41D32950FDF200890C7A /* AlarmView.swift in Sources */,
+				80D091442AC882DE00B91257 /* Followup.swift in Sources */,
 				80D75B4C294CC69F0077ACB6 /* SnowclockApp.swift in Sources */,
 				804333852A453AE000203FEB /* extensions.swift in Sources */,
 			);

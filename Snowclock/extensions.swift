@@ -19,6 +19,31 @@ extension Alarm {
     var sortTime: String {
         self.time?.formatted(date: .omitted, time: .shortened) ?? ""
     }
+    var weeklySchedule: String {
+        var s = String()
+        s += self.name!
+        let stringySchedule = daysAsString(days: self.schedule!)
+        if stringySchedule != "" {
+            s += ", "
+            s += stringySchedule
+        }
+        return s
+    }
+    var stringyFollowups: String {
+        var ans = String()
+        var set = self.followups?.allObjects as! [Followup]
+        set = set.sorted(by: { $0.delay < $1.delay })
+        for f in set {
+            let i = f.delay
+            if i > 0 {
+                ans += "+\(String(f.delay)) "
+            }
+            if i < 0 {
+                ans += "\(String(f.delay)) "
+            }
+        }
+        return ans
+    }
 }
 extension Alarm {
     func updateNotifications() -> Void {

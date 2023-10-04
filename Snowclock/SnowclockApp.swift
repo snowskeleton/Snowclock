@@ -101,38 +101,12 @@ struct ContentView: View {
 
 struct AlarmListBoxView: View {
     @Binding var alarm: Alarm
-    var weeklySchedule: String {
-        var s = String()
-        s += alarm.name!
-        let stringySchedule = daysAsString(days: alarm.schedule!)
-        if stringySchedule != "" {
-            s += ", "
-            s += stringySchedule
-        }
-        return s
-    }
-    var stringyFollowups: String {
-        var ans = String()
-        var set = alarm.followups?.allObjects as! [Followup]
-        set = set.sorted(by: { $0.delay < $1.delay })
-        for f in set {
-            let i = f.delay
-            if i > 0 {
-                ans += "+\(String(f.delay)) "
-            }
-            if i < 0 {
-                ans += "\(String(f.delay)) "
-            }
-        }
-        return ans
-    }
     var body: some View {
         VStack {
             HStack {
-//                Text(String(describing: alarm.time!))
-                Text(alarm.time!.formatted(date: .omitted, time: .shortened))
+                Text(alarm.sortTime)
                     .font(.title)
-                Text(stringyFollowups)
+                Text(alarm.stringyFollowups)
                 VStack {
                     Spacer()
                     Toggle(isOn: $alarm.enabled) {}
@@ -142,7 +116,7 @@ struct AlarmListBoxView: View {
                 }
             }
             HStack {
-                Text(weeklySchedule)
+                Text(alarm.weeklySchedule)
                 Spacer()
             }
         }
