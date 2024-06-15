@@ -52,7 +52,7 @@ struct ContentView: View {
                         AlarmView(alarm: Binding<Alarm>.constant(alarm))
                             .environment(\.managedObjectContext, viewContext)
                     } label: {
-                        AlarmListBoxView(alarm: Binding<Alarm>.constant(alarm))
+                        AlarmListBoxView(alarm: alarm)
                             .environment(\.managedObjectContext, viewContext)
                     }
                 }.onDelete(perform: deleteItems)
@@ -100,7 +100,7 @@ struct ContentView: View {
 }
 
 struct AlarmListBoxView: View {
-    @Binding var alarm: Alarm
+    @ObservedObject var alarm: Alarm
     var body: some View {
         VStack {
             HStack {
