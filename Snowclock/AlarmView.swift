@@ -121,6 +121,7 @@ struct AlarmView: View {
                     alarm.schedule = newSchedule
 //                    alarm.soundName = newSound
                     alarm.enabled = newEnabledStatus
+                    alarm.sortTime = alarm.time?.formatted(date: .omitted, time: .shortened) ?? ""
                     alarm.updateNotifications()
                     dismiss()
                 })

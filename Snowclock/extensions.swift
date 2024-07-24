@@ -16,9 +16,9 @@ struct timePlusWeekday {
 }
 
 extension Alarm {
-    var sortTime: String {
-        self.time?.formatted(date: .omitted, time: .shortened) ?? ""
-    }
+//    var sortTime: String {
+//        self.time?.formatted(date: .omitted, time: .shortened) ?? ""
+//    }
     var weeklySchedule: String {
         var s = String()
         s += self.name!

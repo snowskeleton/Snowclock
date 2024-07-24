@@ -19,7 +19,8 @@ public func alarmMaker(
     
     let alarm = Alarm(context: _context)
     alarm.time = time
-    
+    alarm.sortTime = alarm.time?.formatted(date: .omitted, time: .shortened) ?? ""
+
     // default values
     alarm.id = UUID()
     alarm.schedule = NO_REPEATS

@@ -31,7 +31,7 @@ struct ContentView: View {
     @FetchRequest(
         sortDescriptors: [
             NSSortDescriptor(
-                keyPath: \Alarm.time,
+                keyPath: \Alarm.sortTime,
                 ascending: true
             )],
         animation: .default)
@@ -47,7 +47,8 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(alarms.sorted(using: KeyPathComparator(\.sortTime))) { alarm in
+                ForEach(alarms, id: \.id) { alarm in
+//                    ForEach(alarms.sorted(using: KeyPathComparator(\.sortTime))) { alarm in
                     NavigationLink {
                         AlarmView(alarm: Binding<Alarm>.constant(alarm))
                             .environment(\.managedObjectContext, viewContext)
@@ -90,6 +91,14 @@ struct ContentView: View {
             PermissionsSheet()
                 .environment(\.managedObjectContext, viewContext)
         }
+        .onAppear {
+            // hacky migration from before sortTime was a stored property rather than computed
+            alarms.forEach {
+                if $0.sortTime == "" {
+                    $0.sortTime = $0.time?.formatted(date: .omitted, time: .shortened) ?? ""
+                }
+            }
+        }
     }
     
     fileprivate func deleteItems(offsets: IndexSet) {
@@ -104,8 +113,9 @@ struct AlarmListBoxView: View {
     var body: some View {
         VStack {
             HStack {
-                Text(alarm.sortTime)
+                Text(alarm.sortTime!)
                     .font(.title)
+                Spacer()
                 Text(alarm.stringyFollowups)
                 VStack {
                     Spacer()
