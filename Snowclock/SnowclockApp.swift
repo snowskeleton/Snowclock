@@ -111,24 +111,32 @@ struct ContentView: View {
 struct AlarmListBoxView: View {
     @ObservedObject var alarm: Alarm
     var body: some View {
-        VStack {
-            HStack {
-                Text(alarm.sortTime!)
-                    .font(.title)
-                Spacer()
-                Text(alarm.stringyFollowups)
-                VStack {
+        HStack {
+            VStack {
+                HStack {
+                    Text(alarm.sortTime!)
+                        .font(.title)
                     Spacer()
-                    Toggle(isOn: $alarm.enabled) {}
-                        .onChange(of: alarm.enabled) { _ in
-                            alarm.updateNotifications()
-                        }
+                    Text(alarm.stringyFollowups)
+                }
+                
+                HStack {
+                    Text(alarm.name!)
+                        .fontWeight(.bold)
+                    Spacer()
+                }
+                
+                HStack {
+                    Text(alarm.weeklySchedule)
+                    Spacer()
                 }
             }
-            HStack {
-                Text(alarm.weeklySchedule)
-                Spacer()
-            }
+            
+            Spacer()
+            Toggle(isOn: $alarm.enabled) {}
+                .onChange(of: alarm.enabled) { _ in
+                    alarm.updateNotifications()
+                }
         }
         .foregroundColor(alarm.enabled ? Color.primary : Color.secondary)
         .italic(!alarm.enabled)

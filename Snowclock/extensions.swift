@@ -20,14 +20,7 @@ extension Alarm {
 //        self.time?.formatted(date: .omitted, time: .shortened) ?? ""
 //    }
     var weeklySchedule: String {
-        var s = String()
-        s += self.name!
-        let stringySchedule = daysAsString(days: self.schedule!)
-        if stringySchedule != "" {
-            s += ", "
-            s += stringySchedule
-        }
-        return s
+        return daysAsString(days: self.schedule!)
     }
     var stringyFollowups: String {
         var ans = String()
